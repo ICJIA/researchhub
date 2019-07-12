@@ -5,7 +5,7 @@
         <RHDatasetView
           v-if="item"
           :item="item"
-          :downloader="downloadData"
+          :downloader="downloader"
           @tag-click="searchGlobal($event)"
         />
       </v-flex>
@@ -14,8 +14,8 @@
 </template>
 
 <script>
-import FileSaver from 'file-saver'
-import { fetchItemBySlug, fetchDataById } from '@/services/client.datasets'
+import { saveAs } from 'file-saver'
+import { fetchItemBySlug } from '@/services/client.datasets'
 import { searchGlobalMixin } from '@/mixins/searchMixin'
 const RHDatasetView = () =>
   import('icjia-research-lib/lib/umd').then(lib => lib.DatasetView)
@@ -56,18 +56,10 @@ export default {
     this.meta.description = item.description
   },
   methods: {
-    async downloadData(id, isDataCsv) {
-      const res = await fetchDataById(id, isDataCsv)
-
-      if (isDataCsv) {
-        const blob = new Blob([res.datacsv], {
-          type: 'text/csv;charset=utf-8'
-        })
-        FileSaver.saveAs(blob, `${res.datafilename}.csv`)
-      } else {
-        const url = `${process.env.VUE_APP_API_BASE_URL}/${res.datafile.url}`
-        FileSaver.saveAs(url, decodeURI(res.datafile.name))
-      }
+    async downloader() {
+      const file = this.item.datafile
+      const url = `${process.env.VUE_APP_API_BASE_URL}/${file.url}`
+      saveAs(url, decodeURI(file.name))
     }
   }
 }

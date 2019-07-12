@@ -1,6 +1,6 @@
 import { fetchData, buildQuery } from './client'
 
-export { fetchItemBySlug, fetchItemsList, fetchDataById }
+export { fetchItemBySlug, fetchItemsList }
 
 /**
  * Fetch a published dataset for view using slug.
@@ -27,25 +27,6 @@ async function fetchItemsList(isSearch) {
 }
 
 /**
- * Fetch data, or info on data, by id.
- * @param {String} id
- * @param {Boolean} csv
- */
-async function fetchDataById(id, csv) {
-  const params = `id: "${id}"`
-  const fields = csv
-    ? `datacsv
-      datafilename`
-    : `datafile {
-        name
-        url
-      }`
-  const query = buildQuery('dataset', params, fields)
-  const data = await fetchData(query)
-  return data.dataset
-}
-
-/**
  * Get dataset fields by type for building a query string.
  * @param {String} type
  */
@@ -59,14 +40,15 @@ function getDatasetFields(type) {
     external
     date
     categories
-    tags`
+    tags
+  `
 
   if (!isSearch) {
     fields = `
       _id
       ${fields}
       sources
-      agegroup`
+    `
   }
 
   if (isView) {
@@ -79,7 +61,10 @@ function getDatasetFields(type) {
       notes
       citation
       funding
-      datafilename
+      datafile {
+        name
+        url
+      }
       apps (sort: "date:desc", where: { status: "published" }) {
         title
         slug
@@ -87,7 +72,8 @@ function getDatasetFields(type) {
       articles (sort: "date:desc", where: { status: "published" }) {
         title
         slug
-      }`
+      }
+    `
   }
 
   return fields

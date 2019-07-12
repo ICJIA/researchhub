@@ -41,28 +41,31 @@ function getAppFields(type) {
     external
     date
     categories
-    tags`
+    tags
+  `
 
   if (!isSearch) {
     fields = `${fields}
-    image
-    contributors`
+      image
+      contributors
+    `
   }
 
   if (isView) {
     fields = `${fields}
-    description
-    url
-    citation
-    funding
-    articles (sort: "date:desc", where: { status: "published" }) {
-      title
-      slug
-    }
-    datasets (sort: "date:desc", where: { status: "published" }) {
-      title
-      slug
-    }`
+      description
+      url
+      citation
+      funding
+      articles (sort: "date:desc", where: { status: "published" }) {
+        title
+        slug
+      }
+      datasets (sort: "date:desc", where: { status: "published" }) {
+        title
+        slug
+      }
+    `
   }
 
   return fields

@@ -13,7 +13,10 @@
 </template>
 
 <script>
-import { fetchItemCardById } from '@/services/client.articles'
+import {
+  fetchItemCardById,
+  fetchItemsByAuthor
+} from '@/services/client.articles'
 const RHAuthorView = () =>
   import('icjia-research-lib/lib/umd').then(lib => lib.AuthorView)
 
@@ -52,11 +55,13 @@ export default {
     const slug = this.$route.params.slug
     const item = this.$store.state.authors.data.filter(item => {
       return item.slug === slug
-    })
+    })[0]
 
-    this.item = item[0]
-    this.meta.title = item[0].title
-    this.meta.description = item[0].description
+    item.articles = await fetchItemsByAuthor(item.title)
+
+    this.item = item
+    this.meta.title = item.title
+    this.meta.description = item.description
   },
   methods: {
     async getArticleInfo(id) {

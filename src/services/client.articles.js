@@ -2,10 +2,10 @@ import { fetchData, buildQuery } from './client'
 
 export {
   fetchItemBySlug,
+  fetchItemsByAuthor,
   fetchItemCardById,
   fetchItemsList,
-  fetchItemsListCarousel,
-  fetchFileInfoById
+  fetchItemsListCarousel
 }
 
 /**
@@ -61,21 +61,19 @@ async function fetchItemsListCarousel() {
 }
 
 /**
- * Fetch info on an article file attachment using id.
- * @param {String} id
- * @param {String} type
+ * Fetch a list of ids for published articles by author.
+ * @param {String} title
  */
-async function fetchFileInfoById(id, type) {
-  const params = `id: "${id}"`
+async function fetchItemsByAuthor(title) {
+  const params = `sort: "date:desc", where: { status: "published" }`
   const fields = `
-    ${type}pdf {
-      name
-      url
-    }
-  `
-  const query = buildQuery('article', params, fields)
+    _id
+    authors`
+  const query = buildQuery('articles', params, fields)
   const data = await fetchData(query)
-  return data.article
+  return data.articles.filter(el =>
+    el.authors.map(el => el.title).includes(title)
+  )
 }
 
 /**
@@ -92,19 +90,17 @@ function getArticleFields(type) {
     external
     date
     categories
-    tags`
+    tags
+  `
 
   if (!isSearch) {
     fields = `
       _id
       ${fields}
       ${isView ? 'splash' : 'thumbnail'}
-      type
       abstract
-      authors {
-        title
-        slug
-      }`
+      authors
+    `
   }
 
   if (isView) {
@@ -116,12 +112,15 @@ function getArticleFields(type) {
       citation
       doi
       funding
-      # reportpdf {
-      #   url
-      # }
-      # slidespdf {
-      #   url
-      # }
+      mainfiletype
+      mainfile {
+        name
+        url
+      }
+      extrafile {
+        name
+        url
+      }
       apps (sort: "date:desc", where: { status: "published" }) {
         title
         slug
@@ -129,7 +128,8 @@ function getArticleFields(type) {
       datasets (sort: "date:desc", where: { status: "published" }) {
         title
         slug
-      }`
+      }
+    `
   }
 
   return fields

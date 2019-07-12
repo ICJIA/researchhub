@@ -5,7 +5,7 @@
     <RHArticleView
       v-if="item"
       :item="item"
-      :downloader="downloadPDF"
+      :downloader="downloader"
       @tag-click="searchGlobal($event)"
     />
 
@@ -18,8 +18,8 @@
 </template>
 
 <script>
-import FileSaver from 'file-saver'
-import { fetchItemBySlug, fetchFileInfoById } from '@/services/client.articles'
+import { saveAs } from 'file-saver'
+import { fetchItemBySlug } from '@/services/client.articles'
 import { searchGlobalMixin } from '@/mixins/searchMixin'
 const ArticleSocialSharing = () => import('@/components/ArticleSocialSharing')
 const RHArticleView = () =>
@@ -66,18 +66,10 @@ export default {
     this.meta.description = item.abstract
   },
   methods: {
-    async downloadPDF(id, type) {
-      const res = await fetchFileInfoById(id, type)
-      let file
-
-      if (type === 'report') {
-        file = res.reportpdf
-      } else if (type === 'slides') {
-        file = res.slidsepdf
-      }
-
+    async downloader(type) {
+      const file = this.item[`${type}file`]
       const url = `${process.env.VUE_APP_API_BASE_URL}/${file.url}`
-      FileSaver.saveAs(url, decodeURI(file.name))
+      saveAs(url, decodeURI(file.name))
     }
   }
 }

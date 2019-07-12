@@ -22,7 +22,7 @@ export { fetchData, buildQuery }
 /**
  * Fetch Data from API server using a graphql query.
  * @param {String} query Graphql query string
- * @return {Promise} Query response
+ * @return {Promise<Object>} Query response
  */
 async function fetchData(query) {
   const res = await client

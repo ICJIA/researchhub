@@ -12,9 +12,6 @@ async function fetchItemsList() {
     title
     slug
     description
-    articles (sort: "date:desc", where: { status: "published" }) {
-      _id
-    }
   `
   const query = buildQuery('authors', params, fields)
   const data = await fetchData(query)
