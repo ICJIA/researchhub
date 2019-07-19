@@ -1,0 +1,4 @@
+/docs/*     https://dev-icjia-research-docs.netlify.com/:splat    200!
+/studio/*   https://dev-icjia-research-studio.netlify.com/:splat  200!
+/preview/*  https://dev-icjia-research-preview.netlify.com/:splat 200!
+/*          /index.html                                           200
