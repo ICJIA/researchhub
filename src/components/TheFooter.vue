@@ -17,7 +17,7 @@ export default {
         url: 'http://www.icjia.state.il.us/'
       },
       github: {
-        url: '/',
+        url: 'https://github.com/icjia/icjia-research',
         version: '0.1.0'
       }
     }
