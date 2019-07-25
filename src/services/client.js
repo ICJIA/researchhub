@@ -16,32 +16,3 @@ client.interceptors.response.use(response => {
 })
 
 export default client
-
-export { fetchData, buildQuery }
-
-/**
- * Fetch Data from API server using a graphql query.
- * @param {String} query Graphql query string
- * @return {Promise<Object>} Query response
- */
-async function fetchData(query) {
-  const res = await client
-    .post('/graphql', {
-      query
-    })
-    .catch(err => {
-      console.error(err)
-    })
-  return res.data.data
-}
-
-/**
- * Generate graphql a query string
- * @param {String} contentType Content type
- * @param {String} params Parameters
- * @param {String} fields Fields
- * @return {String} A query string
- */
-function buildQuery(contentType, params, fields) {
-  return `{\n  ${contentType} (${params}) {${fields}\n  }\n}`
-}
