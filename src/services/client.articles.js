@@ -49,9 +49,10 @@ const fetchItemsListCarousel = async () =>
  * @param {String} title
  */
 const fetchItemsByAuthor = async title =>
-  (await fetchArticlesList({ fields: ['_id', 'authors'] })).filter(el =>
-    el.authors.map(el => el.title).includes(title)
-  )
+  (await fetchArticlesList({
+    params: 'sort: "date:desc"',
+    fields: ['_id', 'authors']
+  })).filter(el => el.authors.map(el => el.title).includes(title))
 
 const fetchArticleBySlug = fetchOneBySlug('articles')
 const fetchArticlesList = fetchList('articles')
