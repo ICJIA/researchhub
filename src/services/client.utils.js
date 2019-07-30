@@ -44,6 +44,6 @@ const fetchData = contentType => async ({ params, fields }) =>
  */
 const fetchQueryResult = contentType => async query =>
   await client
-    .post('/graphql', { query })
+    .post('/graphql', { query, validateStatus: status => status === 200 })
+    .then(({ data }) => data.data[contentType])
     .catch(err => console.error(err))
-    .then(res => res.data.data[contentType])
