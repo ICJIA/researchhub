@@ -9,16 +9,11 @@
       >
         <v-carousel-item
           :src="article.splash"
-          gradient="to top right, rgba(100,115,201,.33), rgba(25,32,72,.33)"
+          gradient="to top right, rgba(100,115,201,.4), rgba(25,32,72,.4)"
         >
-          <v-layout justify-center>
-            <v-flex xs10 sm8>
-              <h1
-                class="text-xs-center"
-                style="color:white; margin:15% 10% 0 10%"
-              >
-                <template>{{ article.title }}</template>
-              </h1>
+          <v-layout align-center justify-center fill-height>
+            <v-flex xs10 sm8 lg6>
+              <h1 class="article-title">{{ article.title }}</h1>
             </v-flex>
           </v-layout>
         </v-carousel-item>
@@ -58,5 +53,10 @@ export default {
 .v-image__image:hover {
   background-color: grey;
   background-image: none;
+}
+
+.article-title {
+  color: white;
+  text-align: center;
 }
 </style>
