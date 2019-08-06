@@ -37,25 +37,13 @@ const router = new Router({
       children: [
         {
           path: '',
-          component: () => import('@/views/ArticleSearch.vue')
+          name: 'article-search',
+          component: () => import('@/views/ArticleSearch.vue'),
+          props: true
         },
         {
           path: ':slug',
           component: () => import('@/views/ArticleView.vue')
-        }
-      ]
-    },
-    {
-      path: '/authors',
-      component: () => import('@/views/Authors.vue'),
-      children: [
-        {
-          path: '',
-          component: () => import('@/views/AuthorList.vue')
-        },
-        {
-          path: ':slug',
-          component: () => import('@/views/AuthorView.vue')
         }
       ]
     },

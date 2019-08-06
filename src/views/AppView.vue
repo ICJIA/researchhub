@@ -2,7 +2,11 @@
   <v-container>
     <v-layout justify-center>
       <v-flex xs12 sm10 md8>
-        <RHAppView v-if="item" :item="item" @tag-click="searchGlobal($event)" />
+        <RHAppView
+          v-if="item"
+          :item="item"
+          @tag-click="searchTagGlobal($event)"
+        />
       </v-flex>
     </v-layout>
   </v-container>

@@ -6,7 +6,7 @@
           v-if="item"
           :item="item"
           :downloader="downloader"
-          @tag-click="searchGlobal($event)"
+          @tag-click="searchTagGlobal($event)"
         />
       </v-flex>
     </v-layout>

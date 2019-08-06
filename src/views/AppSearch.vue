@@ -33,7 +33,7 @@
         <v-layout row wrap justify-center>
           <v-flex xs12 sm6 lg4 v-for="(item, i) in filteredItems" :key="i">
             <keep-alive>
-              <RHAppCard :item="item" @tag-click="searchGlobal($event)" />
+              <RHAppCard :item="item" @tag-click="searchTagGlobal($event)" />
             </keep-alive>
           </v-flex>
         </v-layout>
@@ -93,6 +93,12 @@ export default {
   async created() {
     if (this.$store.state.apps.data.length === 0) {
       await this.$store.dispatch('apps/fetchInfo')
+    }
+  },
+  methods: {
+    searchTag(e) {
+      const text = e.target.textContent || e.target.innerText
+      this.searchGlobal(text)
     }
   }
 }

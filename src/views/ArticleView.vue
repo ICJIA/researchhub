@@ -6,7 +6,8 @@
       v-if="item"
       :item="item"
       :downloader="downloader"
-      @tag-click="searchGlobal($event)"
+      @tag-click="searchTagGlobal($event)"
+      @author-click="searchAuthorOnArticleSearch($event)"
     />
 
     <ArticleSocialSharing
@@ -70,6 +71,10 @@ export default {
       const file = this.item[`${type}file`]
       const url = `${process.env.VUE_APP_API_BASE_URL}/${file.url}`
       saveAs(url, decodeURI(file.name))
+    },
+    searchAuthorOnArticleSearch(e) {
+      const search = e.target.textContent || e.target.innerText
+      this.$router.push({ name: 'article-search', params: { search } })
     }
   }
 }
