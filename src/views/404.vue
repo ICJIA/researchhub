@@ -1,19 +1,29 @@
 <template>
-  <v-container my-5 text-xs-center>
-    <h1>404 - Page not found</h1>
+  <div>
+    <BaseViewTitle :home="false">
+      <h3 class="light">
+        <template>{{ 'ICJIA Research Hub' }}</template>
+        <v-icon color="white">chevron_right</v-icon>
+        <template>{{ 'Error' }}</template>
+      </h3>
+    </BaseViewTitle>
 
-    <v-container>
+    <div class="error-page">
+      <v-icon x-large color="error">cancel</v-icon>
+      <h1 class="pb-3">Page not found</h1>
+
       <p>Sorry. The page you are looking for does not exist.</p>
-    </v-container>
-
-    <v-btn flat to="/">return to home</v-btn>
-  </v-container>
+      <v-btn flat to="/">return to home <v-icon>replay</v-icon></v-btn>
+    </div>
+  </div>
 </template>
 
 <script>
+const BaseViewTitle = () => import('@/components/BaseViewTitle')
+
 export default {
-  mounted() {
-    document.dispatchEvent(new Event('render-event'))
+  components: {
+    BaseViewTitle
   }
 }
 </script>

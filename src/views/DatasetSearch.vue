@@ -33,7 +33,10 @@
         <v-layout row wrap justify-center>
           <v-flex xs12 xl6 v-for="(item, i) in filteredItems" :key="i">
             <keep-alive>
-              <RHDatasetCard :item="item" @tag-click="searchGlobal($event)" />
+              <RHDatasetCard
+                :item="item"
+                @tag-click="searchTagGlobal($event)"
+              />
             </keep-alive>
           </v-flex>
         </v-layout>

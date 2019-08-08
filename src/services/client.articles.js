@@ -7,7 +7,6 @@ import {
 
 export {
   fetchItemBySlug,
-  fetchItemsByAuthor,
   fetchItemCardById,
   fetchItemsList,
   fetchItemsListCarousel
@@ -43,16 +42,6 @@ const fetchItemsListCarousel = async () =>
       'limit: 5, sort: "date:desc", where: { status: "published", external: false }',
     fields: ['title', 'slug', 'splash']
   })
-
-/**
- * Fetch a list of ids for published articles by author.
- * @param {String} title
- */
-const fetchItemsByAuthor = async title =>
-  (await fetchArticlesList({
-    params: 'sort: "date:desc"',
-    fields: ['_id', 'authors']
-  })).filter(el => el.authors.map(el => el.title).includes(title))
 
 const fetchArticleBySlug = fetchOneBySlug('articles')
 const fetchArticlesList = fetchList('articles')

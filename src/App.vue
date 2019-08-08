@@ -2,7 +2,9 @@
   <v-app>
     <the-toolbar />
 
-    <router-view />
+    <router-view v-if="alive" />
+
+    <ServerError v-else />
 
     <the-button-back-to-top />
 
@@ -11,6 +13,8 @@
 </template>
 
 <script>
+import { healthCheck } from '@/services/client.utils'
+const ServerError = () => import('@/components/ServerError')
 const TheToolbar = () => import('@/components/TheToolbar')
 const TheButtonBackToTop = () => import('@/components/TheButtonBackToTop')
 const TheFooter = () => import('@/components/TheFooter')
@@ -31,9 +35,18 @@ export default {
     ]
   },
   components: {
+    ServerError,
     TheToolbar,
     TheButtonBackToTop,
     TheFooter
+  },
+  data() {
+    return {
+      alive: true
+    }
+  },
+  async created() {
+    this.alive = await healthCheck()
   }
 }
 </script>
@@ -46,5 +59,18 @@ export default {
 
 .v-messages {
   display: none;
+}
+
+.error-page {
+  font-size: 1.25rem;
+  font-family: 'Lato';
+  text-align: center;
+  margin-top: 5%;
+}
+
+.error-page h1 {
+  font-family: 'Lato';
+  text-transform: uppercase;
+  font-weight: bold;
 }
 </style>

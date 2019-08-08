@@ -1,12 +1,11 @@
 export const searchGlobalMixin = {
   methods: {
-    searchGlobal(x) {
-      this.$router.push({
-        name: 'search',
-        params: {
-          search: x
-        }
-      })
+    searchGlobal(search) {
+      this.$router.push({ name: 'search', params: { search } })
+    },
+    searchTagGlobal(e) {
+      const search = e.target.textContent || e.target.innerText
+      this.searchGlobal(search)
     }
   }
 }
@@ -18,10 +17,10 @@ export const searchLocalMixin = {
     }
   },
   methods: {
-    searchLocal(x) {
+    searchLocal(search) {
       this.$vuetify.goTo(0)
-      this.localSearch = x
-      this.$refs.searchBar.searchInput = x
+      this.localSearch = search
+      this.$refs.searchBar.searchInput = search
     }
   }
 }

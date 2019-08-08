@@ -31,7 +31,11 @@
 
       <v-flex xs12 sm10 xl8 v-for="(item, i) in filteredItems" :key="i">
         <keep-alive>
-          <RHArticleCard :item="item" @tag-click="searchGlobal($event)" />
+          <RHArticleCard
+            :item="item"
+            @tag-click="searchTagGlobal($event)"
+            @author-click="searchAuthorLocal($event)"
+          />
         </keep-alive>
       </v-flex>
     </v-layout>
@@ -54,10 +58,14 @@ export default {
     SearchBar,
     SearchInfoExtra
   },
+  props: {
+    search: String
+  },
   mixins: [filterMixin, searchGlobalMixin, searchLocalMixin],
   data() {
     return {
-      contentType: 'article'
+      contentType: 'article',
+      localSearch: this.search || ''
     }
   },
   computed: {
@@ -90,6 +98,12 @@ export default {
   async created() {
     if (this.$store.state.articles.info.length === 0) {
       await this.$store.dispatch('articles/fetchInfo')
+    }
+  },
+  methods: {
+    searchAuthorLocal(e) {
+      const text = e.target.textContent || e.target.innerText
+      this.searchLocal(text)
     }
   }
 }

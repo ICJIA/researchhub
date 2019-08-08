@@ -2,8 +2,12 @@
   <BaseSection v-if="apps" :title="title" :home="true" :to="to">
     <v-container pt-0>
       <v-layout row wrap justify-center>
-        <v-flex xs12 sm6 md4 lg3 v-for="(app, i) in apps" :key="i">
-          <RHAppCard v-if="app" :item="app" />
+        <v-flex xs12 sm10 md6 lg4 xl3 v-for="(app, i) in apps" :key="i">
+          <RHAppCard
+            v-if="app"
+            :item="app"
+            @tag-click="searchTagGlobal($event)"
+          />
         </v-flex>
       </v-layout>
     </v-container>
@@ -12,6 +16,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import { searchGlobalMixin } from '@/mixins/searchMixin'
 const BaseSection = () => import('@/components/BaseSection')
 const RHAppCard = () =>
   import('icjia-research-lib/lib/umd').then(lib => lib.AppCard)
@@ -21,6 +26,7 @@ export default {
     BaseSection,
     RHAppCard
   },
+  mixins: [searchGlobalMixin],
   data() {
     return {
       title: 'app highlights',

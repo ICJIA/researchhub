@@ -4,11 +4,16 @@
       <h3 class="light">
         <template>{{ 'ICJIA Research Hub' }}</template>
         <v-icon color="white">chevron_right</v-icon>
-        <span>{{ title }}</span>
+        <template>{{ 'Error' }}</template>
       </h3>
     </BaseViewTitle>
 
-    <router-view />
+    <div class="error-page">
+      <v-icon x-large color="error">cancel</v-icon>
+      <h1 class="pb-3">Sorry, something went wrong</h1>
+
+      <p>Try refreshing the page or please check back later.</p>
+    </div>
   </div>
 </template>
 
@@ -16,24 +21,8 @@
 const BaseViewTitle = () => import('@/components/BaseViewTitle')
 
 export default {
-  name: 'Authors',
-  metaInfo: {
-    titleTemplate: 'Authors | %s',
-    meta: [
-      {
-        vmid: 'desc-authors',
-        name: 'description',
-        content: 'Authors contributed to research publications.'
-      }
-    ]
-  },
   components: {
     BaseViewTitle
-  },
-  data() {
-    return {
-      title: 'Authors'
-    }
   }
 }
 </script>
