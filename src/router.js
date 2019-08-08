@@ -68,12 +68,13 @@ const router = new Router({
       props: true
     },
     {
-      path: '/404',
+      path: '/page-not-found',
+      name: '404',
       component: () => import('@/views/404.vue')
     },
     {
       path: '*',
-      component: () => import('@/views/404.vue')
+      redirect: { name: '404' }
     }
   ],
   scrollBehavior(to) {

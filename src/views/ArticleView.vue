@@ -60,11 +60,15 @@ export default {
     }
   },
   async created() {
-    const item = await fetchItemBySlug(this.$route.params.slug)
-    this.baseUrl = await window.location.origin
-    this.item = item
-    this.meta.title = item.title
-    this.meta.description = item.abstract
+    try {
+      const item = await fetchItemBySlug(this.$route.params.slug)
+      this.baseUrl = await window.location.origin
+      this.item = item
+      this.meta.title = item.title
+      this.meta.description = item.abstract
+    } catch {
+      this.$router.push({ name: '404' })
+    }
   },
   methods: {
     async downloader(type) {
