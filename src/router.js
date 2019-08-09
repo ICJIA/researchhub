@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Meta from 'vue-meta'
 import NProgress from 'nprogress'
+import { isAuthor } from '@/services/client.authors'
 
 Vue.use(Router)
 Vue.use(Meta)
@@ -46,6 +47,15 @@ const router = new Router({
           component: () => import('@/views/ArticleView.vue')
         }
       ]
+    },
+    {
+      path: '/author/:slug',
+      beforeEnter: async (to, from, next) =>
+        next(
+          (await isAuthor(to.params.slug))
+            ? { name: 'article-search', params: { search: to.params.slug } }
+            : { name: '404' }
+        )
     },
     {
       path: '/datasets',
