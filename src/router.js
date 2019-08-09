@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Meta from 'vue-meta'
 import NProgress from 'nprogress'
+import { isAuthor } from '@/services/client.authors'
 
 Vue.use(Router)
 Vue.use(Meta)
@@ -48,6 +49,15 @@ const router = new Router({
       ]
     },
     {
+      path: '/author/:slug',
+      beforeEnter: async (to, from, next) =>
+        next(
+          (await isAuthor(to.params.slug))
+            ? { name: 'article-search', params: { search: to.params.slug } }
+            : { name: '404' }
+        )
+    },
+    {
       path: '/datasets',
       component: () => import('@/views/Datasets.vue'),
       children: [
@@ -68,12 +78,13 @@ const router = new Router({
       props: true
     },
     {
-      path: '/404',
+      path: '/page-not-found',
+      name: '404',
       component: () => import('@/views/404.vue')
     },
     {
       path: '*',
-      component: () => import('@/views/404.vue')
+      redirect: { name: '404' }
     }
   ],
   scrollBehavior(to) {

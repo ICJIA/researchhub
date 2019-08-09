@@ -47,10 +47,14 @@ export default {
     }
   },
   async created() {
-    const item = await fetchItemBySlug(this.$route.params.slug)
-    this.item = item
-    this.meta.title = item.title
-    this.meta.description = item.description
+    try {
+      const item = await fetchItemBySlug(this.$route.params.slug)
+      this.item = item
+      this.meta.title = item.title
+      this.meta.description = item.description
+    } catch {
+      this.$router.push({ name: '404' })
+    }
   }
 }
 </script>
