@@ -5,7 +5,7 @@
       <v-icon>mdi-menu-down</v-icon>
     </v-col>
 
-    <v-col cols="12" md="9" lg="6" xl="5">
+    <v-col cols="10" lg="6" xl="5">
       <v-form @submit.prevent="searchGlobal(search)">
         <v-text-field
           @keyup.enter="submit"

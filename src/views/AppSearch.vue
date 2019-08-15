@@ -1,8 +1,8 @@
 <template>
   <div class="pt-6 pb-12">
     <v-col class="mx-auto pa-0" cols="12" sm="8" lg="6" xl="5">
-      <v-row no-gutters>
-        <v-col cols="12" :class="hasExternal ? 'col-sm-9' : ''">
+      <v-row align="center" justify="center" no-gutters>
+        <v-col cols="10" :class="hasExternal ? 'col-sm-9' : ''">
           <SearchBar
             ref="searchBar"
             label="Search for apps (by title, contributors, categories, tags)"
@@ -10,11 +10,11 @@
           />
         </v-col>
 
-        <v-col v-if="hasExternal" class="pa-0" cols="12" sm="3">
+        <v-col v-if="hasExternal" class="pa-0" cols="4" sm="3">
           <v-switch
             v-model="icjiaOnly"
             label="ICJIA only"
-            class="ml-6 font-lato"
+            class="mx-4 mt-0 pa-0 font-lato"
           />
         </v-col>
       </v-row>
@@ -28,7 +28,7 @@
       />
     </v-col>
 
-    <v-col class="mx-auto pa-0" cols="12" sm="10" lg="8" xl="7">
+    <v-col class="mx-auto" cols="12" sm="10" lg="8" xl="7">
       <v-row justify="center">
         <v-col
           v-for="(item, i) in filteredItems"
