@@ -1,45 +1,49 @@
 <template>
-  <v-container class="pb-5">
-    <v-layout row wrap justify-center>
-      <v-flex xs12 sm8 lg6>
-        <v-layout row wrap>
-          <v-flex xs12 :class="hasExternal ? 'sm10' : ''">
-            <SearchBar
-              ref="searchBar"
-              label="Search for apps (by title, contributors, categories, tags)"
-              :search.sync="localSearch"
-            />
-          </v-flex>
+  <div class="pt-6 pb-12">
+    <v-col class="mx-auto pa-0" cols="12" sm="8" lg="6" xl="5">
+      <v-row no-gutters>
+        <v-col cols="12" :class="hasExternal ? 'col-sm-9' : ''">
+          <SearchBar
+            ref="searchBar"
+            label="Search for apps (by title, contributors, categories, tags)"
+            :search.sync="localSearch"
+          />
+        </v-col>
 
-          <v-flex v-if="hasExternal" xs12 sm2>
-            <v-switch
-              v-model="icjiaOnly"
-              label="ICJIA only"
-              class="ml-4 font-lato"
-            />
-          </v-flex>
-        </v-layout>
+        <v-col v-if="hasExternal" class="pa-0" cols="12" sm="3">
+          <v-switch
+            v-model="icjiaOnly"
+            label="ICJIA only"
+            class="ml-6 font-lato"
+          />
+        </v-col>
+      </v-row>
 
-        <SearchInfoExtra
-          :contentType="contentType"
-          :items="items"
-          :filteredItems="filteredItems"
-          :suggestions="suggestions"
-          @search-suggestion="searchLocal($event)"
-        />
-      </v-flex>
+      <SearchInfoExtra
+        :contentType="contentType"
+        :items="items"
+        :filteredItems="filteredItems"
+        :suggestions="suggestions"
+        @search-suggestion="searchLocal($event)"
+      />
+    </v-col>
 
-      <v-flex xs12 sm10 xl8>
-        <v-layout row wrap justify-center>
-          <v-flex xs12 sm6 lg4 v-for="(item, i) in filteredItems" :key="i">
-            <keep-alive>
-              <RHAppCard :item="item" @tag-click="searchTagGlobal($event)" />
-            </keep-alive>
-          </v-flex>
-        </v-layout>
-      </v-flex>
-    </v-layout>
-  </v-container>
+    <v-col class="mx-auto pa-0" cols="12" sm="10" lg="8" xl="7">
+      <v-row justify="center">
+        <v-col
+          v-for="(item, i) in filteredItems"
+          :key="i"
+          cols="12"
+          sm="6"
+          lg="4"
+        >
+          <keep-alive>
+            <RHAppCard :item="item" @tag-click="searchTagGlobal($event)" />
+          </keep-alive>
+        </v-col>
+      </v-row>
+    </v-col>
+  </div>
 </template>
 
 <script>

@@ -1,28 +1,26 @@
 <template>
   <div>
-    <v-container>
-      <v-layout justify-center>
-        <v-flex xs12 sm10 xl8>
-          <v-layout align-end justify-space-between class="section-title">
-            <h2>{{ title }}</h2>
+    <v-col class="mx-auto" cols="10" lg="8" xl="7">
+      <v-row class="section-title px-4" justify="space-between">
+        <h2 class="wide">{{ title }}</h2>
 
-            <router-link v-if="to" :to="to" class="font-lato small">
-              <template>{{ 'see more' }}</template>
-            </router-link>
+        <v-col class="pa-0 text-end" cols="12" sm="2" align-self="end">
+          <router-link v-if="to" :to="to" class="font-lato small">
+            <template>{{ 'see more' }}</template>
+          </router-link>
 
-            <a
-              v-if="href"
-              :href="href"
-              target="_blank"
-              class="font-lato small"
-              rel="noreferrer"
-            >
-              <template>{{ 'see more' }}</template>
-            </a>
-          </v-layout>
-        </v-flex>
-      </v-layout>
-    </v-container>
+          <a
+            v-if="href"
+            :href="href"
+            target="_blank"
+            class="font-lato small"
+            rel="noreferrer"
+          >
+            <template>{{ 'see more' }}</template>
+          </a>
+        </v-col>
+      </v-row>
+    </v-col>
 
     <slot></slot>
   </div>

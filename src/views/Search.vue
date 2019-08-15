@@ -1,62 +1,46 @@
 <template>
-  <div>
-    <BaseViewTitle :home="false">
-      <h3 class="light">
-        <template>{{ 'ICJIA Research Hub' }}</template>
-        <v-icon color="white">chevron_right</v-icon>
-        <span>{{ title }}</span>
-      </h3>
-    </BaseViewTitle>
+  <div class="pb-12">
+    <BaseViewTitle :page="title" />
 
-    <v-container class="pb-5">
-      <v-layout row wrap justify-center>
-        <v-flex xs12 sm8 lg6>
-          <SearchBar
-            ref="searchBar"
-            label="Search for Research Hub items (by title, date, categories, tags)"
-            :search.sync="searchLocal"
-          />
+    <v-col class="mx-auto pt-6 pb-0 px-0" cols="12" sm="8" lg="6" xl="5">
+      <SearchBar
+        ref="searchBar"
+        label="Search for Research Hub items (by title, date, categories, tags)"
+        :search.sync="searchLocal"
+      />
 
-          <SearchInfoExtra
-            contentType="item"
-            :items="[...apps, ...articles, ...datasets]"
-            :filteredItems="[
-              ...filterApps,
-              ...filterArticles,
-              ...filterDatasets
-            ]"
-            :suggestions="suggestions"
-            @search-suggestion="useSearchTerm($event)"
-          />
-        </v-flex>
+      <SearchInfoExtra
+        contentType="item"
+        :items="[...apps, ...articles, ...datasets]"
+        :filteredItems="[...filterApps, ...filterArticles, ...filterDatasets]"
+        :suggestions="suggestions"
+        @search-suggestion="useSearchTerm($event)"
+      />
+    </v-col>
 
-        <v-flex xs12>
-          <SearchResultList
-            v-if="filterApps && filterApps.length > 0"
-            title="Apps"
-            to="apps"
-            :results="filterApps"
-            @search-tag="useSearchTerm($event)"
-          />
+    <SearchResultList
+      v-if="filterApps && filterApps.length > 0"
+      title="Apps"
+      to="apps"
+      :results="filterApps"
+      @search-tag="useSearchTerm($event)"
+    />
 
-          <SearchResultList
-            v-if="filterArticles && filterArticles.length > 0"
-            title="Articles"
-            to="articles"
-            :results="filterArticles"
-            @search-tag="useSearchTerm($event)"
-          />
+    <SearchResultList
+      v-if="filterArticles && filterArticles.length > 0"
+      title="Articles"
+      to="articles"
+      :results="filterArticles"
+      @search-tag="useSearchTerm($event)"
+    />
 
-          <SearchResultList
-            v-if="filterDatasets && filterDatasets.length > 0"
-            title="Datasets"
-            to="datasets"
-            :results="filterDatasets"
-            @search-tag="useSearchTerm($event)"
-          />
-        </v-flex>
-      </v-layout>
-    </v-container>
+    <SearchResultList
+      v-if="filterDatasets && filterDatasets.length > 0"
+      title="Datasets"
+      to="datasets"
+      :results="filterDatasets"
+      @search-tag="useSearchTerm($event)"
+    />
   </div>
 </template>
 
@@ -92,57 +76,21 @@ export default {
   },
   computed: {
     filterApps() {
-      const s = this.searchLocal.toUpperCase()
-
-      return this.apps.filter(item => {
-        return (
-          item.title.toUpperCase().match(s) ||
-          item.date.match(s) ||
-          item.categories
-            .join('')
-            .toUpperCase()
-            .match(s) ||
-          item.tags
-            .join('')
-            .toUpperCase()
-            .match(s)
-        )
+      return this.filterItems({
+        items: this.apps,
+        search: this.searchLocal.toUpperCase()
       })
     },
     filterArticles() {
-      const s = this.searchLocal.toUpperCase()
-
-      return this.articles.filter(item => {
-        return (
-          item.title.toUpperCase().match(s) ||
-          item.date.match(s) ||
-          item.categories
-            .join('')
-            .toUpperCase()
-            .match(s) ||
-          item.tags
-            .join('')
-            .toUpperCase()
-            .match(s)
-        )
+      return this.filterItems({
+        items: this.articles,
+        search: this.searchLocal.toUpperCase()
       })
     },
     filterDatasets() {
-      const s = this.searchLocal.toUpperCase()
-
-      return this.datasets.filter(item => {
-        return (
-          item.title.toUpperCase().match(s) ||
-          item.date.match(s) ||
-          item.categories
-            .join('')
-            .toUpperCase()
-            .match(s) ||
-          item.tags
-            .join('')
-            .toUpperCase()
-            .match(s)
-        )
+      return this.filterItems({
+        items: this.datasets,
+        search: this.searchLocal.toUpperCase()
       })
     }
   },
@@ -153,6 +101,23 @@ export default {
     this.datasets = this.$store.state.search.datasets
   },
   methods: {
+    filterItems({ items, search }) {
+      return search
+        ? items.filter(
+            ({ title, date, categories, tags }) =>
+              title.toUpperCase().match(search) ||
+              date.match(search) ||
+              categories
+                .join('')
+                .toUpperCase()
+                .match(search) ||
+              tags
+                .join('')
+                .toUpperCase()
+                .match(search)
+          )
+        : []
+    },
     useSearchTerm(x) {
       this.$vuetify.goTo(0)
       this.searchLocal = x

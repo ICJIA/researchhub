@@ -1,16 +1,12 @@
 <template>
-  <v-container>
-    <v-layout justify-center>
-      <v-flex xs12 sm10 md8>
-        <RHDatasetView
-          v-if="item"
-          :item="item"
-          :downloader="downloader"
-          @tag-click="searchTagGlobal($event)"
-        />
-      </v-flex>
-    </v-layout>
-  </v-container>
+  <v-col class="mx-auto" cols="12" sm="10" lg="8" xl="7">
+    <RHDatasetView
+      v-if="item"
+      :item="item"
+      :downloader="downloader"
+      @tag-click="searchTagGlobal($event)"
+    />
+  </v-col>
 </template>
 
 <script>

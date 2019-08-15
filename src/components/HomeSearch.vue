@@ -1,25 +1,23 @@
 <template>
-  <v-container>
-    <v-layout justify-center row wrap>
-      <v-flex xs12 class="text-xs-center uppercase">
-        <h3>{{ title }}</h3>
-        <v-icon>fa-caret-down</v-icon>
-      </v-flex>
+  <v-row class="py-4" justify="center">
+    <v-col class="text-center wide uppercase pa-0" cols="12">
+      <h3>{{ title }}</h3>
+      <v-icon>mdi-menu-down</v-icon>
+    </v-col>
 
-      <v-flex xs12 md9 xl6>
-        <v-form @submit.prevent="searchGlobal(search)">
-          <v-text-field
-            @keyup.enter="submit"
-            v-model="search"
-            label="Type search terms and hit <Enter>"
-            :clearable="true"
-            append-outer-icon="search"
-            solo
-          />
-        </v-form>
-      </v-flex>
-    </v-layout>
-  </v-container>
+    <v-col cols="12" md="9" lg="6" xl="5">
+      <v-form @submit.prevent="searchGlobal(search)">
+        <v-text-field
+          @keyup.enter="submit"
+          v-model="search"
+          label="Type search terms and hit <Enter>"
+          :clearable="true"
+          append-outer-icon="mdi-magnify"
+          solo
+        />
+      </v-form>
+    </v-col>
+  </v-row>
 </template>
 
 <script>

@@ -1,21 +1,21 @@
 <template>
-  <RHBaseToolbar :menu="true">
+  <RHBaseToolbar>
     <template v-slot:toolbarItems>
-      <v-btn v-for="view in views" :key="view" :to="`/${view}`" flat>
+      <v-btn v-for="view in views" :key="view" :to="`/${view}`" text>
         <template>{{ view }}</template>
       </v-btn>
 
-      <v-btn href="/docs/" target="_blank" flat>documentation</v-btn>
+      <v-btn href="/docs/" target="_blank" text>documentation</v-btn>
     </template>
 
     <template v-slot:toolbarDrawerItems>
-      <v-list-tile v-for="(view, i) in views" :key="i" :to="`/${view}`">
-        <v-list-tile-title>{{ view }}</v-list-tile-title>
-      </v-list-tile>
+      <v-list-item v-for="(view, i) in views" :key="i" :to="`/${view}`">
+        <v-list-item-title>{{ view }}</v-list-item-title>
+      </v-list-item>
 
-      <v-list-tile href="/docs/">
-        <v-list-tile-title>documentation</v-list-tile-title>
-      </v-list-tile>
+      <v-list-item href="/docs/">
+        <v-list-item-title>documentation</v-list-item-title>
+      </v-list-item>
     </template>
   </RHBaseToolbar>
 </template>

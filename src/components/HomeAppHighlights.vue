@@ -1,16 +1,16 @@
 <template>
   <BaseSection v-if="apps" :title="title" :home="true" :to="to">
-    <v-container pt-0>
-      <v-layout row wrap justify-center>
-        <v-flex xs12 sm10 md6 lg4 xl3 v-for="(app, i) in apps" :key="i">
+    <v-col class="mx-auto" cols="12" md="10" lg="8" xl="7">
+      <v-row justify="center">
+        <v-col v-for="(app, i) in apps" :key="i" cols="12" sm="10" md="4">
           <RHAppCard
             v-if="app"
             :item="app"
             @tag-click="searchTagGlobal($event)"
           />
-        </v-flex>
-      </v-layout>
-    </v-container>
+        </v-col>
+      </v-row>
+    </v-col>
   </BaseSection>
 </template>
 

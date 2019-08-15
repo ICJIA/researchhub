@@ -1,11 +1,12 @@
 import Vue from 'vue'
-import Vuetify, { VIcon, VLayout } from 'vuetify/lib'
-import './main.styl'
+import Vuetify, { VIcon } from 'vuetify/lib'
 
 Vue.use(Vuetify, {
-  theme: false,
   components: {
-    VIcon,
-    VLayout
+    VIcon
   }
+})
+
+export default new Vuetify({
+  theme: { disable: true }
 })

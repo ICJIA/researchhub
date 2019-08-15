@@ -5,7 +5,7 @@
     :value="searchInput"
     :label="searchLabel"
     :clearable="true"
-    prepend-inner-icon="search"
+    prepend-inner-icon="mdi-magnify"
     solo
   />
 </template>

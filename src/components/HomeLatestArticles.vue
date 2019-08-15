@@ -1,6 +1,6 @@
 <template>
   <BaseSection v-if="articles" :title="title" :to="to">
-    <v-carousel>
+    <v-carousel hide-delimiters show-arrows-on-hover>
       <router-link
         v-for="(article, i) in articles"
         :key="i"
@@ -11,11 +11,11 @@
           :src="article.splash"
           gradient="to top right, rgba(100,115,201,.4), rgba(25,32,72,.4)"
         >
-          <v-layout align-center justify-center fill-height>
-            <v-flex xs10 sm8 lg6>
+          <v-row class="fill-height" align="center" justify="center">
+            <v-col cols="10" sm="6" lg="4">
               <h1 class="article-title">{{ article.title }}</h1>
-            </v-flex>
-          </v-layout>
+            </v-col>
+          </v-row>
         </v-carousel-item>
       </router-link>
     </v-carousel>
@@ -50,13 +50,9 @@ export default {
 </script>
 
 <style scoped>
-.v-image__image:hover {
-  background-color: grey;
-  background-image: none;
-}
-
 .article-title {
   color: white;
   text-align: center;
+  text-shadow: 1px 2px #466c8c;
 }
 </style>

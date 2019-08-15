@@ -1,16 +1,10 @@
 <template>
-  <div>
-    <BaseViewTitle :home="false">
-      <h3 class="light">
-        <template>{{ 'ICJIA Research Hub' }}</template>
-        <v-icon color="white">chevron_right</v-icon>
-        <template>{{ title }}</template>
-      </h3>
-    </BaseViewTitle>
+  <div class="mb-12">
+    <BaseViewTitle :page="title" />
 
     <AboutSection :title="section1.title" :subNum="3">
       <template v-slot:subtitle1>{{ section1.sub1.title }}</template>
-      <p v-html="section1.p1" class="italic small greyfont"></p>
+      <p v-html="section1.p1" class="italic small greycolor pb-4"></p>
       <template v-slot:subbody1>
         <p v-html="section1.sub1.p1"></p>
         <p v-html="section1.sub1.p2"></p>
@@ -43,8 +37,6 @@
       <p v-html="section3.p2"></p>
       <p v-html="section3.p3"></p>
     </AboutSection>
-
-    <div class="spacer"></div>
   </div>
 </template>
 
@@ -68,7 +60,7 @@ export default {
       hrefGithub: 'https://www.github.com/ICJIA',
       hrefDocs: '/docs/',
       linkIconHtml:
-        '<i aria-hidden="true" class="v-icon material-icons theme--light">open_in_new</i>'
+        '<i aria-hidden="true" class="v-icon notranslate mdi mdi-open-in-new theme--light"></i>'
     }
   },
   computed: {
@@ -221,13 +213,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.spacer {
-  height: 100px;
-}
-
-.greyfont {
-  color: grey;
-}
-</style>

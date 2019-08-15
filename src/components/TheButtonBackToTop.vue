@@ -1,5 +1,5 @@
 <template>
-  <transition name="fade">
+  <v-fab-transition>
     <v-btn
       v-scroll="onScroll"
       v-show="fab"
@@ -8,12 +8,12 @@
       fixed
       bottom
       right
-      color="#bbb"
+      color="rgba(70, 108, 140, 0.8)"
       @click="toTop"
     >
-      <v-icon>keyboard_arrow_up</v-icon>
+      <v-icon color="white">mdi-chevron-up</v-icon>
     </v-btn>
-  </transition>
+  </v-fab-transition>
 </template>
 
 <script>
@@ -35,13 +35,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-}
-</style>
