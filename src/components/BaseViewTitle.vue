@@ -1,27 +1,34 @@
 <template>
-  <div class="view-title">
-    <v-container :class="home ? 'pb-1' : 'py-3'">
-      <v-layout justify-center>
-        <v-flex xs12 sm10 xl8>
-          <slot></slot>
-        </v-flex>
-      </v-layout>
-    </v-container>
+  <div class="view-title font-lato">
+    <v-col class="mx-auto py-2" cols="12" sm="10" lg="8" xl="7">
+      <template v-if="page">
+        <h4 class="light">
+          <template>{{ 'ICJIA Research Hub' }}</template>
+          <v-icon color="white">mdi-chevron-right</v-icon>
+          <template>{{ page }}</template>
+        </h4>
+      </template>
+      <template v-else>
+        <slot></slot>
+      </template>
+    </v-col>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    home: Boolean
+    page: {
+      type: String,
+      default: ''
+    }
   }
 }
 </script>
 
 <style scoped>
 .view-title {
-  font-family: 'Oswald', sans-serif;
-  color: white;
   background-color: #466c8c;
+  color: white;
 }
 </style>

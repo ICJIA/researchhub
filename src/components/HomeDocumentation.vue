@@ -1,20 +1,18 @@
 <template>
   <BaseSection :title="title" href="/docs/">
-    <v-layout justify-center>
-      <v-flex xs12 sm10 md8>
-        <v-layout row wrap>
-          <v-flex xs12 sm4 v-for="(item, i) in items" :key="i">
-            <v-container class="pb-0">
-              <a :href="`/docs/${item.ref}`" target="_blank" rel="noreferrer">
-                <h2 class="mb-5 light">{{ item.title }}</h2>
-              </a>
-              <p class="resource-item">{{ item.body }}</p>
-            </v-container>
-            <v-divider class="hidden-sm-and-up" />
-          </v-flex>
-        </v-layout>
-      </v-flex>
-    </v-layout>
+    <v-col class="mx-auto" cols="12" sm="10" lg="8" xl="7">
+      <v-row>
+        <v-col cols="12" sm="4" v-for="(item, i) in items" :key="i">
+          <v-container class="pb-0">
+            <a :href="`/docs/${item.ref}`" target="_blank" rel="noreferrer">
+              <h2 class="mb-10 light">{{ item.title }}</h2>
+            </a>
+            <p class="font-lato">{{ item.body }}</p>
+          </v-container>
+          <v-divider class="hidden-sm-and-up" />
+        </v-col>
+      </v-row>
+    </v-col>
   </BaseSection>
 </template>
 
@@ -55,9 +53,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.docs-item {
-  font-size: 1.2em;
-}
-</style>

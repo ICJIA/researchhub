@@ -2,9 +2,10 @@
   <v-app>
     <the-toolbar />
 
-    <router-view v-if="alive" />
-
-    <ServerError v-else />
+    <v-content>
+      <router-view v-if="alive" />
+      <ServerError v-else />
+    </v-content>
 
     <the-button-back-to-top />
 
@@ -27,10 +28,7 @@ export default {
       {
         name: 'description',
         content:
-          'Welcome to the Illinois Crinimal Justice Information Authority \
-          (ICJIA) Research Hub. Here you can find various criminal justice \
-          datasets, research publications and resources to develop web \
-          applications, dashboards and more.'
+          'Welcome to the Illinois Crinimal Justice Information Authority (ICJIA) Research Hub. Here you can find various criminal justice  datasets, research publications and resources to develop web  applications, dashboards and more.'
       }
     ]
   },
@@ -52,25 +50,26 @@ export default {
 </script>
 
 <style>
-.section-title {
-  border-bottom: 1px #999 solid;
-  text-transform: uppercase;
-}
-
-.v-messages {
-  display: none;
-}
-
 .error-page {
   font-size: 1.25rem;
   font-family: 'Lato';
   text-align: center;
   margin-top: 5%;
 }
-
 .error-page h1 {
   font-family: 'Lato';
   text-transform: uppercase;
   font-weight: bold;
+}
+.section-title {
+  border-bottom: 1px #999 solid;
+  text-transform: uppercase;
+}
+.v-text-field__details,
+.v-messages {
+  display: none;
+}
+.wide {
+  letter-spacing: 0.06em;
 }
 </style>

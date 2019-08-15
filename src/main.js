@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import './plugins/vuetify'
+import vuetify from './plugins/vuetify'
 
 import SocialSharing from 'vue-social-sharing'
 import 'icjia-research-lib/lib/index.css'
@@ -15,5 +15,6 @@ Vue.use(SocialSharing)
 new Vue({
   router,
   store,
+  vuetify,
   render: h => h(App)
 }).$mount(`#app`, true)

@@ -1,12 +1,12 @@
 <template>
   <div>
-    <BaseViewTitle :home="true">
-      <h1>{{ title }}</h1>
+    <BaseViewTitle>
+      <h1 class="py-4">{{ title }}</h1>
 
       <p class="font-lato large light">{{ subtitle }}</p>
 
-      <p class="text-xs-right">
-        <v-btn to="about" flat color="#ddd">{{ about }}</v-btn>
+      <p class="text-right">
+        <v-btn to="about" text color="#ddd">{{ about }}</v-btn>
       </p>
     </BaseViewTitle>
 
@@ -47,10 +47,7 @@ export default {
     return {
       title: 'The Home of the Illinois Criminal Justice Data and Research',
       subtitle:
-        'Welcome to the Illinois Crinimal Justice Information Authority \
-        (ICJIA) Research Hub. Here you can find various criminal justice \
-        datasets, research publications and resources to develop web \
-        applications, dashboards and more.',
+        'Welcome to the Illinois Crinimal Justice Information Authority (ICJIA) Research Hub. Here you can find various criminal justice datasets, research publications and resources to develop web applications, dashboards and more.',
       about: 'About this Research Hub'
     }
   }
@@ -58,9 +55,6 @@ export default {
 </script>
 
 <style scoped>
-.large {
-  font-size: 1.2em;
-}
 .grey-background {
   background-color: #eee;
 }
