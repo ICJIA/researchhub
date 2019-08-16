@@ -1,6 +1,6 @@
 <template>
   <BaseSection v-if="articles" :title="title" :to="to">
-    <v-carousel hide-delimiters show-arrows-on-hover>
+    <v-carousel cycle hide-delimiters>
       <router-link
         v-for="(article, i) in articles"
         :key="i"
