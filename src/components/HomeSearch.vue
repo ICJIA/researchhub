@@ -1,6 +1,6 @@
 <template>
-  <v-row class="py-4" justify="center">
-    <v-col class="text-center wide uppercase pa-0" cols="12">
+  <v-row class="py-6" justify="center" no-gutters>
+    <v-col class="text-center wide uppercase" cols="10">
       <h3>{{ title }}</h3>
       <v-icon>mdi-menu-down</v-icon>
     </v-col>

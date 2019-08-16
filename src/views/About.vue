@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-12">
+  <div>
     <BaseViewTitle :page="title" />
 
     <AboutSection :title="section1.title" :subNum="3">

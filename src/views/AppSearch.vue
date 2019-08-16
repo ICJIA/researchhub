@@ -1,5 +1,5 @@
 <template>
-  <div class="pt-6 pb-12">
+  <div class="pt-6">
     <v-col class="mx-auto pa-0" cols="12" sm="8" lg="6" xl="5">
       <v-row align="center" justify="center" no-gutters>
         <v-col cols="10" :class="hasExternal ? 'col-sm-9' : ''">
