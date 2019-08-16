@@ -1,6 +1,6 @@
 <template>
   <div>
-    <BaseViewTitle>
+    <BaseViewTitle class="pa-4">
       <h1 class="py-4">{{ title }}</h1>
 
       <p class="font-lato large light">{{ subtitle }}</p>
@@ -19,8 +19,6 @@
 
       <HomeDocumentation v-if="i == 4" />
     </div>
-
-    <div style="height:150px"></div>
   </div>
 </template>
 

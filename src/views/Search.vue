@@ -2,7 +2,7 @@
   <div class="pb-12">
     <BaseViewTitle :page="title" />
 
-    <v-col class="mx-auto pt-6 pb-0 px-0" cols="12" sm="8" lg="6" xl="5">
+    <v-col class="mx-auto pt-6 pb-0 px-0" cols="10" sm="8" lg="6" xl="5">
       <SearchBar
         ref="searchBar"
         label="Search for Research Hub items (by title, date, categories, tags)"

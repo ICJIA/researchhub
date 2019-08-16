@@ -1,9 +1,17 @@
 import Vue from 'vue'
-import Vuetify, { VIcon } from 'vuetify/lib'
+import Vuetify, {
+  VAppBar,
+  VIcon,
+  VNavigationDrawer,
+  VSpacer
+} from 'vuetify/lib'
 
 Vue.use(Vuetify, {
   components: {
-    VIcon
+    VAppBar,
+    VIcon,
+    VNavigationDrawer,
+    VSpacer
   }
 })
 
