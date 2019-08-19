@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuetify, {
   VAppBar,
+  VDialog,
   VFooter,
   VIcon,
   VNavigationDrawer,
@@ -10,6 +11,7 @@ import Vuetify, {
 Vue.use(Vuetify, {
   components: {
     VAppBar,
+    VDialog,
     VFooter,
     VIcon,
     VNavigationDrawer,
