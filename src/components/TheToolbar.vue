@@ -1,5 +1,5 @@
 <template>
-  <RHBaseToolbar>
+  <BaseToolbar>
     <template v-slot:toolbarItems>
       <v-btn v-for="view in views" :key="view" :to="`/${view}`" text>
         <template>{{ view }}</template>
@@ -17,17 +17,11 @@
         <v-list-item-title>documentation</v-list-item-title>
       </v-list-item>
     </template>
-  </RHBaseToolbar>
+  </BaseToolbar>
 </template>
 
 <script>
-const RHBaseToolbar = () =>
-  import('icjia-research-lib/lib/umd').then(lib => lib.BaseToolbar)
-
 export default {
-  components: {
-    RHBaseToolbar
-  },
   data() {
     return {
       views: ['about', 'apps', 'articles', 'datasets']

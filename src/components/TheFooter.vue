@@ -1,15 +1,9 @@
 <template>
-  <RHFooter :agency="agency" :github="github" />
+  <Footer :agency="agency" :github="github" />
 </template>
 
 <script>
-const RHFooter = () =>
-  import('icjia-research-lib/lib/umd').then(lib => lib.Footer)
-
 export default {
-  components: {
-    RHFooter
-  },
   data() {
     return {
       agency: {

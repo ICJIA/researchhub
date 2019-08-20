@@ -1,19 +1,14 @@
 <template>
   <v-col class="mx-auto" cols="12" sm="10" md="8" xl="7">
-    <RHAppView v-if="item" :item="item" @tag-click="searchTagGlobal($event)" />
+    <AppView v-if="item" :item="item" @tag-click="searchTagGlobal($event)" />
   </v-col>
 </template>
 
 <script>
 import { fetchItemBySlug } from '@/services/client.apps'
 import { searchGlobalMixin } from '@/mixins/searchMixin'
-const RHAppView = () =>
-  import('icjia-research-lib/lib/umd').then(lib => lib.AppView)
 
 export default {
-  components: {
-    RHAppView
-  },
   mixins: [searchGlobalMixin],
   data() {
     return {

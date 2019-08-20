@@ -2,7 +2,7 @@
   <div>
     <TheProgessBar />
 
-    <RHArticleView
+    <ArticleView
       v-if="item"
       :item="item"
       :downloader="downloader"
@@ -23,15 +23,12 @@ import { saveAs } from 'file-saver'
 import { fetchItemBySlug } from '@/services/client.articles'
 import { searchGlobalMixin } from '@/mixins/searchMixin'
 const ArticleSocialSharing = () => import('@/components/ArticleSocialSharing')
-const RHArticleView = () =>
-  import('icjia-research-lib/lib/umd').then(lib => lib.ArticleView)
 const TheProgessBar = () => import('@/components/TheProgressBar')
 
 export default {
   name: 'ArticleView',
   components: {
     ArticleSocialSharing,
-    RHArticleView,
     TheProgessBar
   },
   mixins: [searchGlobalMixin],
