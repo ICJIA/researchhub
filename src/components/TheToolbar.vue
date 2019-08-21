@@ -21,7 +21,12 @@
 </template>
 
 <script>
+const BaseToolbar = () => import('icjia-research-lib').then(m => m.BaseToolbar)
+
 export default {
+  components: {
+    BaseToolbar
+  },
   data() {
     return {
       views: ['about', 'apps', 'articles', 'datasets']

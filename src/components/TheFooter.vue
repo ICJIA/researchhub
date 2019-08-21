@@ -3,7 +3,12 @@
 </template>
 
 <script>
+const Footer = () => import('icjia-research-lib').then(m => m.Footer)
+
 export default {
+  components: {
+    Footer
+  },
   data() {
     return {
       agency: {

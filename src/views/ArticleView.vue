@@ -23,12 +23,14 @@ import { saveAs } from 'file-saver'
 import { fetchItemBySlug } from '@/services/client.articles'
 import { searchGlobalMixin } from '@/mixins/searchMixin'
 const ArticleSocialSharing = () => import('@/components/ArticleSocialSharing')
+const ArticleView = () => import('icjia-research-lib').then(m => m.ArticleView)
 const TheProgessBar = () => import('@/components/TheProgressBar')
 
 export default {
   name: 'ArticleView',
   components: {
     ArticleSocialSharing,
+    ArticleView,
     TheProgessBar
   },
   mixins: [searchGlobalMixin],

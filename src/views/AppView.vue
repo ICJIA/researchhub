@@ -7,8 +7,12 @@
 <script>
 import { fetchItemBySlug } from '@/services/client.apps'
 import { searchGlobalMixin } from '@/mixins/searchMixin'
+const AppView = () => import('icjia-research-lib').then(m => m.AppView)
 
 export default {
+  components: {
+    AppView
+  },
   mixins: [searchGlobalMixin],
   data() {
     return {

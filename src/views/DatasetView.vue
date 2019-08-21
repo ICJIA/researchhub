@@ -13,9 +13,13 @@
 import { saveAs } from 'file-saver'
 import { fetchItemBySlug } from '@/services/client.datasets'
 import { searchGlobalMixin } from '@/mixins/searchMixin'
+const DatasetView = () => import('icjia-research-lib').then(m => m.DatasetView)
 
 export default {
   name: 'DatasetView',
+  components: {
+    DatasetView
+  },
   mixins: [searchGlobalMixin],
   data() {
     return {

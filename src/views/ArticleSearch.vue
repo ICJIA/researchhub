@@ -52,12 +52,14 @@
 import { mapState } from 'vuex'
 import filterMixin from '@/mixins/filterMixin'
 import { searchGlobalMixin, searchLocalMixin } from '@/mixins/searchMixin'
+const ArticleCard = () => import('icjia-research-lib').then(m => m.ArticleCard)
 const SearchBar = () => import('@/components/SearchBar')
 const SearchInfoExtra = () => import('@/components/SearchInfoExtra')
 
 export default {
   name: 'ArticleSearch',
   components: {
+    ArticleCard,
     SearchBar,
     SearchInfoExtra
   },
