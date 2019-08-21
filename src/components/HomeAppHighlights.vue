@@ -17,7 +17,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import { searchGlobalMixin } from '@/mixins/searchMixin'
-const AppCard = () => import('icjia-research-lib').then(m => m.Appcard)
+const AppCard = () => import('icjia-research-lib').then(m => m.AppCard)
 const BaseSection = () => import('@/components/BaseSection')
 
 export default {
