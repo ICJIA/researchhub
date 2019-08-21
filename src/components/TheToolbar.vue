@@ -1,5 +1,5 @@
 <template>
-  <BaseToolbar>
+  <BaseToolbar logoPath="./icjia-logo.png">
     <template v-slot:toolbarItems>
       <v-btn v-for="view in views" :key="view" :to="`/${view}`" text>
         <template>{{ view }}</template>
