@@ -49,7 +49,6 @@ const SearchBar = () => import('@/components/SearchBar')
 const SearchInfoExtra = () => import('@/components/SearchInfoExtra')
 
 export default {
-  name: 'DatasetSearch',
   components: {
     DatasetCard,
     SearchBar,

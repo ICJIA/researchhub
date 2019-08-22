@@ -27,7 +27,6 @@ const ArticleView = () => import('icjia-research-lib').then(m => m.ArticleView)
 const TheProgessBar = () => import('@/components/TheProgressBar')
 
 export default {
-  name: 'ArticleView',
   components: {
     ArticleSocialSharing,
     ArticleView,

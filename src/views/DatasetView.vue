@@ -16,7 +16,6 @@ import { searchGlobalMixin } from '@/mixins/searchMixin'
 const DatasetView = () => import('icjia-research-lib').then(m => m.DatasetView)
 
 export default {
-  name: 'DatasetView',
   components: {
     DatasetView
   },

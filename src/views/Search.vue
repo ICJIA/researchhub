@@ -51,7 +51,6 @@ const SearchInfoExtra = () => import('@/components/SearchInfoExtra')
 const SearchResultList = () => import('@/components/SearchResultList')
 
 export default {
-  name: 'Search',
   metaInfo: {
     titleTemplate: 'Search | %s'
   },

@@ -57,7 +57,6 @@ const SearchBar = () => import('@/components/SearchBar')
 const SearchInfoExtra = () => import('@/components/SearchInfoExtra')
 
 export default {
-  name: 'ArticleSearch',
   components: {
     ArticleCard,
     SearchBar,
