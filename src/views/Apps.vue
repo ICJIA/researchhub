@@ -10,7 +10,6 @@
 const BaseViewTitle = () => import('@/components/BaseViewTitle')
 
 export default {
-  name: 'Apps',
   metaInfo: {
     titleTemplate: 'Apps | %s',
     meta: [

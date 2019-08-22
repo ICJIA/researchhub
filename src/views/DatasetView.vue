@@ -1,6 +1,6 @@
 <template>
   <v-col class="mx-auto" cols="12" sm="10" lg="8" xl="7">
-    <RHDatasetView
+    <DatasetView
       v-if="item"
       :item="item"
       :downloader="downloader"
@@ -13,13 +13,11 @@
 import { saveAs } from 'file-saver'
 import { fetchItemBySlug } from '@/services/client.datasets'
 import { searchGlobalMixin } from '@/mixins/searchMixin'
-const RHDatasetView = () =>
-  import('icjia-research-lib/lib/umd').then(lib => lib.DatasetView)
+const DatasetView = () => import('icjia-research-lib').then(m => m.DatasetView)
 
 export default {
-  name: 'DatasetView',
   components: {
-    RHDatasetView
+    DatasetView
   },
   mixins: [searchGlobalMixin],
   data() {

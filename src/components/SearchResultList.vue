@@ -20,8 +20,10 @@
           </v-btn>
 
           <template v-if="result.external">
-            <v-icon small class="external">mdi-heart</v-icon>
-            <span class="external small">This is an external contribution</span>
+            <v-icon class="marker-external pl-1" small>mdi-charity</v-icon>
+            <span class="marker-external small">
+              <template>{{ 'This is an external contribution' }}</template>
+            </span>
           </template>
 
           <div>

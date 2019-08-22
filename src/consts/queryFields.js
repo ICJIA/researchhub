@@ -51,7 +51,7 @@ const articleViewFields = [
 ]
 
 // datasets content type
-const datasetBaseFields = [...baseFields, 'sources']
+const datasetBaseFields = [...baseFields, 'sources', 'project']
 const datasetViewFields = [
   ...datasetBaseFields,
   'timeperiod',

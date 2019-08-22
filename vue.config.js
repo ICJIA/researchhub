@@ -26,6 +26,8 @@ const compressionPlugins = [
 
 module.exports = {
   configureWebpack: config => {
+    config.entry.app = './src/entry.js'
+
     if (process.env.NODE_ENV === `production`) {
       config.optimization.splitChunks.chunks = 'all'
       config.plugins.push(

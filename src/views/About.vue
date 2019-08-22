@@ -45,7 +45,6 @@ const AboutSection = () => import('@/components/AboutSection')
 const BaseViewTitle = () => import('@/components/BaseViewTitle')
 
 export default {
-  name: 'About',
   metaInfo: {
     titleTemplate: 'About | %s'
   },

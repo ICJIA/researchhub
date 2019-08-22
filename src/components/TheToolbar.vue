@@ -1,5 +1,5 @@
 <template>
-  <RHBaseToolbar>
+  <BaseToolbar logoPath="./icjia-logo.png">
     <template v-slot:toolbarItems>
       <v-btn v-for="view in views" :key="view" :to="`/${view}`" text>
         <template>{{ view }}</template>
@@ -17,16 +17,15 @@
         <v-list-item-title>documentation</v-list-item-title>
       </v-list-item>
     </template>
-  </RHBaseToolbar>
+  </BaseToolbar>
 </template>
 
 <script>
-const RHBaseToolbar = () =>
-  import('icjia-research-lib/lib/umd').then(lib => lib.BaseToolbar)
+const BaseToolbar = () => import('icjia-research-lib').then(m => m.BaseToolbar)
 
 export default {
   components: {
-    RHBaseToolbar
+    BaseToolbar
   },
   data() {
     return {

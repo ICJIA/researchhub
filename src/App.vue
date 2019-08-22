@@ -21,7 +21,6 @@ const TheButtonBackToTop = () => import('@/components/TheButtonBackToTop')
 const TheFooter = () => import('@/components/TheFooter')
 
 export default {
-  name: 'App',
   metaInfo: {
     title: 'Research Hub',
     meta: [

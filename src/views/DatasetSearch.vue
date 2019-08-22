@@ -32,7 +32,7 @@
       <v-row justify="center">
         <v-col v-for="(item, i) in filteredItems" :key="i" cols="12" lg="6">
           <keep-alive>
-            <RHDatasetCard :item="item" @tag-click="searchTagGlobal($event)" />
+            <DatasetCard :item="item" @tag-click="searchTagGlobal($event)" />
           </keep-alive>
         </v-col>
       </v-row>
@@ -44,17 +44,15 @@
 import { mapState } from 'vuex'
 import filterMixin from '@/mixins/filterMixin'
 import { searchGlobalMixin, searchLocalMixin } from '@/mixins/searchMixin'
-const RHDatasetCard = () =>
-  import('icjia-research-lib/lib/umd').then(lib => lib.DatasetCard)
+const DatasetCard = () => import('icjia-research-lib').then(m => m.DatasetCard)
 const SearchBar = () => import('@/components/SearchBar')
 const SearchInfoExtra = () => import('@/components/SearchInfoExtra')
 
 export default {
-  name: 'DatasetSearch',
   components: {
+    DatasetCard,
     SearchBar,
-    SearchInfoExtra,
-    RHDatasetCard
+    SearchInfoExtra
   },
   mixins: [filterMixin, searchGlobalMixin, searchLocalMixin],
   data() {

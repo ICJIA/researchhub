@@ -38,7 +38,7 @@
           lg="4"
         >
           <keep-alive>
-            <RHAppCard :item="item" @tag-click="searchTagGlobal($event)" />
+            <AppCard :item="item" @tag-click="searchTagGlobal($event)" />
           </keep-alive>
         </v-col>
       </v-row>
@@ -50,15 +50,13 @@
 import { mapState } from 'vuex'
 import filterMixin from '@/mixins/filterMixin'
 import { searchGlobalMixin, searchLocalMixin } from '@/mixins/searchMixin'
-const RHAppCard = () =>
-  import('icjia-research-lib/lib/umd').then(lib => lib.AppCard)
+const AppCard = () => import('icjia-research-lib').then(m => m.AppCard)
 const SearchBar = () => import('@/components/SearchBar')
 const SearchInfoExtra = () => import('@/components/SearchInfoExtra')
 
 export default {
-  name: 'AppSearch',
   components: {
-    RHAppCard,
+    AppCard,
     SearchBar,
     SearchInfoExtra
   },

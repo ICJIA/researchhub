@@ -3,7 +3,7 @@
     <v-col class="mx-auto" cols="12" md="10" lg="8" xl="7">
       <v-row justify="center">
         <v-col v-for="(app, i) in apps" :key="i" cols="12" sm="10" md="4">
-          <RHAppCard
+          <AppCard
             v-if="app"
             :item="app"
             @tag-click="searchTagGlobal($event)"
@@ -17,14 +17,13 @@
 <script>
 import { mapGetters } from 'vuex'
 import { searchGlobalMixin } from '@/mixins/searchMixin'
+const AppCard = () => import('icjia-research-lib').then(m => m.AppCard)
 const BaseSection = () => import('@/components/BaseSection')
-const RHAppCard = () =>
-  import('icjia-research-lib/lib/umd').then(lib => lib.AppCard)
 
 export default {
   components: {
-    BaseSection,
-    RHAppCard
+    AppCard,
+    BaseSection
   },
   mixins: [searchGlobalMixin],
   data() {
