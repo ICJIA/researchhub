@@ -4,7 +4,11 @@
 
     <AboutSection :title="section1.title" :subNum="3">
       <template v-slot:subtitle1>{{ section1.sub1.title }}</template>
-      <p v-html="section1.p1" class="italic small greycolor pb-4"></p>
+      <p
+        v-html="section1.p1"
+        class="italic greycolor px-6 py-8"
+        style="background-color: #f6f6f6"
+      ></p>
       <template v-slot:subbody1>
         <p v-html="section1.sub1.p1"></p>
         <p v-html="section1.sub1.p2"></p>
@@ -68,7 +72,7 @@ export default {
         title: 'ICJIA Research Hub',
         p1:
           "This project was supported by State Justice Statistics (SJS) \
-          Program Grant #2018-BJ-CX-XXXX, awarded to the Illinois Criminal \
+          Program Grant #2018-86-CX-K006, awarded to the Illinois Criminal \
           Justice Information Authority by the U.S. Department of Justice \
           Office of Justice Programs' Bureau of Justice Statistics.",
         sub1: {
@@ -98,10 +102,10 @@ export default {
           title: 'Open source technology',
           p1:
             "As an embodiment of the Illinois SAC's appreciation \
-            of transparency, <em>ICJIA Research Hub</em> is developed \
-            publicly on " +
+            of transparency, <em>ICJIA Research Hub</em> applications are \
+            developed publicly on " +
             this.hyperlink(this.hrefGithub, 'GitHub') +
-            ' with XXX license.',
+            ' with MIT license.',
           p2:
             'It is also powered by popular open source projects,\
             including: <ul><li>' +
@@ -114,7 +118,7 @@ export default {
             this.hyperlink('https://strapi.io/', 'Strapi') +
             ' for headless contenet management system;</li><li>' +
             this.hyperlink('https://www.docker.com/', 'Docker') +
-            ' for for containerization;</li><li>and many more.</li>',
+            ' for containerization;</li><li>and many more.</li>',
           p3:
             'Visit ' +
             this.hyperlink(
