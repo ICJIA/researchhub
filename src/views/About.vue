@@ -17,11 +17,6 @@
       <template v-slot:subbody2>
         <p v-for="(p, i) in section1.sub2.paragraphs" v-html="p" :key="i"></p>
       </template>
-
-      <template v-slot:subtitle3>{{ section1.sub3.title }}</template>
-      <template v-slot:subbody3>
-        <p v-for="(p, i) in section1.sub3.paragraphs" v-html="p" :key="i"></p>
-      </template>
     </AboutSection>
 
     <AboutSection :title="section2.title">
@@ -49,9 +44,11 @@ export default {
   data() {
     return {
       title: 'About',
+      hrefDocs: '/docs/',
       hrefICJIA: 'http://www.icjia.state.il.us',
       hrefGithub: 'https://www.github.com/ICJIA',
-      hrefDocs: '/docs/',
+      hrefRandA: this.hrefICJIA + '/research',
+      hrefJRSA: 'http://www.jrsa.org/',
       linkIconHtml:
         '<i aria-hidden="true" class="v-icon notranslate mdi mdi-open-in-new theme--light"></i>'
     }
@@ -71,17 +68,8 @@ export default {
           title: 'Open data, open research, open government',
           paragraphs: {
             p1:
-              'The Research & Analysis Unit of ' +
-              this.hyperlink(
-                this.hrefICJIA,
-                'the Illinois Criminal Justice Information Authority (ICJIA)'
-              ) +
-              " serves as Illinois' Statistical Analysis Center (SAC) and \
-              provides analysis of criminal justice data or informing statewide \
-              policy and practice.",
-            p2:
               "As of its launching, <em>ICJIA Research Hub</em> marks the \
-              latest iteration of the Illinois SAC's ongoing effort to bring \
+              latest iteration of the Authority's ongoing effort to bring \
               criminal justice data and research to the public. \
               <em>ICJIA Research Hub</em> more fully embraces the spirit of \
               the Federal Government's " +
@@ -117,42 +105,52 @@ export default {
             p3:
               'Visit ' +
               this.hyperlink(
-                '/docs/',
-                'the <em>ICJIA Research Hub</em> Documentation page'
+                this.hrefDocs,
+                'the <em>ICJIA Research Hub</em> Documentation site'
               ) +
               ' to learn more about <em>ICJIA Research Hub</em> and its \
-              technical details.'
-          }
-        },
-        sub3: {
-          title: 'Need your help',
-          paragraphs: {
-            p1:
-              "In addition to being transparent, <em>ICJIA Research Hub</em> \
-              invites participation from the public to further improve this \
-              project and keep it closely aligned with the public's interests \
-              and concerns.",
-            p2:
-              'If you are a developer, please consider contributing to the \
-              project on ' +
-              this.hyperlink(this.hrefGithub, 'GitHub') +
-              '. You can also submit applications using our criminal justice \
-              data collections. Your submission will be featured on <em>ICJIA \
-              Research Hub</em>\'s "App" page with a proper attribution after \
-              going through an internal review process.',
-            p3:
-              'Visit ' +
+              technical details.',
+            p4:
+              'In particular, if you are interested in contributing to the \
+              <em>ICJIA Research Hub</em> codebase, please refer to ' +
               this.hyperlink(
-                '/docs/',
-                'the <em>ICJIA Research Hub</em> Documentation page'
-              ) +
-              ' to learn more about contribution and making submissions to \
-              <em>ICJIA Research Hub</em>.'
+                this.hrefDocs + 'dev-guide/contributing/codebase',
+                'the relevant page in the documentation.'
+              )
           }
         }
       }
     },
     section2() {
+      return {
+        title: 'ICJIA Research & Analysis Unit',
+        paragraphs: {
+          p1:
+            'The Research & Analysis Unit of ' +
+            this.hyperlink(
+              this.hrefICJIA,
+              'the Illinois Criminal Justice Information Authority (ICJIA)'
+            ) +
+            " serves as Illinois' Statistical Analysis Center (SAC) and \
+            provides analysis of criminal justice data or informing statewide \
+            policy and practice.",
+          p2:
+            'The Illinois SAC is affiliated with and supported by ' +
+            this.hyperlink(
+              this.hrefJRSA,
+              'the Justice Research and Statistics Association'
+            ) +
+            ', a national nonprofit organization that promotes collaboration \
+            and exchange of information among state SACs, and acts as a \
+            liaison between state agencies and the U.S. Department of Justice.',
+          p3:
+            'For more information, please visit ' +
+            this.hyperlink(this.hrefRandA, "the Illinois SAC's page") +
+            '.'
+        }
+      }
+    },
+    section3() {
       return {
         title: 'Illinois Criminal Justice Information Authority',
         paragraphs: {
@@ -180,31 +178,6 @@ export default {
           p4:
             'For more information about ICJIA, please visit ' +
             this.hyperlink(this.hrefICJIA, 'the official website') +
-            '.'
-        }
-      }
-    },
-    section3() {
-      return {
-        title: 'Illinois Open Data Portal',
-        paragraphs: {
-          p1:
-            'The State of Illinois offers a state-wide open data portal, which \
-            lets you find data across state, facts about your state, create \
-            maps and graphs, and freely download the data for your own \
-            analysis. Many of these datasets are updated daily, and some even \
-            more often.',
-          p2:
-            "On March 10, 2014, the Illinois General Assembly unanimously \
-            passed PA 98-0627, a bill introduced by the Governor's Office and \
-            intended to increase transparency, accountability and savings in \
-            government by establishing a new State Open Operating Standard.",
-          p3:
-            'For more information, please visit ' +
-            this.hyperlink(
-              'https://data.illinois.gov/',
-              'Illinois Open Data Portal'
-            ) +
             '.'
         }
       }
