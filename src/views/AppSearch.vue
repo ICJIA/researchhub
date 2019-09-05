@@ -63,12 +63,13 @@ export default {
   mixins: [filterMixin, searchGlobalMixin, searchLocalMixin],
   data() {
     return {
-      contentType: 'app'
+      contentType: 'app',
+      category: 'all'
     }
   },
   computed: {
     ...mapState('apps', {
-      items: 'data',
+      items: 'info',
       suggestions: 'suggestions'
     }),
     filteredItems() {
@@ -93,7 +94,7 @@ export default {
     }
   },
   async created() {
-    if (this.$store.state.apps.data.length === 0) {
+    if (this.$store.state.apps.info.length === 0) {
       await this.$store.dispatch('apps/fetchInfo')
     }
   },
