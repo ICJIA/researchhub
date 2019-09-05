@@ -30,22 +30,21 @@ export default {
         {
           title: 'User Guide',
           body:
-            'New to the Research Hub? Read to find out more about navigating \
-            the Research Hub like a pro.',
+            'New to the Research Hub? Click here and find out more about \
+            navigating the Research Hub like a pro.',
           ref: 'guide/'
         },
         {
-          title: 'API Reference',
+          title: 'Developer Guide',
           body:
-            'Learn how to use the Research Hub API to obtain data, analyze \
-            them, and develop awesome applications.',
-          ref: 'dev-guide/api.html'
+            'For those interested in the technical details of the Research Hub \
+            and more.',
+          ref: 'dev-guide/'
         },
         {
-          title: 'Contributing Guidelines',
+          title: 'FAQ',
           body:
-            'Need help! Find out how to make contributions to the Research \
-            Hub and have your work recognized.',
+            'Find answers to some freqntly asked questions about ICJIA Research Hub.',
           ref: 'dev-guide/contributing.html'
         }
       ]
