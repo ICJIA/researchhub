@@ -71,10 +71,12 @@ export default {
       return {
         title: 'ICJIA Research Hub',
         p1:
-          "This project was supported by State Justice Statistics (SJS) \
+          "This product was supported by State Justice Statistics (SJS) \
           Program Grant #2018-86-CX-K006, awarded to the Illinois Criminal \
           Justice Information Authority by the U.S. Department of Justice \
-          Office of Justice Programs' Bureau of Justice Statistics.",
+          Office of Justice Programs' Bureau of Justice Statistics. \
+          Points of view in this product do not necessarily represent the \
+          official position or policies of the U.S. Department of Justice.",
         sub1: {
           title: 'Open data, open research, open government',
           p1:
