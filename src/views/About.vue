@@ -4,11 +4,9 @@
 
     <AboutSection :title="section1.title" :subNum="3">
       <template v-slot:subtitle1>{{ section1.sub1.title }}</template>
-      <p
-        v-html="section1.p1"
-        class="italic greycolor px-6 py-8"
-        style="background-color: #f6f6f6"
-      ></p>
+
+      <FundingAcknowledgement :bgColor="true" />
+
       <template v-slot:subbody1>
         <p v-for="(p, i) in section1.sub1.paragraphs" v-html="p" :key="i"></p>
       </template>
@@ -32,6 +30,8 @@
 <script>
 const AboutSection = () => import('@/components/AboutSection')
 const BaseViewTitle = () => import('@/components/BaseViewTitle')
+const FundingAcknowledgement = () =>
+  import('@/components/FundingAcknowledgement')
 
 export default {
   metaInfo: {
@@ -39,7 +39,8 @@ export default {
   },
   components: {
     AboutSection,
-    BaseViewTitle
+    BaseViewTitle,
+    FundingAcknowledgement
   },
   data() {
     return {
@@ -57,13 +58,6 @@ export default {
     section1() {
       return {
         title: 'ICJIA Research Hub',
-        p1:
-          "This product was supported by State Justice Statistics (SJS) \
-          Program Grant #2018-86-CX-K006, awarded to the Illinois Criminal \
-          Justice Information Authority by the U.S. Department of Justice \
-          Office of Justice Programs' Bureau of Justice Statistics. \
-          Points of view in this product do not necessarily represent the \
-          official position or policies of the U.S. Department of Justice.",
         sub1: {
           title: 'Open data, open research, open government',
           paragraphs: {
