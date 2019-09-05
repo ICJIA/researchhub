@@ -15,7 +15,7 @@
 
       <HomeLatestArticles v-if="i == 2" />
 
-      <HomeAppHighlights v-if="i == 3" />
+      <HomeLatestApps v-if="i == 3" />
 
       <HomeDocumentation v-if="i == 4" />
     </div>
@@ -24,8 +24,8 @@
 
 <script>
 const BaseViewTitle = () => import('@/components/BaseViewTitle')
-const HomeAppHighlights = () => import('@/components/HomeAppHighlights')
 const HomeDocumentation = () => import('@/components/HomeDocumentation')
+const HomeLatestApps = () => import('@/components/HomeLatestApps')
 const HomeLatestArticles = () => import('@/components/HomeLatestArticles')
 const HomeSearch = () => import('@/components/HomeSearch')
 
@@ -35,8 +35,8 @@ export default {
   },
   components: {
     BaseViewTitle,
-    HomeAppHighlights,
     HomeDocumentation,
+    HomeLatestApps,
     HomeLatestArticles,
     HomeSearch
   },
