@@ -10,14 +10,16 @@
       </p>
     </BaseViewTitle>
 
-    <div v-for="i in 4" :key="i" :class="{ 'grey-background': i % 2 == 1 }">
+    <div v-for="i in 5" :key="i" :class="{ 'grey-background': i % 2 == 1 }">
       <HomeSearch v-if="i == 1" />
 
       <HomeLatestArticles v-if="i == 2" />
 
       <HomeLatestApps v-if="i == 3" />
 
-      <HomeDocumentation v-if="i == 4" />
+      <HomeLatestDatasets v-if="i == 4" />
+
+      <HomeDocumentation v-if="i == 5" />
     </div>
   </div>
 </template>
@@ -27,6 +29,7 @@ const BaseViewTitle = () => import('@/components/BaseViewTitle')
 const HomeDocumentation = () => import('@/components/HomeDocumentation')
 const HomeLatestApps = () => import('@/components/HomeLatestApps')
 const HomeLatestArticles = () => import('@/components/HomeLatestArticles')
+const HomeLatestDatasets = () => import('@/components/HomeLatestDatasets')
 const HomeSearch = () => import('@/components/HomeSearch')
 
 export default {
@@ -38,6 +41,7 @@ export default {
     HomeDocumentation,
     HomeLatestApps,
     HomeLatestArticles,
+    HomeLatestDatasets,
     HomeSearch
   },
   data() {
