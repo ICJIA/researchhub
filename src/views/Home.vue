@@ -10,22 +10,28 @@
       </p>
     </BaseViewTitle>
 
-    <div v-for="i in 5" :key="i" :class="{ 'grey-background': i % 2 == 1 }">
-      <HomeSearch v-if="i == 1" />
+    <HomeSearch />
 
-      <HomeLatestArticles v-if="i == 2" />
+    <div class="grey-background">
+      <HomeLatestArticles />
 
-      <HomeLatestApps v-if="i == 3" />
+      <HomeLatestApps />
 
-      <HomeLatestDatasets v-if="i == 4" />
+      <HomeLatestDatasets />
+    </div>
 
-      <HomeDocumentation v-if="i == 5" />
+    <HomeDocumentation />
+
+    <div style="display: flex; justify-content: center;">
+      <FundingAcknowledgement />
     </div>
   </div>
 </template>
 
 <script>
 const BaseViewTitle = () => import('@/components/BaseViewTitle')
+const FundingAcknowledgement = () =>
+  import('@/components/FundingAcknowledgement')
 const HomeDocumentation = () => import('@/components/HomeDocumentation')
 const HomeLatestApps = () => import('@/components/HomeLatestApps')
 const HomeLatestArticles = () => import('@/components/HomeLatestArticles')
@@ -38,6 +44,7 @@ export default {
   },
   components: {
     BaseViewTitle,
+    FundingAcknowledgement,
     HomeDocumentation,
     HomeLatestApps,
     HomeLatestArticles,
