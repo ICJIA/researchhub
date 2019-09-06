@@ -4,15 +4,15 @@
       <v-col class="mx-auto pa-0" cols="10">
         <v-row align-content="center" justify="space-between" no-gutters>
           <v-select
+            :items="categories"
             class="font-lato ma-0"
             style="max-width: 240px;"
-            @input="category => $emit('search-category', category)"
-            :items="categories"
             append-icon=""
             clearable
             label="Filter by category"
             prepend-inner-icon="mdi-filter"
             rounded
+            @input="category => $emit('search-category', category)"
           ></v-select>
 
           <span class="align-self-center px-6">{{ msgFound }}</span>
@@ -24,9 +24,9 @@
         <v-btn
           v-for="(suggestion, i) in suggestions"
           :key="i"
-          text
           class="mt-1"
           style="text-transform: none;"
+          text
           @click="$emit('search-suggestion', suggestion)"
         >
           <template>{{ suggestion }}</template>
@@ -41,10 +41,22 @@
 <script>
 export default {
   props: {
-    contentType: String,
-    items: Array,
-    filteredItems: Array,
-    suggestions: Array
+    contentType: {
+      type: String,
+      default: ''
+    },
+    filteredItems: {
+      type: Array,
+      default: () => []
+    },
+    items: {
+      type: Array,
+      default: () => []
+    },
+    suggestions: {
+      type: Array,
+      default: () => []
+    }
   },
   computed: {
     categories() {

@@ -4,8 +4,8 @@
       <router-link
         v-for="(article, i) in articles"
         :key="i"
-        :to="`/articles/${article.slug}`"
         style="text-decoration: none"
+        :to="`/articles/${article.slug}`"
       >
         <v-carousel-item
           :src="article.splash"

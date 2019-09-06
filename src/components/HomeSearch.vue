@@ -8,12 +8,12 @@
     <v-col cols="10" lg="6" xl="5">
       <v-form @submit.prevent="searchGlobal(search)">
         <v-text-field
-          @keyup.enter="submit"
           v-model="search"
-          label="Type search terms and hit <Enter>"
-          :clearable="true"
           append-outer-icon="mdi-magnify"
+          clearable
+          label="Type search terms and hit <Enter>"
           solo
+          @keyup.enter="submit"
         />
       </v-form>
     </v-col>

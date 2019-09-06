@@ -25,7 +25,10 @@
 <script>
 export default {
   props: {
-    title: String,
+    title: {
+      type: String,
+      default: ''
+    },
     subNum: {
       type: Number,
       default: 0

@@ -1,28 +1,29 @@
 <template>
+  <!-- eslint-disable vue/no-v-html -->
   <div>
     <BaseViewTitle :page="title" />
 
-    <AboutSection :title="section1.title" :subNum="3">
+    <AboutSection :title="section1.title" :sub-num="3">
       <template v-slot:subtitle1>{{ section1.sub1.title }}</template>
 
-      <FundingAcknowledgement :bgColor="true" />
+      <FundingAcknowledgement :bg-color="true" />
 
       <template v-slot:subbody1>
-        <p v-for="(p, i) in section1.sub1.paragraphs" v-html="p" :key="i"></p>
+        <p v-for="(p, i) in section1.sub1.paragraphs" :key="i" v-html="p"></p>
       </template>
 
       <template v-slot:subtitle2>{{ section1.sub2.title }}</template>
       <template v-slot:subbody2>
-        <p v-for="(p, i) in section1.sub2.paragraphs" v-html="p" :key="i"></p>
+        <p v-for="(p, i) in section1.sub2.paragraphs" :key="i" v-html="p"></p>
       </template>
     </AboutSection>
 
     <AboutSection :title="section2.title">
-      <p v-for="(p, i) in section2.paragraphs" v-html="p" :key="i"></p>
+      <p v-for="(p, i) in section2.paragraphs" :key="i" v-html="p"></p>
     </AboutSection>
 
     <AboutSection :title="section3.title">
-      <p v-for="(p, i) in section3.paragraphs" v-html="p" :key="i"></p>
+      <p v-for="(p, i) in section3.paragraphs" :key="i" v-html="p"></p>
     </AboutSection>
   </div>
 </template>

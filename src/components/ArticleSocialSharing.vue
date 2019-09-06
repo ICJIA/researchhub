@@ -1,37 +1,37 @@
 <template>
   <transition name="fade">
     <social-sharing
-      class="social-sharing"
-      v-scroll="onScroll"
       v-show="fab"
+      v-scroll="onScroll"
+      class="social-sharing"
       :url="url"
       :title="title"
       inline-template
     >
       <div>
-        <network network="facebook" style="background-color:#305891;">
+        <network style="background-color:#305891;" network="facebook">
           <v-icon
-            small
             aria-label="Share to Facebook"
             style="padding:2px 7px; color:white; cursor:pointer;"
+            small
           >
             <template>{{ 'mdi-facebook-box' }}</template>
           </v-icon>
         </network>
-        <network network="linkedin" style="background-color:#4498c8;">
+        <network style="background-color:#4498c8;" network="linkedin">
           <v-icon
-            small
             aria-label="Share to LinkedIn"
             style="padding:2px 7px; color:white; cursor:pointer;"
+            small
           >
             <template>{{ 'mdi-linkedin-box' }}</template>
           </v-icon>
         </network>
-        <network network="twitter" style="background-color:#2ca8d2;">
+        <network style="background-color:#2ca8d2;" network="twitter">
           <v-icon
-            small
             aria-label="Share to Twitter"
             style="padding:2px 7px; color:white; cursor:pointer;"
+            small
           >
             <template>{{ 'mdi-twitter-box' }}</template>
           </v-icon>
@@ -44,8 +44,14 @@
 <script>
 export default {
   props: {
-    url: String,
-    title: String
+    title: {
+      type: String,
+      default: ''
+    },
+    url: {
+      type: String,
+      default: ''
+    }
   },
   data() {
     return {

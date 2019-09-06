@@ -10,9 +10,9 @@
       />
 
       <SearchInfoExtra
-        contentType="item"
+        content-type="item"
+        :filtered-items="[...filterApps, ...filterArticles, ...filterDatasets]"
         :items="[...apps, ...articles, ...datasets]"
-        :filteredItems="[...filterApps, ...filterArticles, ...filterDatasets]"
         :suggestions="suggestions"
         @search-suggestion="useSearchTerm($event)"
       />
@@ -20,25 +20,25 @@
 
     <SearchResultList
       v-if="filterApps && filterApps.length > 0"
+      :results="filterApps"
       title="Apps"
       to="apps"
-      :results="filterApps"
       @search-tag="useSearchTerm($event)"
     />
 
     <SearchResultList
       v-if="filterArticles && filterArticles.length > 0"
+      :results="filterArticles"
       title="Articles"
       to="articles"
-      :results="filterArticles"
       @search-tag="useSearchTerm($event)"
     />
 
     <SearchResultList
       v-if="filterDatasets && filterDatasets.length > 0"
+      :results="filterDatasets"
       title="Datasets"
       to="datasets"
-      :results="filterDatasets"
       @search-tag="useSearchTerm($event)"
     />
   </div>
@@ -61,7 +61,10 @@ export default {
     SearchResultList
   },
   props: {
-    search: String
+    search: {
+      type: String,
+      default: ''
+    }
   },
   data() {
     return {

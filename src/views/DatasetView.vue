@@ -2,8 +2,8 @@
   <v-col class="mx-auto" cols="12" sm="10" lg="8" xl="7">
     <DatasetView
       v-if="item"
-      :item="item"
       :downloader="downloader"
+      :item="item"
       @tag-click="searchTagGlobal($event)"
     />
   </v-col>

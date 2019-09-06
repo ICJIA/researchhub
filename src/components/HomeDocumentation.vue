@@ -1,8 +1,8 @@
 <template>
-  <BaseSection :title="title" href="/docs/">
+  <BaseSection href="/docs/" :title="title">
     <v-col class="mx-auto" cols="12" sm="10" lg="8" xl="7">
       <v-row>
-        <v-col cols="12" sm="4" v-for="(item, i) in items" :key="i">
+        <v-col v-for="(item, i) in items" :key="i" cols="12" sm="4">
           <div class="px-4">
             <a :href="`/docs/${item.ref}`" target="_blank" rel="noreferrer">
               <h2 class="mb-10 light">{{ item.title }}</h2>

@@ -11,9 +11,9 @@
             v-for="tag in result.tags"
             :key="tag"
             class="chip"
-            small
             depressed
             rounded
+            small
             @click="$emit('search-tag', $event.target.textContent)"
           >
             <template>{{ tag }}</template>
@@ -48,9 +48,18 @@ export default {
     BaseSection
   },
   props: {
-    title: String,
-    to: String,
-    results: Array
+    title: {
+      type: String,
+      default: ''
+    },
+    to: {
+      type: String,
+      default: ''
+    },
+    results: {
+      type: Array,
+      default: () => []
+    }
   }
 }
 </script>
