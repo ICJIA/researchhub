@@ -5,38 +5,43 @@
     <v-col class="mx-auto pt-6 pb-0 px-0" cols="10" sm="8" lg="6" xl="5">
       <SearchBar
         ref="searchBar"
-        label="Search for Research Hub items (by title, date, categories, tags)"
+        label="Search for Research Hub items (by title, date, tags)"
         :search.sync="searchLocal"
       />
 
       <SearchInfoExtra
         content-type="item"
-        :filtered-items="[...filterApps, ...filterArticles, ...filterDatasets]"
+        :filtered-items="[
+          ...filteredApps,
+          ...filteredArticles,
+          ...filteredDatasets
+        ]"
         :items="[...apps, ...articles, ...datasets]"
         :suggestions="suggestions"
+        @search-category="$event => (category = $event)"
         @search-suggestion="useSearchTerm($event)"
       />
     </v-col>
 
     <SearchResultList
-      v-if="filterApps && filterApps.length > 0"
-      :results="filterApps"
+      v-if="filteredApps && filteredApps.length > 0"
+      :results="filteredApps"
       title="Apps"
       to="apps"
       @search-tag="useSearchTerm($event)"
     />
 
     <SearchResultList
-      v-if="filterArticles && filterArticles.length > 0"
-      :results="filterArticles"
+      v-if="filteredArticles && filteredArticles.length > 0"
+      :results="filteredArticles"
       title="Articles"
       to="articles"
       @search-tag="useSearchTerm($event)"
     />
 
     <SearchResultList
-      v-if="filterDatasets && filterDatasets.length > 0"
-      :results="filterDatasets"
+      v-if="filteredDatasets && filteredDatasets.length > 0"
+      :results="filteredDatasets"
       title="Datasets"
       to="datasets"
       @search-tag="useSearchTerm($event)"
@@ -45,6 +50,7 @@
 </template>
 
 <script>
+import filterMixin from '@/mixins/filterMixin'
 const BaseViewTitle = () => import('@/components/BaseViewTitle')
 const SearchBar = () => import('@/components/SearchBar')
 const SearchInfoExtra = () => import('@/components/SearchInfoExtra')
@@ -60,6 +66,7 @@ export default {
     SearchInfoExtra,
     SearchResultList
   },
+  mixins: [filterMixin],
   props: {
     search: {
       type: String,
@@ -77,22 +84,22 @@ export default {
     }
   },
   computed: {
-    filterApps() {
-      return this.filterItems({
+    filteredApps() {
+      return this.getFilteredItems({
         items: this.apps,
-        search: this.searchLocal.toUpperCase()
+        search: this.searchLocal
       })
     },
-    filterArticles() {
-      return this.filterItems({
+    filteredArticles() {
+      return this.getFilteredItems({
         items: this.articles,
-        search: this.searchLocal.toUpperCase()
+        search: this.searchLocal
       })
     },
-    filterDatasets() {
-      return this.filterItems({
+    filteredDatasets() {
+      return this.getFilteredItems({
         items: this.datasets,
-        search: this.searchLocal.toUpperCase()
+        search: this.searchLocal
       })
     }
   },
@@ -103,22 +110,18 @@ export default {
     this.datasets = this.$store.state.search.datasets
   },
   methods: {
-    filterItems({ items, search }) {
-      return search
-        ? items.filter(
-            ({ title, date, categories, tags }) =>
-              title.toUpperCase().match(search) ||
-              date.match(search) ||
-              categories
-                .join('')
-                .toUpperCase()
-                .match(search) ||
-              tags
-                .join('')
-                .toUpperCase()
-                .match(search)
-          )
-        : []
+    getFilteredItems({ items, search }) {
+      return this.filterItems({
+        items,
+        search,
+        filterSearch: (item, s) =>
+          item.title.toUpperCase().match(s) ||
+          item.date.match(s) ||
+          item.tags
+            .join('')
+            .toUpperCase()
+            .match(s)
+      })
     },
     useSearchTerm(x) {
       this.$vuetify.goTo(0)
