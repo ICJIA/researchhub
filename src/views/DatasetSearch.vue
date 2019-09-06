@@ -78,10 +78,6 @@ export default {
             .join('')
             .toUpperCase()
             .match(s) ||
-          item.categories
-            .join('')
-            .toUpperCase()
-            .match(s) ||
           item.tags
             .join('')
             .toUpperCase()
