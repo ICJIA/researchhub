@@ -46,6 +46,18 @@
         />
       </keep-alive>
     </v-col>
+
+    <div class="py-6 text-center font-lato">
+      <v-icon class="px-1 warning--text">mdi-clock-alert-outline</v-icon>
+      <span>Older publications can be found </span>
+      <a
+        href="http://www.icjia.state.il.us/research/publications"
+        rel="noreferrer"
+        target="_blank"
+      >
+        <template>{{ 'here' }}</template>
+      </a>
+    </div>
   </div>
 </template>
 
