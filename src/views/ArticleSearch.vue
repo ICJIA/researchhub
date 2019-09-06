@@ -24,6 +24,7 @@
         :items="items"
         :filteredItems="filteredItems"
         :suggestions="suggestions"
+        @search-category="$event => (category = $event)"
         @search-suggestion="searchLocal($event)"
       />
     </v-col>
@@ -84,10 +85,6 @@ export default {
           item.date.match(s) ||
           item.authors
             .map(el => el.title)
-            .join('')
-            .toUpperCase()
-            .match(s) ||
-          item.categories
             .join('')
             .toUpperCase()
             .match(s) ||

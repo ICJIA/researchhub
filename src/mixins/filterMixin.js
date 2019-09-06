@@ -1,6 +1,12 @@
+const filterExternal = (item, icjiaOnly) => (icjiaOnly ? !item.external : true)
+
+const filterCategory = (item, category) =>
+  category ? item.categories.includes(category) : true
+
 export default {
   data() {
     return {
+      category: undefined,
       icjiaOnly: false
     }
   },
@@ -10,17 +16,13 @@ export default {
     }
   },
   methods: {
-    filterExternal(items) {
-      if (this.icjiaOnly) {
-        return items.filter(item => !item.external)
-      } else {
-        return items
-      }
-    },
-    filterItems(items, searchterm, filterer) {
-      const s = searchterm.toUpperCase()
-
-      return this.filterExternal(items).filter(item => filterer(item, s))
+    filterItems(items, searchterm, filterSearch) {
+      return items.filter(
+        item =>
+          filterExternal(item, this.icjiaOnly) &&
+          filterCategory(item, this.category) &&
+          filterSearch(item, searchterm.toUpperCase())
+      )
     }
   }
 }

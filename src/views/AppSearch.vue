@@ -24,6 +24,7 @@
         :items="items"
         :filteredItems="filteredItems"
         :suggestions="suggestions"
+        @search-category="$event => (category = $event)"
         @search-suggestion="searchLocal($event)"
       />
     </v-col>
@@ -63,8 +64,7 @@ export default {
   mixins: [filterMixin, searchGlobalMixin, searchLocalMixin],
   data() {
     return {
-      contentType: 'app',
-      category: 'all'
+      contentType: 'app'
     }
   },
   computed: {
@@ -78,10 +78,6 @@ export default {
           item.title.toUpperCase().match(s) ||
           item.contributors
             .map(el => el.title)
-            .join('')
-            .toUpperCase()
-            .match(s) ||
-          item.categories
             .join('')
             .toUpperCase()
             .match(s) ||

@@ -1,9 +1,25 @@
 <template>
   <div class="text-center font-lato">
-    <div v-if="items.length === 0">Loading {{ contentType }}s...</div>
+    <template v-if="items.length > 0">
+      <v-col class="mx-auto pa-0" cols="10">
+        <v-row align-content="center" justify="space-between" no-gutters>
+          <v-select
+            class="font-lato ma-0"
+            style="max-width: 240px;"
+            @input="category => $emit('search-category', category)"
+            :items="categories"
+            append-icon=""
+            clearable
+            label="Filter by category"
+            prepend-inner-icon="mdi-filter"
+            rounded
+          ></v-select>
 
-    <template v-else class="py-2">
-      <div>{{ filteredItems.length }} {{ contentType }}s found</div>
+          <span class="align-self-center px-6"
+            >{{ filteredItems.length }} {{ contentType }}s found</span
+          >
+        </v-row>
+      </v-col>
 
       <div v-if="filteredItems.length === 0">
         <p class="mt-6 mb-0">Need suggestions? Try these:</p>
@@ -19,6 +35,8 @@
         </v-btn>
       </div>
     </template>
+
+    <div v-else class="pt-2">Loading {{ contentType }}s...</div>
   </div>
 </template>
 
@@ -29,6 +47,11 @@ export default {
     items: Array,
     filteredItems: Array,
     suggestions: Array
+  },
+  computed: {
+    categories() {
+      return [...new Set(this.items.flatMap(el => el.categories))].sort()
+    }
   }
 }
 </script>
