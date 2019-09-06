@@ -22,7 +22,7 @@
 
     <HomeDocumentation />
 
-    <div style="display: flex; justify-content: center;">
+    <div class="d-flex justify-center">
       <FundingAcknowledgement />
     </div>
   </div>

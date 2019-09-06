@@ -24,8 +24,7 @@
         <v-btn
           v-for="(suggestion, i) in suggestions"
           :key="i"
-          class="mt-1"
-          style="text-transform: none;"
+          class="mt-1 text-none"
           text
           @click="$emit('search-suggestion', suggestion)"
         >
