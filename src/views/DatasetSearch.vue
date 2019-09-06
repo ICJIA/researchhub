@@ -5,7 +5,7 @@
         <v-col cols="10" :class="hasExternal ? 'col-sm-9' : ''">
           <SearchBar
             ref="searchBar"
-            label="Search for datasets (by title, date, sources, categories, tags)"
+            label="Search for datasets (by title, date, sources, tags)"
             :search.sync="localSearch"
           />
         </v-col>

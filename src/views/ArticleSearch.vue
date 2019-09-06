@@ -5,7 +5,7 @@
         <v-col :class="hasExternal ? 'col-sm-9' : ''" cols="10">
           <SearchBar
             ref="searchBar"
-            label="Search for articles (by title, date, authors, categories, tags)"
+            label="Search for articles (by title, date, authors, tags)"
             :search.sync="localSearch"
           />
         </v-col>
