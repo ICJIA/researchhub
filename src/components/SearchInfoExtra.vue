@@ -15,9 +15,7 @@
             rounded
           ></v-select>
 
-          <span class="align-self-center px-6"
-            >{{ filteredItems.length }} {{ contentType }}s found</span
-          >
+          <span class="align-self-center px-6">{{ msgFound }}</span>
         </v-row>
       </v-col>
 
@@ -51,6 +49,11 @@ export default {
   computed: {
     categories() {
       return [...new Set(this.items.flatMap(el => el.categories))].sort()
+    },
+    msgFound() {
+      const count = this.filteredItems.length
+      const type = count > 1 ? `${this.contentType}s` : this.contentType
+      return `${count} ${type} found`
     }
   }
 }
