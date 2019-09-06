@@ -16,12 +16,12 @@ export default {
     }
   },
   methods: {
-    filterItems(items, searchterm, filterSearch) {
+    filterItems({ items, search, filterSearch }) {
       return items.filter(
         item =>
           filterExternal(item, this.icjiaOnly) &&
           filterCategory(item, this.category) &&
-          filterSearch(item, searchterm.toUpperCase())
+          filterSearch(item, search.toUpperCase())
       )
     }
   }

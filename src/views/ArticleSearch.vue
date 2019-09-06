@@ -82,8 +82,10 @@ export default {
       suggestions: 'suggestions'
     }),
     filteredItems() {
-      return this.filterItems(this.items, this.localSearch, (item, s) => {
-        return (
+      return this.filterItems({
+        items: this.items,
+        search: this.localSearch,
+        filterSearch: (item, s) =>
           item.title.toUpperCase().match(s) ||
           item.date.match(s) ||
           item.authors
@@ -95,7 +97,6 @@ export default {
             .join('')
             .toUpperCase()
             .match(s)
-        )
       })
     }
   },
