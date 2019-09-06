@@ -28,17 +28,17 @@ export default {
   mixins: [searchGlobalMixin],
   data() {
     return {
-      title: 'app highlights',
+      title: 'latest apps',
       to: 'apps'
     }
   },
   computed: {
     ...mapGetters('apps', {
-      apps: 'highlights'
+      apps: 'latest'
     })
   },
   async created() {
-    if (this.$store.state.apps.data.length === 0) {
+    if (this.$store.state.apps.info.length === 0) {
       await this.$store.dispatch('apps/fetchInfo')
     }
   }

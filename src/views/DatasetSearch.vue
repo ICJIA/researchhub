@@ -20,10 +20,11 @@
       </v-row>
 
       <SearchInfoExtra
-        :contentType="contentType"
+        :content-type="contentType"
+        :filtered-items="filteredItems"
         :items="items"
-        :filteredItems="filteredItems"
         :suggestions="suggestions"
+        @search-category="$event => (category = $event)"
         @search-suggestion="searchLocal($event)"
       />
     </v-col>

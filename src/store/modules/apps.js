@@ -5,13 +5,13 @@ export { namespaced, state, mutations, actions, getters }
 const namespaced = true
 
 const state = {
-  data: [],
+  info: [],
   suggestions: ['app', 'dashboard']
 }
 
 const mutations = {
   FETCH_INFO(state, payload) {
-    state.data = payload.map(el => {
+    state.info = payload.map(el => {
       el.date = el.date.slice(0, 10)
       return el
     })
@@ -25,7 +25,7 @@ const actions = {
 }
 
 const getters = {
-  highlights(state) {
-    return state.data.slice(0, 3)
+  latest(state) {
+    return state.info.slice(0, 3)
   }
 }

@@ -1,20 +1,26 @@
 <template>
   <v-text-field
-    @keyup="onKeyup($event)"
-    @click:clear="onClear($event)"
     :value="searchInput"
     :label="searchLabel"
     :clearable="true"
     prepend-inner-icon="mdi-magnify"
     solo
+    @click:clear="onClear($event)"
+    @keyup="onKeyup($event)"
   />
 </template>
 
 <script>
 export default {
   props: {
-    label: String,
-    search: String
+    label: {
+      type: String,
+      default: ''
+    },
+    search: {
+      type: String,
+      default: ''
+    }
   },
   data() {
     return {

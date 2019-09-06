@@ -1,6 +1,6 @@
 import { fetchItemsList } from '@/services/client.datasets'
 
-export { namespaced, state, mutations, actions }
+export { namespaced, state, mutations, actions, getters }
 
 const namespaced = true
 
@@ -21,5 +21,11 @@ const mutations = {
 const actions = {
   async fetchInfo({ commit }) {
     commit('FETCH_INFO', await fetchItemsList())
+  }
+}
+
+const getters = {
+  latest(state) {
+    return state.info.slice(0, 2)
   }
 }

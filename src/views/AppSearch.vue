@@ -20,10 +20,11 @@
       </v-row>
 
       <SearchInfoExtra
-        :contentType="contentType"
+        :content-type="contentType"
+        :filtered-items="filteredItems"
         :items="items"
-        :filteredItems="filteredItems"
         :suggestions="suggestions"
+        @search-category="$event => (category = $event)"
         @search-suggestion="searchLocal($event)"
       />
     </v-col>
@@ -68,7 +69,7 @@ export default {
   },
   computed: {
     ...mapState('apps', {
-      items: 'data',
+      items: 'info',
       suggestions: 'suggestions'
     }),
     filteredItems() {
@@ -77,10 +78,6 @@ export default {
           item.title.toUpperCase().match(s) ||
           item.contributors
             .map(el => el.title)
-            .join('')
-            .toUpperCase()
-            .match(s) ||
-          item.categories
             .join('')
             .toUpperCase()
             .match(s) ||
@@ -93,7 +90,7 @@ export default {
     }
   },
   async created() {
-    if (this.$store.state.apps.data.length === 0) {
+    if (this.$store.state.apps.info.length === 0) {
       await this.$store.dispatch('apps/fetchInfo')
     }
   },

@@ -11,10 +11,10 @@
 
           <a
             v-if="href"
-            :href="href"
-            target="_blank"
             class="font-lato small"
+            :href="href"
             rel="noreferrer"
+            target="_blank"
           >
             <template>{{ 'see more' }}</template>
           </a>
@@ -29,9 +29,18 @@
 <script>
 export default {
   props: {
-    title: String,
-    to: String,
-    href: String
+    href: {
+      type: String,
+      default: ''
+    },
+    title: {
+      type: String,
+      default: ''
+    },
+    to: {
+      type: String,
+      default: ''
+    }
   }
 }
 </script>

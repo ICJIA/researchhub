@@ -2,7 +2,7 @@
   <div class="pt-6">
     <v-col class="mx-auto pa-0" cols="12" sm="8" lg="6" xl="5">
       <v-row align="center" justify="center" no-gutters>
-        <v-col cols="10" :class="hasExternal ? 'col-sm-9' : ''">
+        <v-col :class="hasExternal ? 'col-sm-9' : ''" cols="10">
           <SearchBar
             ref="searchBar"
             label="Search for articles (by title, date, authors, categories, tags)"
@@ -20,10 +20,11 @@
       </v-row>
 
       <SearchInfoExtra
-        :contentType="contentType"
+        :content-type="contentType"
+        :filtered-items="filteredItems"
         :items="items"
-        :filteredItems="filteredItems"
         :suggestions="suggestions"
+        @search-category="$event => (category = $event)"
         @search-suggestion="searchLocal($event)"
       />
     </v-col>
@@ -62,10 +63,13 @@ export default {
     SearchBar,
     SearchInfoExtra
   },
-  props: {
-    search: String
-  },
   mixins: [filterMixin, searchGlobalMixin, searchLocalMixin],
+  props: {
+    search: {
+      type: String,
+      default: ''
+    }
+  },
   data() {
     return {
       contentType: 'article',
@@ -84,10 +88,6 @@ export default {
           item.date.match(s) ||
           item.authors
             .map(el => el.title)
-            .join('')
-            .toUpperCase()
-            .match(s) ||
-          item.categories
             .join('')
             .toUpperCase()
             .match(s) ||

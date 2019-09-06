@@ -1,14 +1,14 @@
 <template>
   <v-fab-transition>
     <v-btn
-      v-scroll="onScroll"
       v-show="fab"
-      fab
-      dark
-      fixed
+      v-scroll="onScroll"
       bottom
-      right
       color="rgba(70, 108, 140, 0.8)"
+      dark
+      fab
+      fixed
+      right
       @click="toTop"
     >
       <v-icon color="white">mdi-chevron-up</v-icon>

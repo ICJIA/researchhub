@@ -1,0 +1,46 @@
+<template>
+  <BaseSection v-if="datasets" :title="title" :home="true" :to="to">
+    <v-col class="mx-auto" cols="12" md="10" lg="8" xl="7">
+      <v-row justify="center">
+        <v-col v-for="(dataset, i) in datasets" :key="i" cols="12" lg="6">
+          <DatasetCard
+            v-if="dataset"
+            :item="dataset"
+            @tag-click="searchTagGlobal($event)"
+          />
+        </v-col>
+      </v-row>
+    </v-col>
+  </BaseSection>
+</template>
+
+<script>
+import { mapGetters } from 'vuex'
+import { searchGlobalMixin } from '@/mixins/searchMixin'
+const BaseSection = () => import('@/components/BaseSection')
+const DatasetCard = () => import('icjia-research-lib').then(m => m.DatasetCard)
+
+export default {
+  components: {
+    BaseSection,
+    DatasetCard
+  },
+  mixins: [searchGlobalMixin],
+  data() {
+    return {
+      title: 'latest datasets',
+      to: 'datasets'
+    }
+  },
+  computed: {
+    ...mapGetters('datasets', {
+      datasets: 'latest'
+    })
+  },
+  async created() {
+    if (this.$store.state.datasets.info.length === 0) {
+      await this.$store.dispatch('datasets/fetchInfo')
+    }
+  }
+}
+</script>
