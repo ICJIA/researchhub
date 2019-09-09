@@ -45,7 +45,7 @@ export default {
           title: 'FAQ',
           body:
             'Find answers to some freqntly asked questions about ICJIA Research Hub.',
-          ref: 'dev-guide/contributing.html'
+          ref: 'guide/faq.html'
         }
       ]
     }
