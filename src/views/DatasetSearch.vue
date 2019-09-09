@@ -5,7 +5,7 @@
         <v-col cols="10" :class="hasExternal ? 'col-sm-9' : ''">
           <SearchBar
             ref="searchBar"
-            label="Search for datasets (by title, date, sources, categories, tags)"
+            label="Search for datasets (by title, date, sources, tags)"
             :search.sync="localSearch"
           />
         </v-col>
@@ -67,8 +67,10 @@ export default {
       suggestions: 'suggestions'
     }),
     filteredItems() {
-      return this.filterItems(this.items, this.localSearch, (item, s) => {
-        return (
+      return this.filterItems({
+        items: this.items,
+        search: this.localSearch,
+        filterSearch: (item, s) =>
           item.title.toUpperCase().match(s) ||
           item.date.match(s) ||
           item.sources
@@ -76,15 +78,10 @@ export default {
             .join('')
             .toUpperCase()
             .match(s) ||
-          item.categories
-            .join('')
-            .toUpperCase()
-            .match(s) ||
           item.tags
             .join('')
             .toUpperCase()
             .match(s)
-        )
       })
     }
   },

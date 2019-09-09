@@ -5,7 +5,7 @@
         <v-col :class="hasExternal ? 'col-sm-9' : ''" cols="10">
           <SearchBar
             ref="searchBar"
-            label="Search for articles (by title, date, authors, categories, tags)"
+            label="Search for articles (by title, date, authors, tags)"
             :search.sync="localSearch"
           />
         </v-col>
@@ -46,6 +46,18 @@
         />
       </keep-alive>
     </v-col>
+
+    <div class="py-6 text-center font-lato">
+      <v-icon class="px-1 warning--text">mdi-clock-alert-outline</v-icon>
+      <span>Older publications can be found </span>
+      <a
+        href="http://www.icjia.state.il.us/research/publications"
+        rel="noreferrer"
+        target="_blank"
+      >
+        <template>{{ 'here' }}</template>
+      </a>
+    </div>
   </div>
 </template>
 
@@ -82,8 +94,10 @@ export default {
       suggestions: 'suggestions'
     }),
     filteredItems() {
-      return this.filterItems(this.items, this.localSearch, (item, s) => {
-        return (
+      return this.filterItems({
+        items: this.items,
+        search: this.localSearch,
+        filterSearch: (item, s) =>
           item.title.toUpperCase().match(s) ||
           item.date.match(s) ||
           item.authors
@@ -95,7 +109,6 @@ export default {
             .join('')
             .toUpperCase()
             .match(s)
-        )
       })
     }
   },

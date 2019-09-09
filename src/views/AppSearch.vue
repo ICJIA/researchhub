@@ -5,7 +5,7 @@
         <v-col cols="10" :class="hasExternal ? 'col-sm-9' : ''">
           <SearchBar
             ref="searchBar"
-            label="Search for apps (by title, contributors, categories, tags)"
+            label="Search for apps (by title, contributors, tags)"
             :search.sync="localSearch"
           />
         </v-col>
@@ -73,8 +73,10 @@ export default {
       suggestions: 'suggestions'
     }),
     filteredItems() {
-      return this.filterItems(this.items, this.localSearch, (item, s) => {
-        return (
+      return this.filterItems({
+        items: this.items,
+        search: this.localSearch,
+        filterSearch: (item, s) =>
           item.title.toUpperCase().match(s) ||
           item.contributors
             .map(el => el.title)
@@ -85,7 +87,6 @@ export default {
             .join('')
             .toUpperCase()
             .match(s)
-        )
       })
     }
   },
