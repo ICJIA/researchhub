@@ -7,7 +7,8 @@
             <a :href="`/docs/${item.ref}`" target="_blank" rel="noreferrer">
               <h2 class="mb-10 light">{{ item.title }}</h2>
             </a>
-            <p class="font-lato pb-4">{{ item.body }}</p>
+            <!-- eslint-disable-next-line vue/no-v-html -->
+            <p class="font-lato pb-4" v-html="item.body"></p>
             <v-divider v-if="i < items.length - 1" class="hidden-sm-and-up" />
           </div>
         </v-col>
@@ -30,21 +31,23 @@ export default {
         {
           title: 'User Guide',
           body:
-            'New to the Research Hub? Click here and find out more about \
-            navigating the Research Hub like a pro.',
+            'New to <em>ICJIA Research Hub</em>? Learn how to navigate it \
+            and find criminal justice data & research most relevant to \
+            your interests.',
           ref: 'guide/'
         },
         {
           title: 'Developer Guide',
           body:
-            'For those interested in the technical details of the Research Hub \
-            and more.',
+            'For those interested in the technical details of \
+            <em>ICJIA Research Hub</em> and more.',
           ref: 'dev-guide/'
         },
         {
           title: 'FAQ',
           body:
-            'Find answers to some freqntly asked questions about ICJIA Research Hub.',
+            'Find answers to frequently asked questions about \
+            <em>ICJIA Research Hub</em>.',
           ref: 'guide/faq.html'
         }
       ]

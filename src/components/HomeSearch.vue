@@ -27,7 +27,7 @@ export default {
   mixins: [searchGlobalMixin],
   data() {
     return {
-      title: 'Get started & explore this Research Hub',
+      title: 'Explore ICJIA Research Hub',
       search: ''
     }
   }
