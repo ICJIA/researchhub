@@ -1,6 +1,6 @@
 <template functional>
   <div
-    class="italic greycolor px-6 py-8"
+    class="font-italic greycolor px-6 py-8"
     :class="props.bgColor ? 'bg-grey' : ''"
     style="max-width: 960px;"
   >

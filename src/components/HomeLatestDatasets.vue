@@ -1,6 +1,6 @@
 <template>
   <BaseSection v-if="datasets" :title="title" :home="true" :to="to">
-    <v-col class="mx-auto" cols="12" md="10" lg="8" xl="7">
+    <v-col class="mx-auto" cols="12" sm="10" lg="8" xl="7">
       <v-row justify="center">
         <v-col v-for="(dataset, i) in datasets" :key="i" cols="12" lg="6">
           <DatasetCard
@@ -28,7 +28,7 @@ export default {
   mixins: [searchGlobalMixin],
   data() {
     return {
-      title: 'latest datasets',
+      title: 'datasets',
       to: 'datasets'
     }
   },

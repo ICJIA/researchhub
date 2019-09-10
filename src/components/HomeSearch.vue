@@ -1,6 +1,6 @@
 <template>
   <v-row class="py-6" justify="center" no-gutters>
-    <v-col class="text-center wide uppercase" cols="10">
+    <v-col class="text-center text-uppercase wide" cols="10">
       <h3>{{ title }}</h3>
       <v-icon>mdi-menu-down</v-icon>
     </v-col>
@@ -27,7 +27,7 @@ export default {
   mixins: [searchGlobalMixin],
   data() {
     return {
-      title: 'Get started & explore this Research Hub',
+      title: 'Explore ICJIA Research Hub',
       search: ''
     }
   }

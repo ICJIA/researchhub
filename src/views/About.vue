@@ -63,55 +63,54 @@ export default {
           title: 'Open data, open research, open government',
           paragraphs: {
             p1:
-              "As of its launching, <em>ICJIA Research Hub</em> marks the \
-              latest iteration of the Authority's ongoing effort to bring \
-              criminal justice data and research to the public. \
-              <em>ICJIA Research Hub</em> more fully embraces the spirit of \
-              the Federal Government's " +
+              "<em>ICJIA Research Hub</em> marks the latest iteration of \
+              ICJIA's ongoing effort to bring criminal justice data and \
+              research to the public. <em>ICJIA Research Hub</em> encompasses \
+              the spirit of the Federal Government's " +
               this.hyperlink(
                 'https://project-open-data.cio.gov/policy-memo/',
                 'Open Data Policy'
               ) +
-              ' and the ideals of open data, open research and open government.'
+              ' and the ideals of open data, open research, and open government.'
           }
         },
         sub2: {
           title: 'Open source technology',
           paragraphs: {
             p1:
-              "As an embodiment of the Illinois SAC's appreciation \
-              of transparency, <em>ICJIA Research Hub</em> applications are \
-              developed publicly on " +
+              "As an embodiment of ICJIA's appreciation of \
+              transparency, <em>ICJIA Research Hub</em> \
+              applications are developed publicly on " +
               this.hyperlink(this.hrefGithub, 'GitHub') +
               ' with MIT license.',
             p2:
-              'It is also powered by popular open source projects,\
+              'It is also powered by many popular open source projects,\
               including: <ul><li>' +
               this.hyperlink('https://vuejs.org/', 'Vue.js') +
               ' and ' +
               this.hyperlink('https://vuetifyjs.com/', 'Vuetify.js') +
-              ' for user interface;</li><li>' +
+              ' for user interface,</li><li>' +
               this.hyperlink('https://vuepress.vuejs.org/', 'VuePress') +
-              ' for documentation;</li><li>' +
+              ' for documentation,</li><li>' +
               this.hyperlink('https://strapi.io/', 'Strapi') +
-              ' for headless contenet management system;</li><li>' +
+              ' for headless contenet management system, and</li><li>' +
               this.hyperlink('https://www.docker.com/', 'Docker') +
-              ' for containerization;</li><li>and many more.</li>',
+              ' for containerization.',
             p3:
               'Visit ' +
               this.hyperlink(
                 this.hrefDocs,
-                'the <em>ICJIA Research Hub</em> Documentation site'
+                '<em>ICJIA Research Hub</em> Documentation site'
               ) +
-              ' to learn more about <em>ICJIA Research Hub</em> and its \
-              technical details.',
+              ' to learn more.',
             p4:
               'In particular, if you are interested in contributing to the \
               <em>ICJIA Research Hub</em> codebase, please refer to ' +
               this.hyperlink(
                 this.hrefDocs + 'dev-guide/contributing/codebase',
-                'the relevant page in the documentation.'
-              )
+                'the relevant page in the documentation'
+              ) +
+              '.'
           }
         }
       }
@@ -127,7 +126,7 @@ export default {
               'the Illinois Criminal Justice Information Authority (ICJIA)'
             ) +
             " serves as Illinois' Statistical Analysis Center (SAC) and \
-            provides analysis of criminal justice data or informing statewide \
+            provides analysis of criminal justice data for informing statewide \
             policy and practice.",
           p2:
             'The Illinois SAC is affiliated with and supported by ' +
@@ -140,7 +139,7 @@ export default {
             liaison between state agencies and the U.S. Department of Justice.',
           p3:
             'For more information, please visit ' +
-            this.hyperlink(this.hrefRandA, "the Illinois SAC's page") +
+            this.hyperlink(this.hrefRandA, 'the Illinois SAC') +
             '.'
         }
       }
@@ -171,8 +170,8 @@ export default {
             of grants administration, research and analysis, policy and \
             planning, and information systems and technology.',
           p4:
-            'For more information about ICJIA, please visit ' +
-            this.hyperlink(this.hrefICJIA, 'the official website') +
+            'For more information, please visit ' +
+            this.hyperlink(this.hrefICJIA, "ICJIA's public website") +
             '.'
         }
       }

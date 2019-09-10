@@ -1,7 +1,7 @@
 <template>
   <div>
     <BaseViewTitle :home="false">
-      <h3 class="light">
+      <h3 class="font-weight-light">
         <template>{{ 'ICJIA Research Hub' }}</template>
         <v-icon color="white">mdi-chevron-right</v-icon>
         <template>{{ 'Error' }}</template>

@@ -4,7 +4,7 @@
       <v-row class="section-title px-4" justify="space-between">
         <h2 class="wide">{{ title }}</h2>
 
-        <v-col class="pa-0 text-end" cols="12" sm="2" align-self="end">
+        <v-col class="pa-0 text-end" align-self="end">
           <router-link v-if="to" :to="to" class="font-lato small">
             <template>{{ 'see more' }}</template>
           </router-link>
