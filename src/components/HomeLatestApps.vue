@@ -28,7 +28,7 @@ export default {
   mixins: [searchGlobalMixin],
   data() {
     return {
-      title: 'latest apps',
+      title: 'apps',
       to: 'apps'
     }
   },

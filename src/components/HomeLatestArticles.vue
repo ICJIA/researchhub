@@ -32,7 +32,7 @@ export default {
   },
   data() {
     return {
-      title: 'Latest articles',
+      title: 'articles',
       to: 'articles'
     }
   },

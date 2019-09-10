@@ -12,15 +12,21 @@
 
     <HomeSearch />
 
-    <div class="grey-background">
-      <HomeLatestArticles />
+    <div class="pt-6 grey-background">
+      <h3 class="text-center font-lato uppercase wide">Latest publications</h3>
 
-      <HomeLatestApps />
+      <div class="pt-4 pt-sm-0">
+        <HomeLatestArticles />
 
-      <HomeLatestDatasets />
+        <HomeLatestApps />
+
+        <HomeLatestDatasets />
+      </div>
     </div>
 
-    <HomeDocumentation />
+    <div class="pt-6">
+      <HomeDocumentation />
+    </div>
 
     <div class="d-flex justify-center">
       <FundingAcknowledgement />
@@ -56,7 +62,10 @@ export default {
       title:
         'Home of Illinois Criminal Justice Information Authority Data and Research',
       subtitle:
-        'Welcome to the Illinois Crinimal Justice Information Authority (ICJIA) Research Hub. Here you can find various criminal justice datasets, research publications and resources to develop web applications, dashboards and more.',
+        'Welcome to the Illinois Crinimal Justice Information Authority \
+        (ICJIA) Research Hub. Here you can find various criminal justice \
+        datasets, research publications, and resources to develop web \
+        applications, dashboards, and more.',
       about: 'About this Research Hub'
     }
   }
