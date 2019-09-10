@@ -8,7 +8,7 @@
 
         <div v-if="subNum" class="my-4">
           <template v-for="sub in subNum">
-            <h2 :key="`subtitle${sub}`" class="mb-4 light">
+            <h2 :key="`subtitle${sub}`" class="font-weight-light mb-4">
               <slot :name="`subtitle${sub}`"></slot>
             </h2>
 

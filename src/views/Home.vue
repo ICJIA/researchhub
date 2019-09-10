@@ -3,7 +3,7 @@
     <BaseViewTitle class="pa-4">
       <h1 class="py-4">{{ title }}</h1>
 
-      <p class="font-lato large light">{{ subtitle }}</p>
+      <p class="font-lato font-weight-light large">{{ subtitle }}</p>
 
       <p class="text-right">
         <v-btn to="about" text color="#ddd">{{ about }}</v-btn>
@@ -13,7 +13,9 @@
     <HomeSearch />
 
     <div class="pt-6 grey-background">
-      <h3 class="text-center font-lato uppercase wide">Latest publications</h3>
+      <h3 class="font-lato text-center text-uppercase wide">
+        <template>{{ 'Latest publications' }}</template>
+      </h3>
 
       <div class="pt-4 pt-sm-0">
         <HomeLatestArticles />

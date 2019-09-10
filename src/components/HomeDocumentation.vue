@@ -5,7 +5,7 @@
         <v-col v-for="(item, i) in items" :key="i" cols="12" sm="4">
           <div class="px-4">
             <a :href="`/docs/${item.ref}`" target="_blank" rel="noreferrer">
-              <h2 class="mb-10 light">{{ item.title }}</h2>
+              <h2 class="font-weight-light mb-10">{{ item.title }}</h2>
             </a>
             <!-- eslint-disable-next-line vue/no-v-html -->
             <p class="font-lato pb-4" v-html="item.body"></p>
