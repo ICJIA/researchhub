@@ -71,4 +71,7 @@ export default {
 .wide {
   letter-spacing: 0.06em;
 }
+.grey-background .section-title a {
+  color: #166cc0 !important;
+}
 </style>

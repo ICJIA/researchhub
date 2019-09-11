@@ -6,7 +6,7 @@
       <p class="font-lato font-weight-light large">{{ subtitle }}</p>
 
       <p class="text-right">
-        <v-btn to="about" text color="#ddd">{{ about }}</v-btn>
+        <v-btn to="about" text color="white">{{ about }}</v-btn>
       </p>
     </BaseViewTitle>
 
@@ -76,6 +76,6 @@ export default {
 
 <style scoped>
 .grey-background {
-  background-color: #eee;
+  background-color: rgba(27, 31, 35, 0.05);
 }
 </style>
