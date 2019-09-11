@@ -17,7 +17,7 @@ export default {
       },
       github: {
         url: 'https://github.com/icjia/icjia-research',
-        version: '1.0.0-beta.4'
+        version: '1.0.0-beta.5'
       }
     }
   }
