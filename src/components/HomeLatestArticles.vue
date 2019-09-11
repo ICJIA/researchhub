@@ -4,6 +4,7 @@
       <router-link
         v-for="(article, i) in articles"
         :key="i"
+        aria-label="Latest Articles item"
         class="text-none"
         :to="`/articles/${article.slug}`"
       >

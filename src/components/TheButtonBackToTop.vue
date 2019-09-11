@@ -3,6 +3,7 @@
     <v-btn
       v-show="fab"
       v-scroll="onScroll"
+      aria-label="Back to top"
       bottom
       color="rgba(70, 108, 140, 0.8)"
       dark
