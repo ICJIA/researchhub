@@ -29,6 +29,7 @@ module.exports = {
     config.entry.app = './src/entry.js'
 
     if (process.env.NODE_ENV === `production`) {
+      config.optimization.splitChunks.maxSize = 250000
       config.optimization.splitChunks.chunks = 'all'
       config.plugins.push(
         // new BundleAnalyzerPlugin(),
