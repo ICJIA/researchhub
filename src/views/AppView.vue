@@ -39,11 +39,21 @@ export default {
   },
   async created() {
     try {
-      const item = await fetchItemBySlug(this.$route.params.slug)
+      const slug = this.$route.params.slug
+      let item
+
+      if (this.$store.getters['apps/isCached'](slug)) {
+        item = this.$store.getters['apps/getCached'](slug)
+      } else {
+        item = await fetchItemBySlug(slug)
+        this.$store.dispatch('apps/cacheInfo', { slug, item })
+      }
+
       this.item = item
       this.meta.title = item.title
       this.meta.description = item.description
-    } catch {
+    } catch (e) {
+      console.log(e)
       this.$router.push({ name: '404' })
     }
   }

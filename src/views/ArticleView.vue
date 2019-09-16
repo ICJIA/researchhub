@@ -58,7 +58,16 @@ export default {
   },
   async created() {
     try {
-      const item = await fetchItemBySlug(this.$route.params.slug)
+      const slug = this.$route.params.slug
+      let item
+
+      if (this.$store.getters['articles/isCached'](slug)) {
+        item = this.$store.getters['articles/getCached'](slug)
+      } else {
+        item = await fetchItemBySlug(slug)
+        this.$store.dispatch('articles/cacheInfo', { slug, item })
+      }
+
       this.baseUrl = await window.location.origin
       this.item = item
       this.meta.title = item.title
