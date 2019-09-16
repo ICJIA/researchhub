@@ -10,7 +10,6 @@
 </template>
 
 <script>
-import { saveAs } from 'file-saver'
 import { fetchItemBySlug } from '@/services/client.datasets'
 import { searchGlobalMixin } from '@/mixins/searchMixin'
 const DatasetView = () => import('icjia-research-lib').then(m => m.DatasetView)
@@ -45,7 +44,16 @@ export default {
   },
   async created() {
     try {
-      const item = await fetchItemBySlug(this.$route.params.slug)
+      const slug = this.$route.params.slug
+      let item
+
+      if (this.$store.getters['datasets/isCached'](slug)) {
+        item = this.$store.getters['datasets/getCached'](slug)
+      } else {
+        item = await fetchItemBySlug(slug)
+        this.$store.dispatch('datasets/cacheInfo', { slug, item })
+      }
+
       this.item = item
       this.meta.title = item.title
       this.meta.description = item.description
@@ -55,9 +63,8 @@ export default {
   },
   methods: {
     async downloader() {
-      const file = this.item.datafile
-      const url = `${process.env.VUE_APP_API_BASE_URL}/${file.url}`
-      saveAs(url, decodeURI(file.name))
+      const { hash, ext } = this.item.datafile
+      window.open(`/files/${hash}${ext}`, '_blank')
     }
   }
 }

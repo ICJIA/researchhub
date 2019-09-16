@@ -19,7 +19,6 @@
 </template>
 
 <script>
-import { saveAs } from 'file-saver'
 import { fetchItemBySlug } from '@/services/client.articles'
 import { searchGlobalMixin } from '@/mixins/searchMixin'
 const ArticleSocialSharing = () => import('@/components/ArticleSocialSharing')
@@ -59,7 +58,16 @@ export default {
   },
   async created() {
     try {
-      const item = await fetchItemBySlug(this.$route.params.slug)
+      const slug = this.$route.params.slug
+      let item
+
+      if (this.$store.getters['articles/isCached'](slug)) {
+        item = this.$store.getters['articles/getCached'](slug)
+      } else {
+        item = await fetchItemBySlug(slug)
+        this.$store.dispatch('articles/cacheInfo', { slug, item })
+      }
+
       this.baseUrl = await window.location.origin
       this.item = item
       this.meta.title = item.title
@@ -70,9 +78,8 @@ export default {
   },
   methods: {
     async downloader(type) {
-      const file = this.item[`${type}file`]
-      const url = `${process.env.VUE_APP_API_BASE_URL}/${file.url}`
-      saveAs(url, decodeURI(file.name))
+      const { hash, ext } = this.item[`${type}file`]
+      window.open(`/files/${hash}${ext}`, '_blank')
     },
     searchAuthorOnArticleSearch(e) {
       const search = e.target.textContent || e.target.innerText

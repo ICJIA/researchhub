@@ -44,8 +44,8 @@ const articleViewFields = [
   'doi',
   'funding',
   'mainfiletype',
-  'mainfile { name url }',
-  'extrafile { name url }',
+  'mainfile { hash ext }',
+  'extrafile { hash ext }',
   'apps (sort: "date:desc", where: { status: "published" }) { title slug }',
   'datasets (sort: "date:desc", where: { status: "published" }) { title slug }'
 ]
@@ -61,7 +61,7 @@ const datasetViewFields = [
   'notes',
   'citation',
   'funding',
-  'datafile { name url }',
+  'datafile { hash ext }',
   'apps (sort: "date:desc", where: { status: "published" }) { title slug }',
   'articles (sort: "date:desc", where: { status: "published" }) { title slug }'
 ]
