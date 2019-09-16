@@ -52,8 +52,7 @@ export default {
       this.item = item
       this.meta.title = item.title
       this.meta.description = item.description
-    } catch (e) {
-      console.log(e)
+    } catch {
       this.$router.push({ name: '404' })
     }
   }
