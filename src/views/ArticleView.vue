@@ -19,7 +19,6 @@
 </template>
 
 <script>
-import { saveAs } from 'file-saver'
 import { fetchItemBySlug } from '@/services/client.articles'
 import { searchGlobalMixin } from '@/mixins/searchMixin'
 const ArticleSocialSharing = () => import('@/components/ArticleSocialSharing')
@@ -70,9 +69,8 @@ export default {
   },
   methods: {
     async downloader(type) {
-      const file = this.item[`${type}file`]
-      const url = `${process.env.VUE_APP_API_BASE_URL}/${file.url}`
-      saveAs(url, decodeURI(file.name))
+      const { hash, ext } = this.item[`${type}file`]
+      window.open(`/files/${hash}${ext}`, '_blank')
     },
     searchAuthorOnArticleSearch(e) {
       const search = e.target.textContent || e.target.innerText

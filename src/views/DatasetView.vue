@@ -10,7 +10,6 @@
 </template>
 
 <script>
-import { saveAs } from 'file-saver'
 import { fetchItemBySlug } from '@/services/client.datasets'
 import { searchGlobalMixin } from '@/mixins/searchMixin'
 const DatasetView = () => import('icjia-research-lib').then(m => m.DatasetView)
@@ -55,9 +54,8 @@ export default {
   },
   methods: {
     async downloader() {
-      const file = this.item.datafile
-      const url = `${process.env.VUE_APP_API_BASE_URL}/${file.url}`
-      saveAs(url, decodeURI(file.name))
+      const { hash, ext } = this.item.datafile
+      window.open(`/files/${hash}${ext}`, '_blank')
     }
   }
 }
