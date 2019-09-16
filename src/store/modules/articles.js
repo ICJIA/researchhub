@@ -10,7 +10,7 @@ const namespaced = true
 const state = {
   info: [],
   infoCached: new Map(),
-  carouselInfo: [],
+  infoCarousel: [],
   suggestions: ['arrest', 'drug', 'prison']
 }
 
@@ -24,8 +24,8 @@ const mutations = {
       return el
     })
   },
-  FETCH_CAROUSEL_INFO(state, payload) {
-    state.carouselInfo = payload
+  FETCH_INFO_CAROUSEL(state, payload) {
+    state.infoCarousel = payload
   }
 }
 
@@ -36,8 +36,8 @@ const actions = {
   async fetchInfo({ commit }) {
     commit('FETCH_INFO', await fetchItemsList())
   },
-  async fetchCarouselInfo({ commit }) {
-    commit('FETCH_CAROUSEL_INFO', await fetchItemsListCarousel())
+  async fetchInfoCarousel({ commit }) {
+    commit('FETCH_INFO_CAROUSEL', await fetchItemsListCarousel())
   }
 }
 

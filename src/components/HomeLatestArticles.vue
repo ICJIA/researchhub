@@ -39,12 +39,12 @@ export default {
   },
   computed: {
     ...mapState('articles', {
-      articles: 'carouselInfo'
+      articles: 'infoCarousel'
     })
   },
   async created() {
     if (!this.articles || this.articles.length === 0) {
-      await this.$store.dispatch('articles/fetchCarouselInfo')
+      await this.$store.dispatch('articles/fetchInfoCarousel')
     }
   }
 }

@@ -34,7 +34,7 @@ export default {
   },
   computed: {
     ...mapGetters('apps', {
-      apps: 'latest'
+      apps: 'getLatest'
     })
   },
   async created() {

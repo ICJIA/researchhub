@@ -32,9 +32,7 @@ const actions = {
 }
 
 const getters = {
-  latest(state) {
-    return state.info.slice(0, 3)
-  },
   getCached: state => slug => state.infoCached.get(slug),
+  getLatest: state => state.info.slice(0, 3),
   isCached: state => slug => state.infoCached.has(slug)
 }

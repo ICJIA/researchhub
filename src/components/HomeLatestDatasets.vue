@@ -34,7 +34,7 @@ export default {
   },
   computed: {
     ...mapGetters('datasets', {
-      datasets: 'latest'
+      datasets: 'getLatest'
     })
   },
   async created() {
