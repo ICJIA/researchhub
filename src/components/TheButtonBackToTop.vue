@@ -12,16 +12,19 @@
       right
       @click="toTop"
     >
-      <v-icon color="white">mdi-chevron-up</v-icon>
+      <v-icon color="white">{{ mdiChevronUp }}</v-icon>
     </v-btn>
   </v-fab-transition>
 </template>
 
 <script>
+import { mdiChevronUp } from '@mdi/js'
+
 export default {
   data() {
     return {
-      fab: false
+      fab: false,
+      mdiChevronUp
     }
   },
   methods: {

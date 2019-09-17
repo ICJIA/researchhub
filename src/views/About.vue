@@ -29,6 +29,7 @@
 </template>
 
 <script>
+import { mdiOpenInNew } from '@mdi/js'
 const AboutSection = () => import('@/components/AboutSection')
 const BaseViewTitle = () => import('@/components/BaseViewTitle')
 const FundingAcknowledgement = () =>
@@ -51,8 +52,15 @@ export default {
       hrefGithub: 'https://www.github.com/ICJIA',
       hrefRandA: this.hrefICJIA + '/research',
       hrefJRSA: 'http://www.jrsa.org/',
-      linkIconHtml:
-        '<i aria-hidden="true" class="v-icon notranslate mdi mdi-open-in-new theme--light"></i>'
+      linkIconHtml: `<svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          height="24"
+          width="24"
+          role="img"
+          aria-hidden="true"
+          class="v-icon notranslate v-icon--svg theme--light"
+        ><path d="${mdiOpenInNew}"></path></svg>`
     }
   },
   computed: {

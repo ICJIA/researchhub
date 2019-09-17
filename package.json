@@ -10,7 +10,7 @@
   "dependencies": {
     "axios": "^0.19.0",
     "core-js": "^2.6.9",
-    "icjia-research-lib": "github:icjia/icjia-research-lib#v0.6.5",
+    "icjia-research-lib": "github:icjia/icjia-research-lib#v0.6.6",
     "nprogress": "^0.2.0",
     "vue": "^2.6.10",
     "vue-meta": "^2.2.1",
@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "@gfx/zopfli": "^1.0.14",
+    "@mdi/js": "^4.4.95",
     "@vue/cli-plugin-babel": "^3.10.0",
     "@vue/cli-plugin-eslint": "^3.10.0",
     "@vue/cli-service": "^3.10.0",
