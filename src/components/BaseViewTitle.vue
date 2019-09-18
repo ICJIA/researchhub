@@ -4,7 +4,7 @@
       <template v-if="page">
         <h4 class="font-weight-light">
           <template>{{ 'ICJIA Research Hub' }}</template>
-          <v-icon color="white">mdi-chevron-right</v-icon>
+          <v-icon color="white">{{ mdiChevronRight }}</v-icon>
           <template>{{ page }}</template>
         </h4>
       </template>
@@ -16,11 +16,18 @@
 </template>
 
 <script>
+import { mdiChevronRight } from '@mdi/js'
+
 export default {
   props: {
     page: {
       type: String,
       default: ''
+    }
+  },
+  data() {
+    return {
+      mdiChevronRight
     }
   }
 }

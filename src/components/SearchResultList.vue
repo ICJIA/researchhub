@@ -20,7 +20,7 @@
           </v-btn>
 
           <template v-if="result.external">
-            <v-icon class="marker-external pl-1" small>mdi-charity</v-icon>
+            <v-icon class="marker-external pl-1" small>{{ mdiCharity }}</v-icon>
             <span class="marker-external small">
               <template>{{ 'This is an external contribution' }}</template>
             </span>
@@ -41,6 +41,7 @@
 </template>
 
 <script>
+import { mdiCharity } from '@mdi/js'
 const BaseSection = () => import('@/components/BaseSection')
 
 export default {
@@ -59,6 +60,11 @@ export default {
     results: {
       type: Array,
       default: () => []
+    }
+  },
+  data() {
+    return {
+      mdiCharity
     }
   }
 }

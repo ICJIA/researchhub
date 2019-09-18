@@ -10,7 +10,7 @@
             append-icon=""
             clearable
             label="Filter by category"
-            prepend-inner-icon="mdi-filter"
+            :prepend-inner-icon="mdiFilter"
             rounded
             @input="category => $emit('search-category', category)"
           ></v-select>
@@ -38,6 +38,8 @@
 </template>
 
 <script>
+import { mdiFilter } from '@mdi/js'
+
 export default {
   props: {
     contentType: {
@@ -55,6 +57,11 @@ export default {
     suggestions: {
       type: Array,
       default: () => []
+    }
+  },
+  data() {
+    return {
+      mdiFilter
     }
   },
   computed: {

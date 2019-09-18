@@ -3,7 +3,7 @@
     :value="searchInput"
     :label="searchLabel"
     :clearable="true"
-    prepend-inner-icon="mdi-magnify"
+    :prepend-inner-icon="mdiMagnify"
     solo
     @click:clear="onClear($event)"
     @keyup="onKeyup($event)"
@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import { mdiMagnify } from '@mdi/js'
+
 export default {
   props: {
     label: {
@@ -24,6 +26,7 @@ export default {
   },
   data() {
     return {
+      mdiMagnify,
       searchInput: this.search,
       searchLabel: this.label
     }

@@ -48,7 +48,7 @@
     </v-col>
 
     <div class="py-6 text-center font-lato">
-      <v-icon class="px-1 warning--text">mdi-clock-alert-outline</v-icon>
+      <v-icon class="px-1 warning--text">{{ mdiClockAlertOutline }}</v-icon>
       <span>Older publications can be found </span>
       <a
         href="http://www.icjia.state.il.us/research/publications"
@@ -62,6 +62,7 @@
 </template>
 
 <script>
+import { mdiClockAlertOutline } from '@mdi/js'
 import { mapState } from 'vuex'
 import filterMixin from '@/mixins/filterMixin'
 import { searchGlobalMixin, searchLocalMixin } from '@/mixins/searchMixin'
@@ -85,7 +86,8 @@ export default {
   data() {
     return {
       contentType: 'article',
-      localSearch: this.search || ''
+      localSearch: this.search || '',
+      mdiClockAlertOutline
     }
   },
   computed: {
