@@ -8,16 +8,22 @@ import { isAuthor } from '@/services/client.authors'
 Vue.use(Router)
 Vue.use(Meta)
 
+const getDefaultMeta = view => ({
+  title: `${view} | Research Hub`
+})
+
 const router = new Router({
   mode: 'history',
   routes: [
     {
       path: '/',
-      component: () => import('@/views/Home.vue')
+      component: () => import('@/views/Home.vue'),
+      meta: getDefaultMeta('Home')
     },
     {
       path: '/about',
-      component: () => import('@/views/About.vue')
+      component: () => import('@/views/About.vue'),
+      meta: getDefaultMeta('About')
     },
     {
       path: '/apps',
@@ -25,7 +31,8 @@ const router = new Router({
       children: [
         {
           path: '',
-          component: () => import('@/views/AppSearch.vue')
+          component: () => import('@/views/AppSearch.vue'),
+          meta: getDefaultMeta('Apps')
         },
         {
           path: ':slug',
@@ -41,11 +48,13 @@ const router = new Router({
           path: '',
           name: 'article-search',
           component: () => import('@/views/ArticleSearch.vue'),
+          meta: getDefaultMeta('Articles'),
           props: true
         },
         {
           path: ':slug',
-          component: () => import('@/views/ArticleView.vue')
+          component: () => import('@/views/ArticleView.vue'),
+          meta: getDefaultMeta('Articles')
         }
       ]
     },
@@ -64,11 +73,13 @@ const router = new Router({
       children: [
         {
           path: '',
-          component: () => import('@/views/DatasetSearch.vue')
+          component: () => import('@/views/DatasetSearch.vue'),
+          meta: getDefaultMeta('Datasets')
         },
         {
           path: ':slug',
-          component: () => import('@/views/DatasetView.vue')
+          component: () => import('@/views/DatasetView.vue'),
+          meta: getDefaultMeta('Datasets')
         }
       ]
     },
@@ -76,12 +87,14 @@ const router = new Router({
       path: '/search',
       name: 'search',
       component: () => import('@/views/Search.vue'),
+      meta: getDefaultMeta('Search'),
       props: true
     },
     {
       path: '/page-not-found',
       name: '404',
-      component: () => import('@/views/404.vue')
+      component: () => import('@/views/404.vue'),
+      meta: getDefaultMeta('404')
     },
     {
       path: '*',
@@ -101,6 +114,7 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
+  document.title = to.meta.title || 'Research Hub'
   NProgress.start()
   next()
 })
