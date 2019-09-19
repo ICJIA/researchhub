@@ -20,7 +20,7 @@
       </v-row>
 
       <SearchInfoExtra
-        :content-type="contentType"
+        content-type="article"
         :filtered-items="filteredItems"
         :items="items"
         :suggestions="suggestions"
@@ -48,7 +48,9 @@
     </v-col>
 
     <div class="py-6 text-center font-lato">
-      <v-icon class="px-1 warning--text">{{ mdiClockAlertOutline }}</v-icon>
+      <v-icon class="px-1 warning--text">{{
+        $options.static.mdiClockAlertOutline
+      }}</v-icon>
       <span>Older publications can be found </span>
       <a
         href="http://www.icjia.state.il.us/research/publications"
@@ -85,9 +87,7 @@ export default {
   },
   data() {
     return {
-      contentType: 'article',
-      localSearch: this.search || '',
-      mdiClockAlertOutline
+      localSearch: this.search || ''
     }
   },
   computed: {
@@ -124,6 +124,9 @@ export default {
       const text = e.target.textContent || e.target.innerText
       this.searchLocal(text)
     }
+  },
+  static: {
+    mdiClockAlertOutline
   }
 }
 </script>

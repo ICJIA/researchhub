@@ -1,6 +1,6 @@
 <template>
   <div>
-    <BaseViewTitle :page="title" />
+    <BaseViewTitle page="Articles" />
 
     <router-view search="" />
   </div>
@@ -22,11 +22,6 @@ export default {
   },
   components: {
     BaseViewTitle
-  },
-  data() {
-    return {
-      title: 'Articles'
-    }
   }
 }
 </script>

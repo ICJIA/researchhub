@@ -10,7 +10,7 @@
             append-icon=""
             clearable
             label="Filter by category"
-            :prepend-inner-icon="mdiFilter"
+            :prepend-inner-icon="$options.static.mdiFilter"
             rounded
             @input="category => $emit('search-category', category)"
           ></v-select>
@@ -59,11 +59,6 @@ export default {
       default: () => []
     }
   },
-  data() {
-    return {
-      mdiFilter
-    }
-  },
   computed: {
     categories() {
       return [...new Set(this.items.flatMap(el => el.categories))].sort()
@@ -73,6 +68,9 @@ export default {
       const type = count > 1 ? `${this.contentType}s` : this.contentType
       return `${count} ${type} found`
     }
+  },
+  static: {
+    mdiFilter
   }
 }
 </script>

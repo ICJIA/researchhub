@@ -12,7 +12,7 @@
       right
       @click="toTop"
     >
-      <v-icon color="white">{{ mdiChevronUp }}</v-icon>
+      <v-icon color="white">{{ $options.static.mdiChevronUp }}</v-icon>
     </v-btn>
   </v-fab-transition>
 </template>
@@ -23,8 +23,7 @@ import { mdiChevronUp } from '@mdi/js'
 export default {
   data() {
     return {
-      fab: false,
-      mdiChevronUp
+      fab: false
     }
   },
   methods: {
@@ -36,6 +35,9 @@ export default {
     toTop() {
       this.$vuetify.goTo(0)
     }
+  },
+  static: {
+    mdiChevronUp
   }
 }
 </script>

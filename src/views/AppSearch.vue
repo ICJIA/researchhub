@@ -20,7 +20,7 @@
       </v-row>
 
       <SearchInfoExtra
-        :content-type="contentType"
+        content-type="app"
         :filtered-items="filteredItems"
         :items="items"
         :suggestions="suggestions"
@@ -62,11 +62,6 @@ export default {
     SearchInfoExtra
   },
   mixins: [filterMixin, searchGlobalMixin, searchLocalMixin],
-  data() {
-    return {
-      contentType: 'app'
-    }
-  },
   computed: {
     ...mapState('apps', {
       items: 'info',

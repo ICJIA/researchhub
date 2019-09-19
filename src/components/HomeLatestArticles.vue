@@ -1,5 +1,5 @@
 <template>
-  <BaseSection v-if="articles" :title="title" :to="to">
+  <BaseSection v-if="articles" title="articles" to="articles">
     <v-carousel cycle hide-delimiters>
       <router-link
         v-for="(article, i) in articles"
@@ -30,12 +30,6 @@ const BaseSection = () => import('@/components/BaseSection')
 export default {
   components: {
     BaseSection
-  },
-  data() {
-    return {
-      title: 'articles',
-      to: 'articles'
-    }
   },
   computed: {
     ...mapState('articles', {

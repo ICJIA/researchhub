@@ -20,7 +20,7 @@
       </v-row>
 
       <SearchInfoExtra
-        :content-type="contentType"
+        content-type="dataset"
         :filtered-items="filteredItems"
         :items="items"
         :suggestions="suggestions"
@@ -56,11 +56,6 @@ export default {
     SearchInfoExtra
   },
   mixins: [filterMixin, searchGlobalMixin, searchLocalMixin],
-  data() {
-    return {
-      contentType: 'dataset'
-    }
-  },
   computed: {
     ...mapState('datasets', {
       items: 'info',
