@@ -10,7 +10,7 @@
       @author-click="searchAuthorOnArticleSearch($event)"
     />
 
-    <ArticleSocialSharing v-if="item && baseUrl" />
+    <ArticleSocialSharing v-if="item" />
   </div>
 </template>
 
@@ -21,9 +21,9 @@ const ArticleSocialSharing = () => import('@/components/ArticleSocialSharing')
 const ArticleView = () => import('icjia-research-lib').then(m => m.ArticleView)
 const TheProgessBar = () => import('@/components/TheProgressBar')
 
-const getImageURL = (baseUrl, { _id, splash }) => {
+const getImageURL = ({ _id, splash }) => {
   const ext = splash.split('data:image/')[1].split(';')[0]
-  return `${baseUrl}/images/${_id}-splash.${ext}`
+  return `${window.location.origin}/images/${_id}-splash.${ext}`
 }
 
 export default {
@@ -71,7 +71,6 @@ export default {
   data() {
     return {
       item: null,
-      baseUrl: '',
       meta: {
         title: 'Articles',
         description: '',
@@ -91,12 +90,10 @@ export default {
         this.$store.dispatch('articles/cacheInfo', { slug, item })
       }
 
-      const baseUrl = await window.location.origin
-      this.baseUrl = baseUrl
       this.item = item
       this.meta.title = item.title
       this.meta.description = item.abstract
-      this.meta.image = getImageURL(baseUrl, item)
+      this.meta.image = getImageURL(item)
     } catch {
       this.$router.push({ name: '404' })
     }
