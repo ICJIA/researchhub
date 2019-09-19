@@ -13,6 +13,7 @@
     "icjia-research-lib": "github:icjia/icjia-research-lib#v0.6.7",
     "nprogress": "^0.2.0",
     "vue": "^2.6.10",
+    "vue-ga": "^1.1.0",
     "vue-meta": "^2.2.1",
     "vue-router": "^3.1.2",
     "vue-social-sharing": "^2.4.6",

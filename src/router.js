@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Meta from 'vue-meta'
+import ga from 'vue-ga'
 import NProgress from 'nprogress'
 import { isAuthor } from '@/services/client.authors'
 
@@ -107,5 +108,7 @@ router.beforeEach((to, from, next) => {
 router.afterEach(() => {
   NProgress.done()
 })
+
+ga(router, process.env.VUE_APP_GA_ID)
 
 export default router
