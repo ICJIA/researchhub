@@ -26,6 +26,20 @@ const ArticleView = () => import('icjia-research-lib').then(m => m.ArticleView)
 const TheProgessBar = () => import('@/components/TheProgressBar')
 
 export default {
+  metaInfo() {
+    const { title, description } = this.meta
+
+    return {
+      titleTemplate: `${title} | %s`,
+      meta: [
+        {
+          vmid: 'desc-articles',
+          name: 'description',
+          content: `${description}`
+        }
+      ]
+    }
+  },
   components: {
     ArticleSocialSharing,
     ArticleView,
@@ -40,20 +54,6 @@ export default {
         title: 'Articles',
         description: ''
       }
-    }
-  },
-  metaInfo() {
-    const title = this.meta.title
-    const description = this.meta.description
-    return {
-      titleTemplate: `${title} | %s`,
-      meta: [
-        {
-          vmid: 'desc-articles',
-          name: 'description',
-          content: `${description}`
-        }
-      ]
     }
   },
   async created() {

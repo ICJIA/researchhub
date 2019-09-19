@@ -10,6 +10,20 @@ import { searchGlobalMixin } from '@/mixins/searchMixin'
 const AppView = () => import('icjia-research-lib').then(m => m.AppView)
 
 export default {
+  metaInfo() {
+    const { title, description } = this.meta
+
+    return {
+      titleTemplate: `${title} | %s`,
+      meta: [
+        {
+          vmid: 'desc-apps',
+          name: 'description',
+          content: description
+        }
+      ]
+    }
+  },
   components: {
     AppView
   },
@@ -21,20 +35,6 @@ export default {
         title: 'Apps',
         description: ''
       }
-    }
-  },
-  metaInfo() {
-    const title = this.meta.title
-    const description = this.meta.description
-    return {
-      titleTemplate: `${title} | %s`,
-      meta: [
-        {
-          vmid: 'desc-apps',
-          name: 'description',
-          content: description
-        }
-      ]
     }
   },
   async created() {

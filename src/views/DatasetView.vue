@@ -15,6 +15,20 @@ import { searchGlobalMixin } from '@/mixins/searchMixin'
 const DatasetView = () => import('icjia-research-lib').then(m => m.DatasetView)
 
 export default {
+  metaInfo() {
+    const { title, description } = this.meta
+
+    return {
+      titleTemplate: `${title} | %s`,
+      meta: [
+        {
+          vmid: 'desc-datasets',
+          name: 'description',
+          content: `${description}`
+        }
+      ]
+    }
+  },
   components: {
     DatasetView
   },
@@ -26,20 +40,6 @@ export default {
         title: 'Datasets',
         description: ''
       }
-    }
-  },
-  metaInfo() {
-    const title = this.meta.title
-    const description = this.meta.description
-    return {
-      titleTemplate: `${title} | %s`,
-      meta: [
-        {
-          vmid: 'desc-datasets',
-          name: 'description',
-          content: `${description}`
-        }
-      ]
     }
   },
   async created() {
