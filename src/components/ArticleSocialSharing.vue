@@ -4,8 +4,6 @@
       v-show="fab"
       v-scroll="onScroll"
       class="social-sharing"
-      :url="url"
-      :title="title"
       inline-template
     >
       <div>
@@ -70,16 +68,6 @@
 
 <script>
 export default {
-  props: {
-    title: {
-      type: String,
-      default: ''
-    },
-    url: {
-      type: String,
-      default: ''
-    }
-  },
   data() {
     return {
       fab: false

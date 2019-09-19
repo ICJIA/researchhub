@@ -10,11 +10,7 @@
       @author-click="searchAuthorOnArticleSearch($event)"
     />
 
-    <ArticleSocialSharing
-      v-if="item && baseUrl"
-      :url="baseUrl + '/' + item.slug"
-      :title="item.title"
-    />
+    <ArticleSocialSharing v-if="item && baseUrl" />
   </div>
 </template>
 
@@ -33,12 +29,29 @@ const getImageURL = (baseUrl, { _id, splash }) => {
 export default {
   metaInfo() {
     const { title, description, image } = this.meta
+
     return {
       titleTemplate: `${title} | %s`,
       meta: [
         {
+          vmid: 'og:url',
+          property: 'og:url',
+          content: window.location.href
+        },
+        {
+          vmid: 'og:type',
+          property: 'og:type',
+          content: 'article'
+        },
+        {
+          vmid: 'og:title',
+          property: 'og:title',
+          content: `${title} | Research Hub`
+        },
+        {
           vmid: 'desc-articles',
           name: 'description',
+          property: 'og:description',
           content: `${description}`
         },
         {
