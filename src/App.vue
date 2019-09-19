@@ -2,7 +2,7 @@
   <v-app>
     <the-toolbar />
 
-    <v-content>
+    <v-content class="mb-4">
       <router-view v-if="alive" />
       <ServerError v-else />
     </v-content>
