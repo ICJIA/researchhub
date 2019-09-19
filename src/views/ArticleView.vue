@@ -25,10 +25,14 @@ const ArticleSocialSharing = () => import('@/components/ArticleSocialSharing')
 const ArticleView = () => import('icjia-research-lib').then(m => m.ArticleView)
 const TheProgessBar = () => import('@/components/TheProgressBar')
 
+const getImageURL = (baseUrl, { _id, splash }) => {
+  const ext = splash.split('data:image/')[1].split(';')[0]
+  return `${baseUrl}/images/${_id}-splash.${ext}`
+}
+
 export default {
   metaInfo() {
-    const { title, description } = this.meta
-
+    const { title, description, image } = this.meta
     return {
       titleTemplate: `${title} | %s`,
       meta: [
@@ -36,6 +40,11 @@ export default {
           vmid: 'desc-articles',
           name: 'description',
           content: `${description}`
+        },
+        {
+          vmid: 'og:image',
+          property: 'og:image',
+          content: image
         }
       ]
     }
@@ -52,7 +61,8 @@ export default {
       baseUrl: '',
       meta: {
         title: 'Articles',
-        description: ''
+        description: '',
+        image: ''
       }
     }
   },
@@ -68,10 +78,12 @@ export default {
         this.$store.dispatch('articles/cacheInfo', { slug, item })
       }
 
-      this.baseUrl = await window.location.origin
+      const baseUrl = await window.location.origin
+      this.baseUrl = baseUrl
       this.item = item
       this.meta.title = item.title
       this.meta.description = item.abstract
+      this.meta.image = getImageURL(baseUrl, item)
     } catch {
       this.$router.push({ name: '404' })
     }
