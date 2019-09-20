@@ -1,18 +1,23 @@
 <template>
-  <v-col class="mx-auto" cols="12" sm="10" lg="8" xl="7">
-    <DatasetView
-      v-if="item"
-      :downloader="downloader"
-      :item="item"
-      @tag-click="searchTagGlobal($event)"
-    />
-  </v-col>
+  <div>
+    <v-col class="mx-auto" cols="12" sm="10" lg="8" xl="7">
+      <DatasetView
+        v-if="item"
+        :downloader="downloader"
+        :item="item"
+        @tag-click="searchTagGlobal($event)"
+      />
+    </v-col>
+
+    <TheSocialSharing v-if="item" :show-always="true" :title="meta.title" />
+  </div>
 </template>
 
 <script>
 import { fetchItemBySlug } from '@/services/client.datasets'
 import { searchGlobalMixin } from '@/mixins/searchMixin'
 const DatasetView = () => import('icjia-research-lib').then(m => m.DatasetView)
+const TheSocialSharing = () => import('@/components/TheSocialSharing')
 
 export default {
   metaInfo() {
@@ -30,7 +35,8 @@ export default {
     }
   },
   components: {
-    DatasetView
+    DatasetView,
+    TheSocialSharing
   },
   mixins: [searchGlobalMixin],
   data() {

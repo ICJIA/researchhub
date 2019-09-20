@@ -1,13 +1,18 @@
 <template>
-  <v-col class="mx-auto" cols="12" sm="10" md="8" xl="7">
-    <AppView v-if="item" :item="item" @tag-click="searchTagGlobal($event)" />
-  </v-col>
+  <div>
+    <v-col class="mx-auto" cols="12" sm="10" md="8" xl="7">
+      <AppView v-if="item" :item="item" @tag-click="searchTagGlobal($event)" />
+    </v-col>
+
+    <TheSocialSharing v-if="item" :show-always="true" :title="meta.title" />
+  </div>
 </template>
 
 <script>
 import { fetchItemBySlug } from '@/services/client.apps'
 import { searchGlobalMixin } from '@/mixins/searchMixin'
 const AppView = () => import('icjia-research-lib').then(m => m.AppView)
+const TheSocialSharing = () => import('@/components/TheSocialSharing')
 
 export default {
   metaInfo() {
@@ -25,7 +30,8 @@ export default {
     }
   },
   components: {
-    AppView
+    AppView,
+    TheSocialSharing
   },
   mixins: [searchGlobalMixin],
   data() {
