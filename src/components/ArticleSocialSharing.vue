@@ -5,6 +5,8 @@
       v-scroll="onScroll"
       class="social-sharing"
       inline-template
+      :title="title"
+      :url="url"
     >
       <div>
         <network style="background-color:#305891;" network="facebook">
@@ -68,6 +70,16 @@
 
 <script>
 export default {
+  props: {
+    title: {
+      type: String,
+      default: ''
+    },
+    url: {
+      type: String,
+      default: window.location.href
+    }
+  },
   data() {
     return {
       fab: false

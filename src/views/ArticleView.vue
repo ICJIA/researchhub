@@ -10,7 +10,7 @@
       @author-click="searchAuthorOnArticleSearch($event)"
     />
 
-    <ArticleSocialSharing v-if="item" />
+    <ArticleSocialSharing v-if="item" :title="`${meta.title} | Research Hub`" />
   </div>
 </template>
 
