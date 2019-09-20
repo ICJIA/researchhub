@@ -1,8 +1,8 @@
 <template>
   <transition name="fade">
     <social-sharing
-      v-show="fab"
-      v-scroll="onScroll"
+      v-show="showAlways ? true : fab"
+      v-scroll="showAlways ? null : onScroll"
       class="social-sharing"
       inline-template
       :title="title"
@@ -71,6 +71,10 @@
 <script>
 export default {
   props: {
+    showAlways: {
+      type: Boolean,
+      default: false
+    },
     title: {
       type: String,
       default: ''
