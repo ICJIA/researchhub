@@ -6,11 +6,11 @@
       <v-col class="mx-auto" cols="10" lg="8">
         <slot></slot>
 
-        <div v-if="subNum" class="my-4">
+        <div v-if="subNum">
           <template v-for="sub in subNum">
-            <h2 :key="`subtitle${sub}`" class="font-weight-light mb-4">
+            <h3 :key="`subtitle${sub}`" class="font-weight-light wide mb-4">
               <slot :name="`subtitle${sub}`"></slot>
-            </h2>
+            </h3>
 
             <p :key="`subbody${sub}`">
               <slot :name="`subbody${sub}`"></slot>
