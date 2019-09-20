@@ -1,6 +1,6 @@
 <template>
   <BaseToolbar logo-path="/icjia-logo.png">
-    <template v-slot:toolbarItems>
+    <template #toolbarItems>
       <v-btn
         v-for="view in $options.static.views"
         :key="view"
@@ -13,7 +13,7 @@
       <v-btn href="/docs/" target="_blank" text>documentation</v-btn>
     </template>
 
-    <template v-slot:toolbarDrawerItems>
+    <template #toolbarDrawerItems>
       <v-list-item
         v-for="(view, i) in $options.static.views"
         :key="i"

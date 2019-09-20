@@ -4,11 +4,9 @@
     <BaseViewTitle page="About" />
 
     <BaseAboutSection :title="$options.static.section1.title" :sub-num="3">
-      <template v-slot:subtitle1>{{
-        $options.static.section1.sub1.title
-      }}</template>
+      <template #subtitle1>{{ $options.static.section1.sub1.title }}</template>
 
-      <template v-slot:subbody1>
+      <template #subbody1>
         <p
           v-for="(p, i) in $options.static.section1.sub1.paragraphs"
           :key="i"
@@ -16,10 +14,8 @@
         ></p>
       </template>
 
-      <template v-slot:subtitle2>{{
-        $options.static.section1.sub2.title
-      }}</template>
-      <template v-slot:subbody2>
+      <template #subtitle2>{{ $options.static.section1.sub2.title }}</template>
+      <template #subbody2>
         <p
           v-for="(p, i) in $options.static.section1.sub2.paragraphs"
           :key="i"
