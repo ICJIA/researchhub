@@ -5,7 +5,7 @@
       v-scroll="showAlways ? null : onScroll"
       class="social-sharing"
       inline-template
-      :title="title"
+      :title="`${title} | Research Hub`"
       :url="url"
     >
       <div>
