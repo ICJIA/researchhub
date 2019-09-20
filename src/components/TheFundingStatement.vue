@@ -1,7 +1,9 @@
 <template functional>
-  <div class="greycolor pa-6" style="max-width: 960px;">
-    <p class="funding-title">{{ $options.static.title }}</p>
-    <p class="font-italic">{{ $options.static.body }}</p>
+  <div class="d-flex justify-center mx-4 mb-12 pb-6 pb-sm-0">
+    <div class="greycolor" style="max-width: 720px;">
+      <p class="funding-title">{{ $options.static.title }}</p>
+      <p class="font-italic small">{{ $options.static.body }}</p>
+    </div>
   </div>
 </template>
 
@@ -29,7 +31,6 @@ and policies, and any services or tools provided).'
 <style scoped>
 .funding-title {
   font-family: 'Lato';
-  font-size: 1.1em;
   font-weight: 300;
   letter-spacing: 0.06em;
   text-transform: uppercase;

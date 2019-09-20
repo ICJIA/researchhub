@@ -31,10 +31,6 @@
     <div class="pt-6">
       <HomeDocumentation />
     </div>
-
-    <div class="d-flex justify-center">
-      <TheFundingStatement />
-    </div>
   </div>
 </template>
 
@@ -45,7 +41,6 @@ const HomeLatestApps = () => import('@/components/HomeLatestApps')
 const HomeLatestArticles = () => import('@/components/HomeLatestArticles')
 const HomeLatestDatasets = () => import('@/components/HomeLatestDatasets')
 const HomeSearch = () => import('@/components/HomeSearch')
-const TheFundingStatement = () => import('@/components/TheFundingStatement')
 
 export default {
   metaInfo: {
@@ -57,8 +52,7 @@ export default {
     HomeLatestApps,
     HomeLatestArticles,
     HomeLatestDatasets,
-    HomeSearch,
-    TheFundingStatement
+    HomeSearch
   },
   static: {
     title:

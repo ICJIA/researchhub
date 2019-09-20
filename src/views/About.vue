@@ -8,8 +8,6 @@
         $options.static.section1.sub1.title
       }}</template>
 
-      <TheFundingStatement />
-
       <template v-slot:subbody1>
         <p
           v-for="(p, i) in $options.static.section1.sub1.paragraphs"
@@ -52,7 +50,6 @@
 import { mdiOpenInNew } from '@mdi/js'
 const AboutSection = () => import('@/components/AboutSection')
 const BaseViewTitle = () => import('@/components/BaseViewTitle')
-const TheFundingStatement = () => import('@/components/TheFundingStatement')
 
 const hyperlink = (href, text) => {
   const icon = `<svg
@@ -74,8 +71,7 @@ export default {
   },
   components: {
     AboutSection,
-    BaseViewTitle,
-    TheFundingStatement
+    BaseViewTitle
   },
   static: {
     section1: {
