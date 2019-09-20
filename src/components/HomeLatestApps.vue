@@ -1,5 +1,5 @@
 <template>
-  <BaseSection v-if="apps" :title="title" :home="true" :to="to">
+  <BaseSection v-if="apps" title="apps" :home="true" to="apps">
     <v-col class="mx-auto" cols="12" md="10" lg="8" xl="7">
       <v-row justify="center">
         <v-col v-for="(app, i) in apps" :key="i" cols="12" sm="10" md="4">
@@ -26,12 +26,6 @@ export default {
     BaseSection
   },
   mixins: [searchGlobalMixin],
-  data() {
-    return {
-      title: 'apps',
-      to: 'apps'
-    }
-  },
   computed: {
     ...mapGetters('apps', {
       apps: 'getLatest'

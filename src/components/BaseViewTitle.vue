@@ -4,7 +4,7 @@
       <template v-if="page">
         <h4 class="font-weight-light">
           <template>{{ 'ICJIA Research Hub' }}</template>
-          <v-icon color="white">{{ mdiChevronRight }}</v-icon>
+          <v-icon color="white">{{ $options.static.mdiChevronRight }}</v-icon>
           <template>{{ page }}</template>
         </h4>
       </template>
@@ -25,10 +25,8 @@ export default {
       default: ''
     }
   },
-  data() {
-    return {
-      mdiChevronRight
-    }
+  static: {
+    mdiChevronRight
   }
 }
 </script>

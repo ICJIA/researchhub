@@ -1,15 +1,17 @@
 <template>
   <v-app>
-    <the-toolbar />
+    <TheToolbar />
 
     <v-content>
       <router-view v-if="alive" />
       <ServerError v-else />
     </v-content>
 
-    <the-button-back-to-top />
+    <TheButtonBackToTop />
 
-    <the-footer />
+    <TheFundingStatement />
+
+    <TheFooter />
   </v-app>
 </template>
 
@@ -19,6 +21,7 @@ import TheToolbar from '@/components/TheToolbar'
 const ServerError = () => import('@/components/ServerError')
 const TheButtonBackToTop = () => import('@/components/TheButtonBackToTop')
 const TheFooter = () => import('@/components/TheFooter')
+const TheFundingStatement = () => import('@/components/TheFundingStatement')
 
 export default {
   metaInfo: {
@@ -35,7 +38,8 @@ export default {
     ServerError,
     TheToolbar,
     TheButtonBackToTop,
-    TheFooter
+    TheFooter,
+    TheFundingStatement
   },
   data() {
     return {

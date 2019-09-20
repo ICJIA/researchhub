@@ -10,50 +10,72 @@
       @author-click="searchAuthorOnArticleSearch($event)"
     />
 
-    <ArticleSocialSharing
-      v-if="item && baseUrl"
-      :url="baseUrl + '/' + item.slug"
-      :title="item.title"
-    />
+    <TheSocialSharing v-if="item" :title="meta.title" />
   </div>
 </template>
 
 <script>
 import { fetchItemBySlug } from '@/services/client.articles'
 import { searchGlobalMixin } from '@/mixins/searchMixin'
-const ArticleSocialSharing = () => import('@/components/ArticleSocialSharing')
 const ArticleView = () => import('icjia-research-lib').then(m => m.ArticleView)
 const TheProgessBar = () => import('@/components/TheProgressBar')
+const TheSocialSharing = () => import('@/components/TheSocialSharing')
+
+const getImageURL = ({ _id, splash }) => {
+  const ext = splash.split('data:image/')[1].split(';')[0]
+  return `${window.location.origin}/images/${_id}-splash.${ext}`
+}
 
 export default {
+  metaInfo() {
+    const { title, description, image } = this.meta
+
+    return {
+      titleTemplate: `${title} | %s`,
+      meta: [
+        {
+          vmid: 'og:url',
+          property: 'og:url',
+          content: window.location.href
+        },
+        {
+          vmid: 'og:type',
+          property: 'og:type',
+          content: 'article'
+        },
+        {
+          vmid: 'og:title',
+          property: 'og:title',
+          content: `${title} | Research Hub`
+        },
+        {
+          vmid: 'desc-articles',
+          name: 'description',
+          property: 'og:description',
+          content: `${description}`
+        },
+        {
+          vmid: 'og:image',
+          property: 'og:image',
+          content: image
+        }
+      ]
+    }
+  },
   components: {
-    ArticleSocialSharing,
     ArticleView,
-    TheProgessBar
+    TheProgessBar,
+    TheSocialSharing
   },
   mixins: [searchGlobalMixin],
   data() {
     return {
       item: null,
-      baseUrl: '',
       meta: {
         title: 'Articles',
-        description: ''
+        description: '',
+        image: ''
       }
-    }
-  },
-  metaInfo() {
-    const title = this.meta.title
-    const description = this.meta.description
-    return {
-      titleTemplate: `${title} | %s`,
-      meta: [
-        {
-          vmid: 'desc-articles',
-          name: 'description',
-          content: `${description}`
-        }
-      ]
     }
   },
   async created() {
@@ -68,10 +90,10 @@ export default {
         this.$store.dispatch('articles/cacheInfo', { slug, item })
       }
 
-      this.baseUrl = await window.location.origin
       this.item = item
       this.meta.title = item.title
       this.meta.description = item.abstract
+      this.meta.image = getImageURL(item)
     } catch {
       this.$router.push({ name: '404' })
     }

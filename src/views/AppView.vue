@@ -1,17 +1,58 @@
 <template>
-  <v-col class="mx-auto" cols="12" sm="10" md="8" xl="7">
-    <AppView v-if="item" :item="item" @tag-click="searchTagGlobal($event)" />
-  </v-col>
+  <div>
+    <v-col class="mx-auto" cols="12" sm="10" md="8" xl="7">
+      <AppView v-if="item" :item="item" @tag-click="searchTagGlobal($event)" />
+    </v-col>
+
+    <TheSocialSharing v-if="item" :show-always="true" :title="meta.title" />
+  </div>
 </template>
 
 <script>
 import { fetchItemBySlug } from '@/services/client.apps'
 import { searchGlobalMixin } from '@/mixins/searchMixin'
 const AppView = () => import('icjia-research-lib').then(m => m.AppView)
+const TheSocialSharing = () => import('@/components/TheSocialSharing')
+
+const getImageURL = ({ _id, image }) => {
+  const ext = image.split('data:image/')[1].split(';')[0]
+  return `${window.location.origin}/images/${_id}-image.${ext}`
+}
 
 export default {
+  metaInfo() {
+    const { title, description, image } = this.meta
+
+    return {
+      titleTemplate: `${title} | %s`,
+      meta: [
+        {
+          vmid: 'og:url',
+          property: 'og:url',
+          content: window.location.href
+        },
+        {
+          vmid: 'og:title',
+          property: 'og:title',
+          content: `${title} | Research Hub`
+        },
+        {
+          vmid: 'desc-apps',
+          name: 'description',
+          property: 'og:description',
+          content: description
+        },
+        {
+          vmid: 'og:image',
+          property: 'og:image',
+          content: image
+        }
+      ]
+    }
+  },
   components: {
-    AppView
+    AppView,
+    TheSocialSharing
   },
   mixins: [searchGlobalMixin],
   data() {
@@ -19,22 +60,9 @@ export default {
       item: null,
       meta: {
         title: 'Apps',
-        description: ''
+        description: '',
+        image: ''
       }
-    }
-  },
-  metaInfo() {
-    const title = this.meta.title
-    const description = this.meta.description
-    return {
-      titleTemplate: `${title} | %s`,
-      meta: [
-        {
-          vmid: 'desc-apps',
-          name: 'description',
-          content: description
-        }
-      ]
     }
   },
   async created() {
@@ -52,6 +80,7 @@ export default {
       this.item = item
       this.meta.title = item.title
       this.meta.description = item.description
+      this.meta.image = getImageURL(item)
     } catch {
       this.$router.push({ name: '404' })
     }

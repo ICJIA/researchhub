@@ -1,22 +1,53 @@
 <template>
-  <v-col class="mx-auto" cols="12" sm="10" lg="8" xl="7">
-    <DatasetView
-      v-if="item"
-      :downloader="downloader"
-      :item="item"
-      @tag-click="searchTagGlobal($event)"
-    />
-  </v-col>
+  <div>
+    <v-col class="mx-auto" cols="12" sm="10" lg="8" xl="7">
+      <DatasetView
+        v-if="item"
+        :downloader="downloader"
+        :item="item"
+        @tag-click="searchTagGlobal($event)"
+      />
+    </v-col>
+
+    <TheSocialSharing v-if="item" :show-always="true" :title="meta.title" />
+  </div>
 </template>
 
 <script>
 import { fetchItemBySlug } from '@/services/client.datasets'
 import { searchGlobalMixin } from '@/mixins/searchMixin'
 const DatasetView = () => import('icjia-research-lib').then(m => m.DatasetView)
+const TheSocialSharing = () => import('@/components/TheSocialSharing')
 
 export default {
+  metaInfo() {
+    const { title, description } = this.meta
+
+    return {
+      titleTemplate: `${title} | %s`,
+      meta: [
+        {
+          vmid: 'og:url',
+          property: 'og:url',
+          content: window.location.href
+        },
+        {
+          vmid: 'og:title',
+          property: 'og:title',
+          content: `${title} | Research Hub`
+        },
+        {
+          vmid: 'desc-datasets',
+          name: 'description',
+          property: 'og:description',
+          content: `${description}`
+        }
+      ]
+    }
+  },
   components: {
-    DatasetView
+    DatasetView,
+    TheSocialSharing
   },
   mixins: [searchGlobalMixin],
   data() {
@@ -26,20 +57,6 @@ export default {
         title: 'Datasets',
         description: ''
       }
-    }
-  },
-  metaInfo() {
-    const title = this.meta.title
-    const description = this.meta.description
-    return {
-      titleTemplate: `${title} | %s`,
-      meta: [
-        {
-          vmid: 'desc-datasets',
-          name: 'description',
-          content: `${description}`
-        }
-      ]
     }
   },
   async created() {

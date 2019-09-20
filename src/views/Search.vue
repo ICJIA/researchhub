@@ -1,6 +1,6 @@
 <template>
   <div class="pb-12">
-    <BaseViewTitle :page="title" />
+    <BaseViewTitle page="Search" />
 
     <v-col class="mx-auto pt-6 pb-0 px-0" cols="10" sm="8" lg="6" xl="5">
       <SearchBar
@@ -75,7 +75,6 @@ export default {
   },
   data() {
     return {
-      title: 'Search',
       searchLocal: this.search || '',
       apps: [],
       articles: [],

@@ -3,7 +3,7 @@
     :value="searchInput"
     :label="searchLabel"
     :clearable="true"
-    :prepend-inner-icon="mdiMagnify"
+    :prepend-inner-icon="$options.static.mdiMagnify"
     solo
     @click:clear="onClear($event)"
     @keyup="onKeyup($event)"
@@ -26,7 +26,6 @@ export default {
   },
   data() {
     return {
-      mdiMagnify,
       searchInput: this.search,
       searchLabel: this.label
     }
@@ -38,6 +37,9 @@ export default {
     onClear() {
       this.$emit('update:search', '')
     }
+  },
+  static: {
+    mdiMagnify
   }
 }
 </script>

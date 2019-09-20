@@ -1,12 +1,12 @@
 <template>
   <transition name="fade">
     <social-sharing
-      v-show="fab"
-      v-scroll="onScroll"
+      v-show="showAlways ? true : fab"
+      v-scroll="showAlways ? null : onScroll"
       class="social-sharing"
-      :url="url"
-      :title="title"
       inline-template
+      :title="`${title} | Research Hub`"
+      :url="url"
     >
       <div>
         <network style="background-color:#305891;" network="facebook">
@@ -71,13 +71,17 @@
 <script>
 export default {
   props: {
+    showAlways: {
+      type: Boolean,
+      default: false
+    },
     title: {
       type: String,
       default: ''
     },
     url: {
       type: String,
-      default: ''
+      default: window.location.href
     }
   },
   data() {
