@@ -33,20 +33,19 @@
     </div>
 
     <div class="d-flex justify-center">
-      <FundingAcknowledgement />
+      <TheFundingStatement />
     </div>
   </div>
 </template>
 
 <script>
 const BaseViewTitle = () => import('@/components/BaseViewTitle')
-const FundingAcknowledgement = () =>
-  import('@/components/FundingAcknowledgement')
 const HomeDocumentation = () => import('@/components/HomeDocumentation')
 const HomeLatestApps = () => import('@/components/HomeLatestApps')
 const HomeLatestArticles = () => import('@/components/HomeLatestArticles')
 const HomeLatestDatasets = () => import('@/components/HomeLatestDatasets')
 const HomeSearch = () => import('@/components/HomeSearch')
+const TheFundingStatement = () => import('@/components/TheFundingStatement')
 
 export default {
   metaInfo: {
@@ -54,12 +53,12 @@ export default {
   },
   components: {
     BaseViewTitle,
-    FundingAcknowledgement,
     HomeDocumentation,
     HomeLatestApps,
     HomeLatestArticles,
     HomeLatestDatasets,
-    HomeSearch
+    HomeSearch,
+    TheFundingStatement
   },
   static: {
     title:

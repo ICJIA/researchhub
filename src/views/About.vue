@@ -8,7 +8,7 @@
         $options.static.section1.sub1.title
       }}</template>
 
-      <FundingAcknowledgement :bg-color="true" />
+      <TheFundingStatement />
 
       <template v-slot:subbody1>
         <p
@@ -52,8 +52,7 @@
 import { mdiOpenInNew } from '@mdi/js'
 const AboutSection = () => import('@/components/AboutSection')
 const BaseViewTitle = () => import('@/components/BaseViewTitle')
-const FundingAcknowledgement = () =>
-  import('@/components/FundingAcknowledgement')
+const TheFundingStatement = () => import('@/components/TheFundingStatement')
 
 const hyperlink = (href, text) => {
   const icon = `<svg
@@ -76,7 +75,7 @@ export default {
   components: {
     AboutSection,
     BaseViewTitle,
-    FundingAcknowledgement
+    TheFundingStatement
   },
   static: {
     section1: {
