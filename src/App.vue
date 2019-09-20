@@ -1,17 +1,17 @@
 <template>
   <v-app>
-    <the-toolbar />
+    <TheToolbar />
 
     <v-content>
       <router-view v-if="alive" />
       <ServerError v-else />
     </v-content>
 
-    <the-button-back-to-top />
+    <TheButtonBackToTop />
 
-    <the-funding-statement />
+    <TheFundingStatement />
 
-    <the-footer />
+    <TheFooter />
   </v-app>
 </template>
 
