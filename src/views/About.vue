@@ -3,7 +3,7 @@
   <div>
     <BaseViewTitle page="About" />
 
-    <AboutSection :title="$options.static.section1.title" :sub-num="3">
+    <BaseAboutSection :title="$options.static.section1.title" :sub-num="3">
       <template v-slot:subtitle1>{{
         $options.static.section1.sub1.title
       }}</template>
@@ -26,29 +26,29 @@
           v-html="p"
         ></p>
       </template>
-    </AboutSection>
+    </BaseAboutSection>
 
-    <AboutSection :title="$options.static.section2.title">
+    <BaseAboutSection :title="$options.static.section2.title">
       <p
         v-for="(p, i) in $options.static.section2.paragraphs"
         :key="i"
         v-html="p"
       ></p>
-    </AboutSection>
+    </BaseAboutSection>
 
-    <AboutSection :title="$options.static.section3.title">
+    <BaseAboutSection :title="$options.static.section3.title">
       <p
         v-for="(p, i) in $options.static.section3.paragraphs"
         :key="i"
         v-html="p"
       ></p>
-    </AboutSection>
+    </BaseAboutSection>
   </div>
 </template>
 
 <script>
 import { mdiOpenInNew } from '@mdi/js'
-const AboutSection = () => import('@/components/AboutSection')
+const BaseAboutSection = () => import('@/components/BaseAboutSection')
 const BaseViewTitle = () => import('@/components/BaseViewTitle')
 
 const hyperlink = (href, text) => {
@@ -70,7 +70,7 @@ export default {
     titleTemplate: 'About | %s'
   },
   components: {
-    AboutSection,
+    BaseAboutSection,
     BaseViewTitle
   },
   static: {
