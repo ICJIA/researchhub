@@ -14,9 +14,14 @@ import { searchGlobalMixin } from '@/mixins/searchMixin'
 const AppView = () => import('icjia-research-lib').then(m => m.AppView)
 const TheSocialSharing = () => import('@/components/TheSocialSharing')
 
+const getImageURL = ({ _id, image }) => {
+  const ext = image.split('data:image/')[1].split(';')[0]
+  return `${window.location.origin}/images/${_id}-image.${ext}`
+}
+
 export default {
   metaInfo() {
-    const { title, description } = this.meta
+    const { title, description, image } = this.meta
 
     return {
       titleTemplate: `${title} | %s`,
@@ -36,6 +41,11 @@ export default {
           name: 'description',
           property: 'og:description',
           content: description
+        },
+        {
+          vmid: 'og:image',
+          property: 'og:image',
+          content: image
         }
       ]
     }
@@ -50,7 +60,8 @@ export default {
       item: null,
       meta: {
         title: 'Apps',
-        description: ''
+        description: '',
+        image: ''
       }
     }
   },
@@ -69,6 +80,7 @@ export default {
       this.item = item
       this.meta.title = item.title
       this.meta.description = item.description
+      this.meta.image = getImageURL(item)
     } catch {
       this.$router.push({ name: '404' })
     }
