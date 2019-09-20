@@ -10,16 +10,16 @@
       @author-click="searchAuthorOnArticleSearch($event)"
     />
 
-    <ArticleSocialSharing v-if="item" :title="`${meta.title} | Research Hub`" />
+    <TheSocialSharing v-if="item" :title="`${meta.title} | Research Hub`" />
   </div>
 </template>
 
 <script>
 import { fetchItemBySlug } from '@/services/client.articles'
 import { searchGlobalMixin } from '@/mixins/searchMixin'
-const ArticleSocialSharing = () => import('@/components/ArticleSocialSharing')
 const ArticleView = () => import('icjia-research-lib').then(m => m.ArticleView)
 const TheProgessBar = () => import('@/components/TheProgressBar')
+const TheSocialSharing = () => import('@/components/TheSocialSharing')
 
 const getImageURL = ({ _id, splash }) => {
   const ext = splash.split('data:image/')[1].split(';')[0]
@@ -63,9 +63,9 @@ export default {
     }
   },
   components: {
-    ArticleSocialSharing,
     ArticleView,
-    TheProgessBar
+    TheProgessBar,
+    TheSocialSharing
   },
   mixins: [searchGlobalMixin],
   data() {
