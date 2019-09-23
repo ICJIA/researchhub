@@ -28,13 +28,9 @@
             </span>
           </template>
 
-          <div>
+          <div class="text-capitalize">
             <template>{{ result.date.slice(0, 10) + ' | ' }}</template>
-            <template>{{
-              result.categories
-                .map(el => el.charAt(0).toUpperCase() + el.slice(1))
-                .join(', ')
-            }}</template>
+            <template>{{ result.categories.join(', ') }}</template>
           </div>
         </li>
       </ul>

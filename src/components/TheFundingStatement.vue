@@ -1,20 +1,12 @@
 <template functional>
-  <div class="d-flex justify-center mx-4 mb-12 pb-6 pb-sm-0">
-    <div class="greycolor" style="max-width: 720px;">
-      <p class="funding-title">{{ $options.static.title }}</p>
-      <p class="font-italic small">{{ $options.static.body }}</p>
-    </div>
+  <div class="funding-block greycolor mb-12 mx-4 mx-sm-auto pb-6 pb-sm-0">
+    <p class="funding-title">{{ $options.static.title }}</p>
+    <p class="font-italic small">{{ $options.static.body }}</p>
   </div>
 </template>
 
 <script>
 export default {
-  props: {
-    bgColor: {
-      type: Boolean,
-      default: false
-    }
-  },
   static: {
     title: 'Notice of Federal Funding and Federal Disclaimer',
     body:
@@ -29,6 +21,11 @@ and policies, and any services or tools provided).'
 </script>
 
 <style scoped>
+.funding-block {
+  display: flex;
+  flex-direction: column;
+  max-width: 720px;
+}
 .funding-title {
   font-family: 'Lato';
   font-weight: 300;
