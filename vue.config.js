@@ -25,6 +25,10 @@ const compressionPlugins = [
 ]
 
 module.exports = {
+  publicPath:
+    process.env.NODE_ENV === `production`
+      ? process.env.VUE_APP_PUBLIC_PATH
+      : '/',
   configureWebpack: config => {
     config.entry.app = './src/entry.js'
 

@@ -19,6 +19,8 @@ import { searchGlobalMixin } from '@/mixins/searchMixin'
 const DatasetView = () => import('icjia-research-lib').then(m => m.DatasetView)
 const TheSocialSharing = () => import('@/components/TheSocialSharing')
 
+const publicPath = process.env.VUE_APP_PUBLIC_PATH
+
 export default {
   metaInfo() {
     const { title, description } = this.meta
@@ -81,7 +83,7 @@ export default {
   methods: {
     async downloader() {
       const { hash, ext } = this.item.datafile
-      window.open(`/files/${hash}${ext}`, '_blank')
+      window.open(publicPath + `/files/${hash}${ext}`, '_blank')
     }
   }
 }

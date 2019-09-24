@@ -21,6 +21,8 @@ const ArticleView = () => import('icjia-research-lib').then(m => m.ArticleView)
 const TheProgessBar = () => import('@/components/TheProgressBar')
 const TheSocialSharing = () => import('@/components/TheSocialSharing')
 
+const publicPath = process.env.VUE_APP_PUBLIC_PATH
+
 const getImageURL = ({ _id, splash }) => {
   const ext = splash.split('data:image/')[1].split(';')[0]
   return `${window.location.origin}/images/${_id}-splash.${ext}`
@@ -101,7 +103,7 @@ export default {
   methods: {
     async downloader(type) {
       const { hash, ext } = this.item[`${type}file`]
-      window.open(`/files/${hash}${ext}`, '_blank')
+      window.open(publicPath + `files/${hash}${ext}`, '_blank')
     },
     searchAuthorOnArticleSearch(e) {
       const search = e.target.textContent || e.target.innerText

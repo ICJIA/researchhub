@@ -1,5 +1,5 @@
 <template>
-  <BaseSection href="/docs/" title="documentation">
+  <BaseSection :href="$options.static.docsPath" title="documentation">
     <v-col class="mx-auto" cols="12" sm="10" lg="8" xl="7">
       <v-row>
         <v-col
@@ -9,7 +9,11 @@
           sm="4"
         >
           <div class="px-4">
-            <a :href="`/docs/${item.ref}`" target="_blank" rel="noreferrer">
+            <a
+              :href="`${$options.static.docsPath}/${item.ref}`"
+              target="_blank"
+              rel="noreferrer"
+            >
               <h2 class="font-weight-light mb-10">{{ item.title }}</h2>
             </a>
             <!-- eslint-disable-next-line vue/no-v-html -->
@@ -28,11 +32,14 @@
 <script>
 const BaseSection = () => import('@/components/BaseSection')
 
+const publicPath = process.env.VUE_APP_PUBLIC_PATH
+
 export default {
   components: {
     BaseSection
   },
   static: {
+    docsPath: publicPath + 'docs',
     items: [
       {
         title: 'User Guide',
