@@ -1,5 +1,1 @@
-/docs/*     https://icjia-research-docs.netlify.com/:splat    200!
-/studio/*   https://icjia-research-studio.netlify.com/:splat  200!
-/preview/*  https://icjia-research-preview.netlify.com/:splat 200!
-/files/*    https://research.icjia-api.cloud/uploads/:splat   200!
-/*          /index.html                                       200
+/*    /index.html   200
