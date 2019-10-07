@@ -15,13 +15,12 @@
 </template>
 
 <script>
+import { publicPath } from '@/config'
 import { fetchItemBySlug } from '@/services/client.articles'
 import { searchGlobalMixin } from '@/mixins/searchMixin'
 const ArticleView = () => import('icjia-research-lib').then(m => m.ArticleView)
 const TheProgessBar = () => import('@/components/TheProgressBar')
 const TheSocialSharing = () => import('@/components/TheSocialSharing')
-
-const publicPath = process.env.VUE_APP_PUBLIC_PATH
 
 const getImageURL = ({ _id, splash }) => {
   const ext = splash.split('data:image/')[1].split(';')[0]

@@ -44,10 +44,9 @@
 
 <script>
 import { mdiOpenInNew } from '@mdi/js'
+import { publicPath } from '@/config'
 const BaseAboutSection = () => import('@/components/BaseAboutSection')
 const BaseViewTitle = () => import('@/components/BaseViewTitle')
-
-const publicPath = process.env.VUE_APP_PUBLIC_PATH
 
 const hyperlink = (href, text) => {
   const icon = `<svg

@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Meta from 'vue-meta'
 import ga from 'vue-ga'
 import NProgress from 'nprogress'
+import { gaAPIKey, publicPath } from '@/config'
 import { isAuthor } from '@/services/client.authors'
 
 Vue.use(Router)
@@ -13,10 +14,7 @@ const getDefaultMeta = view => ({
 })
 
 const router = new Router({
-  base:
-    process.env.NODE_ENV === `production`
-      ? process.env.VUE_APP_PUBLIC_PATH
-      : '/',
+  base: process.env.NODE_ENV === `production` ? publicPath : '/',
   mode: 'history',
   routes: [
     {
@@ -127,6 +125,6 @@ router.afterEach(() => {
   NProgress.done()
 })
 
-ga(router, process.env.VUE_APP_GA_ID)
+ga(router, gaAPIKey)
 
 export default router

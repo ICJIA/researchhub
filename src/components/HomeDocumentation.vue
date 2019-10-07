@@ -30,9 +30,8 @@
 </template>
 
 <script>
+import { publicPath } from '@/config'
 const BaseSection = () => import('@/components/BaseSection')
-
-const publicPath = process.env.VUE_APP_PUBLIC_PATH
 
 export default {
   components: {

@@ -9,7 +9,7 @@ function isIE(ua) {
 }
 
 function createBanner(name) {
-  const publicPath = process.env.VUE_APP_PUBLIC_PATH
+  const { publicPath } = require('./config')
 
   return `
   <div style="text-align: center; font-size: 0.7em;">

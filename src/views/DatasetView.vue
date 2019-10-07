@@ -14,12 +14,11 @@
 </template>
 
 <script>
+import { publicPath } from '@/config'
 import { fetchItemBySlug } from '@/services/client.datasets'
 import { searchGlobalMixin } from '@/mixins/searchMixin'
 const DatasetView = () => import('icjia-research-lib').then(m => m.DatasetView)
 const TheSocialSharing = () => import('@/components/TheSocialSharing')
-
-const publicPath = process.env.VUE_APP_PUBLIC_PATH
 
 export default {
   metaInfo() {

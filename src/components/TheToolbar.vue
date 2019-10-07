@@ -32,9 +32,8 @@
 </template>
 
 <script>
+import { publicPath } from '@/config'
 const BaseToolbar = () => import('icjia-research-lib').then(m => m.BaseToolbar)
-
-const publicPath = process.env.VUE_APP_PUBLIC_PATH
 
 export default {
   components: {
@@ -42,7 +41,7 @@ export default {
   },
   static: {
     docsPath: publicPath + 'docs',
-    logoPath: publicPath + 'icjia-logo.png',
+    logoPath: process.env.BASE_URL + 'icjia-logo.png',
     views: ['about', 'apps', 'articles', 'datasets']
   }
 }

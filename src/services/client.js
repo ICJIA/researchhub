@@ -1,8 +1,9 @@
 import axios from 'axios'
 import NProgress from 'nprogress'
+import { apiBaseURL } from '@/config'
 
 const client = axios.create({
-  baseURL: process.env.VUE_APP_API_BASE_URL
+  baseURL: apiBaseURL
 })
 
 client.interceptors.request.use(config => {
