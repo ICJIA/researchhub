@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import { meta } from '@/config'
 import { fetchItemBySlug } from '@/services/client.datasets'
 import { searchGlobalMixin } from '@/mixins/searchMixin'
 const DatasetView = () => import('icjia-research-lib').then(m => m.DatasetView)
@@ -34,7 +35,7 @@ export default {
         {
           vmid: 'og:title',
           property: 'og:title',
-          content: `${title} | Research Hub`
+          content: `${title} | ${meta.title}`
         },
         {
           vmid: 'desc-datasets',

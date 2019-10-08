@@ -5,7 +5,7 @@
       v-scroll="showAlways ? null : onScroll"
       class="social-sharing"
       inline-template
-      :title="`${title} | Research Hub`"
+      :title="socialSharingTitle"
       :url="url"
     >
       <div>
@@ -69,6 +69,8 @@
 </template>
 
 <script>
+import { meta } from '@/config'
+
 export default {
   props: {
     showAlways: {
@@ -87,6 +89,11 @@ export default {
   data() {
     return {
       fab: false
+    }
+  },
+  computed: {
+    socialSharingTitle() {
+      return `${this.title} | ${meta.title}`
     }
   },
   methods: {

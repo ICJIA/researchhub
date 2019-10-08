@@ -3,14 +3,14 @@ import Router from 'vue-router'
 import Meta from 'vue-meta'
 import ga from 'vue-ga'
 import NProgress from 'nprogress'
-import { gaAPIKey } from '@/config'
+import { gaAPIKey, meta } from '@/config'
 import { isAuthor } from '@/services/client.authors'
 
 Vue.use(Router)
 Vue.use(Meta)
 
 const getDefaultMeta = view => ({
-  title: `${view} | Research Hub`
+  title: `${view} | ${meta.title}`
 })
 
 const router = new Router({
@@ -116,7 +116,7 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-  document.title = to.meta.title || 'Research Hub'
+  document.title = to.meta.title || meta.title
   NProgress.start()
   next()
 })
