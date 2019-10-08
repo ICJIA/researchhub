@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { agency, github } from '@/config'
+import { agency, github, version } from '@/config'
 const Footer = () => import('icjia-research-lib').then(m => m.Footer)
 
 export default {
@@ -12,7 +12,10 @@ export default {
   },
   static: {
     agency,
-    github
+    github: {
+      url: github,
+      version
+    }
   }
 }
 </script>
