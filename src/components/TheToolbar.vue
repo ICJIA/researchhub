@@ -32,7 +32,6 @@
 </template>
 
 <script>
-import { publicPath } from '@/config'
 const BaseToolbar = () => import('icjia-research-lib').then(m => m.BaseToolbar)
 
 export default {
@@ -40,7 +39,7 @@ export default {
     BaseToolbar
   },
   static: {
-    docsPath: publicPath + 'docs',
+    docsPath: process.env.BASE_URL + 'docs',
     logoPath: process.env.BASE_URL + 'icjia-logo.png',
     views: ['about', 'apps', 'articles', 'datasets']
   }

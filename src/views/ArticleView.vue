@@ -15,7 +15,6 @@
 </template>
 
 <script>
-import { publicPath } from '@/config'
 import { fetchItemBySlug } from '@/services/client.articles'
 import { searchGlobalMixin } from '@/mixins/searchMixin'
 const ArticleView = () => import('icjia-research-lib').then(m => m.ArticleView)
@@ -102,7 +101,7 @@ export default {
   methods: {
     async downloader(type) {
       const { hash, ext } = this.item[`${type}file`]
-      window.open(publicPath + `files/${hash}${ext}`, '_blank')
+      window.open(process.env.BASE_URL + `files/${hash}${ext}`, '_blank')
     },
     searchAuthorOnArticleSearch(e) {
       const search = e.target.textContent || e.target.innerText

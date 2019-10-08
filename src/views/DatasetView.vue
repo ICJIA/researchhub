@@ -14,7 +14,6 @@
 </template>
 
 <script>
-import { publicPath } from '@/config'
 import { fetchItemBySlug } from '@/services/client.datasets'
 import { searchGlobalMixin } from '@/mixins/searchMixin'
 const DatasetView = () => import('icjia-research-lib').then(m => m.DatasetView)
@@ -82,7 +81,7 @@ export default {
   methods: {
     async downloader() {
       const { hash, ext } = this.item.datafile
-      window.open(publicPath + `/files/${hash}${ext}`, '_blank')
+      window.open(process.env.BASE_URL + `files/${hash}${ext}`, '_blank')
     }
   }
 }

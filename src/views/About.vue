@@ -44,7 +44,6 @@
 
 <script>
 import { mdiOpenInNew } from '@mdi/js'
-import { publicPath } from '@/config'
 const BaseAboutSection = () => import('@/components/BaseAboutSection')
 const BaseViewTitle = () => import('@/components/BaseViewTitle')
 
@@ -113,7 +112,7 @@ export default {
           p3:
             'Visit ' +
             hyperlink(
-              publicPath + 'docs/',
+              process.env.BASE_URL + 'docs/',
               '<em>ICJIA Research Hub</em> Documentation site'
             ) +
             ' to learn more.',
@@ -121,7 +120,7 @@ export default {
             'In particular, if you are interested in contributing to the \
               <em>ICJIA Research Hub</em> codebase, please refer to ' +
             hyperlink(
-              publicPath + 'docs/dev-guide/contributing/codebase',
+              process.env.BASE_URL + 'docs/dev-guide/contributing/codebase',
               'the relevant page in the documentation'
             ) +
             '.'
