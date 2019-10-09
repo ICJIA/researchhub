@@ -1,21 +1,19 @@
 <template>
-  <Footer :agency="$options.static.agency" :github="$options.static.github" />
+  <Footer :github="$options.static.github" />
 </template>
 
 <script>
-import { agency, github, version } from '@/config'
+import { github } from '@/config'
 const Footer = () => import('icjia-research-lib').then(m => m.Footer)
+
+console.log(github)
 
 export default {
   components: {
     Footer
   },
   static: {
-    agency,
-    github: {
-      url: github,
-      version
-    }
+    github
   }
 }
 </script>
