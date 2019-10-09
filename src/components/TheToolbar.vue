@@ -1,5 +1,5 @@
 <template>
-  <BaseToolbar logo-path="/icjia-logo.png">
+  <BaseToolbar :logo-path="$options.static.logoPath">
     <template #toolbarItems>
       <v-btn
         v-for="view in $options.static.views"
@@ -10,7 +10,9 @@
         <template>{{ view }}</template>
       </v-btn>
 
-      <v-btn href="/docs/" target="_blank" text>documentation</v-btn>
+      <v-btn :href="$options.static.docsPath" target="_blank" text
+        >documentation</v-btn
+      >
     </template>
 
     <template #toolbarDrawerItems>
@@ -22,7 +24,7 @@
         <v-list-item-title>{{ view }}</v-list-item-title>
       </v-list-item>
 
-      <v-list-item href="/docs/">
+      <v-list-item :href="$options.static.docsPath">
         <v-list-item-title>documentation</v-list-item-title>
       </v-list-item>
     </template>
@@ -37,6 +39,8 @@ export default {
     BaseToolbar
   },
   static: {
+    docsPath: process.env.BASE_URL + 'docs',
+    logoPath: process.env.BASE_URL + 'icjia-logo.png',
     views: ['about', 'apps', 'articles', 'datasets']
   }
 }

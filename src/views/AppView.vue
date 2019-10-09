@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import { meta } from '@/config'
 import { fetchItemBySlug } from '@/services/client.apps'
 import { searchGlobalMixin } from '@/mixins/searchMixin'
 const AppView = () => import('icjia-research-lib').then(m => m.AppView)
@@ -34,7 +35,7 @@ export default {
         {
           vmid: 'og:title',
           property: 'og:title',
-          content: `${title} | Research Hub`
+          content: `${title} | ${meta.title}`
         },
         {
           vmid: 'desc-apps',

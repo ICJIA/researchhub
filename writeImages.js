@@ -1,5 +1,6 @@
 const fs = require('fs')
 const axios = require('axios')
+const { apiBaseURL } = require('./src/config')
 
 const query = `query {
   apps (where: { status: "published" }) {
@@ -13,10 +14,7 @@ const query = `query {
 }`
 
 axios
-  .create({
-    baseURL:
-      process.env.VUE_APP_API_BASE_URL || 'https://research.icjia-api.cloud'
-  })
+  .create({ baseURL: apiBaseURL })
   .post('/graphql', { query, validateStatus: status => status === 200 })
   .then(res => {
     writeImages(res.data.data.apps, ['image'])

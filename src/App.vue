@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import { meta } from '@/config'
 import { healthCheck } from '@/services/client.utils'
 import TheToolbar from '@/components/TheToolbar'
 const ServerError = () => import('@/components/ServerError')
@@ -25,12 +26,11 @@ const TheFundingStatement = () => import('@/components/TheFundingStatement')
 
 export default {
   metaInfo: {
-    title: 'Research Hub',
+    title: meta.title,
     meta: [
       {
         name: 'description',
-        content:
-          'Welcome to the Illinois Crinimal Justice Information Authority (ICJIA) Research Hub. Here you can find various criminal justice  datasets, research publications and resources to develop web  applications, dashboards and more.'
+        content: meta.description
       }
     ]
   },

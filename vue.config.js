@@ -1,3 +1,5 @@
+const { publicPath } = require('./src/config')
+
 /* compression */
 const BrotliPlugin = require('brotli-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
@@ -25,6 +27,7 @@ const compressionPlugins = [
 ]
 
 module.exports = {
+  publicPath: process.env.NODE_ENV === `production` ? publicPath : '/',
   configureWebpack: config => {
     config.entry.app = './src/entry.js'
 

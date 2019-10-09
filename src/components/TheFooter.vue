@@ -1,23 +1,19 @@
 <template>
-  <Footer :agency="$options.static.agency" :github="$options.static.github" />
+  <Footer :github="$options.static.github" />
 </template>
 
 <script>
+import { github } from '@/config'
 const Footer = () => import('icjia-research-lib').then(m => m.Footer)
+
+console.log(github)
 
 export default {
   components: {
     Footer
   },
   static: {
-    agency: {
-      name: 'Illinois Criminal Justice Information Authority',
-      url: 'http://www.icjia.state.il.us/'
-    },
-    github: {
-      url: 'https://github.com/icjia/icjia-research',
-      version: '1.0.0-beta.9'
-    }
+    github
   }
 }
 </script>

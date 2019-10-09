@@ -1,5 +1,5 @@
 <template>
-  <BaseSection href="/docs/" title="documentation">
+  <BaseSection :href="$options.static.docsPath" title="documentation">
     <v-col class="mx-auto" cols="12" sm="10" lg="8" xl="7">
       <v-row>
         <v-col
@@ -9,7 +9,7 @@
           sm="4"
         >
           <div class="px-4">
-            <a :href="`/docs/${item.ref}`" target="_blank" rel="noreferrer">
+            <a :href="item.ref" target="_blank" rel="noreferrer">
               <h2 class="font-weight-light mb-10">{{ item.title }}</h2>
             </a>
             <!-- eslint-disable-next-line vue/no-v-html -->
@@ -27,12 +27,14 @@
 
 <script>
 const BaseSection = () => import('@/components/BaseSection')
+const docsPath = process.env.BASE_URL + 'docs'
 
 export default {
   components: {
     BaseSection
   },
   static: {
+    docsPath,
     items: [
       {
         title: 'User Guide',
@@ -40,21 +42,21 @@ export default {
           'New to <em>ICJIA Research Hub</em>? Learn how to navigate it \
             and find criminal justice data & research most relevant to \
             your interests.',
-        ref: 'guide/'
+        ref: docsPath + '/guide/'
       },
       {
         title: 'Developer Guide',
         body:
           'For those interested in the technical details of \
             <em>ICJIA Research Hub</em> and more.',
-        ref: 'dev-guide/'
+        ref: docsPath + '/dev-guide/'
       },
       {
         title: 'FAQ',
         body:
           'Find answers to frequently asked questions about \
             <em>ICJIA Research Hub</em>.',
-        ref: 'guide/faq.html'
+        ref: docsPath + '/guide/faq.html'
       }
     ]
   }
