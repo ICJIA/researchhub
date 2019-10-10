@@ -2,7 +2,7 @@
   <BaseSection v-if="datasets" title="datasets" :home="true" to="datasets">
     <v-col class="mx-auto" cols="12" sm="10" lg="8" xl="7">
       <v-row justify="center">
-        <v-col v-for="(dataset, i) in datasets" :key="i" cols="12" lg="6">
+        <v-col v-for="(dataset, i) in datasets" :key="i" cols="12" md="6">
           <DatasetCard
             v-if="dataset"
             :item="dataset"

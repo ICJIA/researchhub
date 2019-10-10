@@ -31,7 +31,7 @@
 
     <v-col class="mx-auto" cols="12" sm="10" lg="8" xl="7">
       <v-row justify="center">
-        <v-col v-for="(item, i) in filteredItems" :key="i" cols="12" lg="6">
+        <v-col v-for="(item, i) in filteredItems" :key="i" cols="12" md="6">
           <keep-alive>
             <DatasetCard :item="item" @tag-click="searchTagGlobal($event)" />
           </keep-alive>
