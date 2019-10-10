@@ -5,6 +5,7 @@
         <v-col v-for="(app, i) in apps" :key="i" cols="12" sm="10" md="4">
           <AppCard
             v-if="app"
+            :horizontal="$vuetify.breakpoint.smOnly"
             :item="app"
             @tag-click="searchTagGlobal($event)"
           />

@@ -39,7 +39,11 @@
           lg="4"
         >
           <keep-alive>
-            <AppCard :item="item" @tag-click="searchTagGlobal($event)" />
+            <AppCard
+              :horizontal="$vuetify.breakpoint.smOnly"
+              :item="item"
+              @tag-click="searchTagGlobal($event)"
+            />
           </keep-alive>
         </v-col>
       </v-row>

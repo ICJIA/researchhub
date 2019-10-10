@@ -40,6 +40,7 @@
     >
       <keep-alive>
         <ArticleCard
+          :horizontal="$vuetify.breakpoint.smAndUp"
           :item="item"
           @tag-click="searchTagGlobal($event)"
           @author-click="searchAuthorLocal($event)"
