@@ -3,6 +3,8 @@ module.exports = {
     process.env.VUE_APP_API_BASE_URL || 'https://researchhub.icjia-api.cloud',
   gaAPIKey: process.env.VUE_APP_GA_ID || '',
   github: 'https://github.com/icjia/icjia-research',
+  hostBaseURL:
+    process.env.VUE_APP_HOST_BASE_URL || 'https://icjia.illinois.gov',
   meta: {
     title: 'Research Hub',
     description:
