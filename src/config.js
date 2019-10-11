@@ -1,6 +1,6 @@
 module.exports = {
   apiBaseURL:
-    process.env.VUE_APP_API_BASE_URL || 'https://research.icjia-api.cloud',
+    process.env.VUE_APP_API_BASE_URL || 'https://researchhub.icjia-api.cloud',
   gaAPIKey: process.env.VUE_APP_GA_ID || '',
   github: 'https://github.com/icjia/icjia-research',
   meta: {
