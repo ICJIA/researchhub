@@ -104,11 +104,9 @@ export default {
             hyperlink('https://vuetifyjs.com/', 'Vuetify.js') +
             ' for user interface,</li><li>' +
             hyperlink('https://vuepress.vuejs.org/', 'VuePress') +
-            ' for documentation,</li><li>' +
+            ' for documentation, and</li><li>' +
             hyperlink('https://strapi.io/', 'Strapi') +
-            ' for headless contenet management system, and</li><li>' +
-            hyperlink('https://www.docker.com/', 'Docker') +
-            ' for containerization.',
+            ' for headless contenet management system.',
           p3:
             'Visit ' +
             hyperlink(
