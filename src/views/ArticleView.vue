@@ -24,7 +24,8 @@ const TheSocialSharing = () => import('@/components/TheSocialSharing')
 
 const getImageURL = ({ _id, splash }) => {
   const ext = splash.split('data:image/')[1].split(';')[0]
-  return `${window.location.origin}/images/${_id}-splash.${ext}`
+  const base = window.location.origin + process.env.BASE_URL + 'images'
+  return `${base}/${_id}-splash.${ext}`
 }
 
 export default {

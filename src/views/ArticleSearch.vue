@@ -54,7 +54,7 @@
       }}</v-icon>
       <span>Older publications can be found </span>
       <a
-        href="http://www.icjia.state.il.us/research/publications"
+        :href="$options.static.hostBaseURL + '/research/publications'"
         rel="noreferrer"
         target="_blank"
       >
@@ -67,6 +67,7 @@
 <script>
 import { mdiClockAlertOutline } from '@mdi/js'
 import { mapState } from 'vuex'
+import { hostBaseURL } from '@/config'
 import filterMixin from '@/mixins/filterMixin'
 import { searchGlobalMixin, searchLocalMixin } from '@/mixins/searchMixin'
 const ArticleCard = () => import('icjia-research-lib').then(m => m.ArticleCard)
@@ -127,7 +128,8 @@ export default {
     }
   },
   static: {
-    mdiClockAlertOutline
+    mdiClockAlertOutline,
+    hostBaseURL
   }
 }
 </script>
