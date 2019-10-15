@@ -44,6 +44,7 @@
 
 <script>
 import { mdiOpenInNew } from '@mdi/js'
+import { hostBaseURL } from '@/config'
 const BaseAboutSection = () => import('@/components/BaseAboutSection')
 const BaseViewTitle = () => import('@/components/BaseViewTitle')
 
@@ -131,7 +132,7 @@ export default {
         p1:
           'The Research & Analysis Unit of ' +
           hyperlink(
-            'http://www.icjia.state.il.us',
+            hostBaseURL,
             'the Illinois Criminal Justice Information Authority (ICJIA)'
           ) +
           " serves as Illinois' Statistical Analysis Center (SAC) and \
@@ -148,10 +149,7 @@ export default {
             liaison between state agencies and the U.S. Department of Justice.',
         p3:
           'For more information, please visit ' +
-          hyperlink(
-            'http://www.icjia.state.il.us/research',
-            'the Illinois SAC'
-          ) +
+          hyperlink(`${hostBaseURL}/research`, 'the Illinois SAC') +
           '.'
       }
     },
@@ -181,7 +179,7 @@ export default {
             planning, and information systems and technology.',
         p4:
           'For more information, please visit ' +
-          hyperlink('http://www.icjia.state.il.us', "ICJIA's public website") +
+          hyperlink(hostBaseURL, "ICJIA's public website") +
           '.'
       }
     }
