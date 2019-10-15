@@ -17,7 +17,8 @@ const TheSocialSharing = () => import('@/components/TheSocialSharing')
 
 const getImageURL = ({ _id, image }) => {
   const ext = image.split('data:image/')[1].split(';')[0]
-  return `${window.location.origin}/images/${_id}-image.${ext}`
+  const base = window.location.origin + process.env.BASE_URL + 'images'
+  return `${base}/${_id}-image.${ext}`
 }
 
 export default {
