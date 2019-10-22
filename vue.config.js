@@ -41,10 +41,5 @@ module.exports = {
       )
     }
   },
-  transpileDependencies: [
-    'icjia-research-lib',
-    'markdown-it-texmath',
-    'vuetify',
-    'vue-ga'
-  ]
+  transpileDependencies: ['icjia-research-lib', 'vuetify', 'vue-ga']
 }
