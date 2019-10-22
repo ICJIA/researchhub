@@ -114,15 +114,7 @@ export default {
               process.env.BASE_URL + 'docs/',
               '<em>ICJIA Research Hub</em> Documentation site'
             ) +
-            ' to learn more.',
-          p4:
-            'In particular, if you are interested in contributing to the \
-              <em>ICJIA Research Hub</em> codebase, please refer to ' +
-            hyperlink(
-              process.env.BASE_URL + 'docs/dev-guide/contributing/codebase',
-              'the relevant page in the documentation'
-            ) +
-            '.'
+            ' to learn more.'
         }
       }
     },
