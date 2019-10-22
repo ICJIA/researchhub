@@ -5,9 +5,6 @@ const BrotliPlugin = require('brotli-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
 const zopfli = require('@gfx/zopfli')
 
-/* bundle analyzer */
-// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
-//   .BundleAnalyzerPlugin
 const compressionTest = /\.(js|css|json|txt|html|ico|svg)(\?.*)?$/i
 const compressionPlugins = [
   new CompressionPlugin({
@@ -35,10 +32,7 @@ module.exports = {
       config.optimization.splitChunks.minSize = 0
       config.optimization.splitChunks.maxSize = 250000
       config.optimization.splitChunks.chunks = 'all'
-      config.plugins.push(
-        // new BundleAnalyzerPlugin(),
-        ...compressionPlugins
-      )
+      config.plugins.push(...compressionPlugins)
     }
   },
   transpileDependencies: ['icjia-research-lib', 'vuetify', 'vue-ga']
