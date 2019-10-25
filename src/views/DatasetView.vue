@@ -28,18 +28,14 @@ export default {
       titleTemplate: `${title} | %s`,
       meta: [
         {
-          vmid: 'og:url',
           property: 'og:url',
           content: window.location.href
         },
         {
-          vmid: 'og:title',
           property: 'og:title',
           content: `${title} | ${meta.title}`
         },
         {
-          vmid: 'desc-datasets',
-          name: 'description',
           property: 'og:description',
           content: `${description}`
         }
