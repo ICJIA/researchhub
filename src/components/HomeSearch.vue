@@ -11,8 +11,9 @@
           v-model="search"
           :append-outer-icon="$options.static.mdiMagnify"
           clearable
-          label="Type search terms and hit <Enter>"
+          label="Search for Research Hub items (by title, date, tags)"
           solo
+          @click:append-outer="searchGlobal(search)"
           @keyup.enter="submit"
         />
       </v-form>

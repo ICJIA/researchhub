@@ -1,7 +1,7 @@
 export const searchGlobalMixin = {
   methods: {
     searchGlobal(search) {
-      this.$router.push({ name: 'search', params: { search } })
+      if (search) this.$router.push({ name: 'search', params: { search } })
     },
     searchTagGlobal(e) {
       const search = e.target.textContent || e.target.innerText
