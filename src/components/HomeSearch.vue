@@ -13,6 +13,7 @@
           clearable
           label="Type search terms and hit <Enter>"
           solo
+          @click:append-outer="searchGlobal(search)"
           @keyup.enter="submit"
         />
       </v-form>
