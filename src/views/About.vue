@@ -45,6 +45,7 @@
 <script>
 import { mdiOpenInNew } from '@mdi/js'
 import { hostBaseURL } from '@/config'
+import prerenderMixin from '@/mixins/prerenderMixin'
 const BaseAboutSection = () => import('@/components/BaseAboutSection')
 const BaseViewTitle = () => import('@/components/BaseViewTitle')
 
@@ -70,6 +71,7 @@ export default {
     BaseAboutSection,
     BaseViewTitle
   },
+  mixins: [prerenderMixin],
   static: {
     section1: {
       title: 'ICJIA Research Hub',

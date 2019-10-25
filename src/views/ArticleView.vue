@@ -17,6 +17,7 @@
 <script>
 import { meta } from '@/config'
 import { fetchItemBySlug } from '@/services/client.articles'
+import prerenderMixin from '@/mixins/prerenderMixin'
 import { searchGlobalMixin } from '@/mixins/searchMixin'
 const ArticleView = () => import('icjia-research-lib').then(m => m.ArticleView)
 const TheProgessBar = () => import('@/components/TheProgressBar')
@@ -63,7 +64,7 @@ export default {
     TheProgessBar,
     TheSocialSharing
   },
-  mixins: [searchGlobalMixin],
+  mixins: [prerenderMixin, searchGlobalMixin],
   data() {
     return {
       item: null,

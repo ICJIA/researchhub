@@ -16,6 +16,7 @@
 <script>
 import { meta } from '@/config'
 import { fetchItemBySlug } from '@/services/client.datasets'
+import prerenderMixin from '@/mixins/prerenderMixin'
 import { searchGlobalMixin } from '@/mixins/searchMixin'
 const DatasetView = () => import('icjia-research-lib').then(m => m.DatasetView)
 const TheSocialSharing = () => import('@/components/TheSocialSharing')
@@ -46,7 +47,7 @@ export default {
     DatasetView,
     TheSocialSharing
   },
-  mixins: [searchGlobalMixin],
+  mixins: [prerenderMixin, searchGlobalMixin],
   data() {
     return {
       item: null,

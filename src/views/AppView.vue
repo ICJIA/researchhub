@@ -11,6 +11,7 @@
 <script>
 import { meta } from '@/config'
 import { fetchItemBySlug } from '@/services/client.apps'
+import prerenderMixin from '@/mixins/prerenderMixin'
 import { searchGlobalMixin } from '@/mixins/searchMixin'
 const AppView = () => import('icjia-research-lib').then(m => m.AppView)
 const TheSocialSharing = () => import('@/components/TheSocialSharing')
@@ -51,7 +52,7 @@ export default {
     AppView,
     TheSocialSharing
   },
-  mixins: [searchGlobalMixin],
+  mixins: [prerenderMixin, searchGlobalMixin],
   data() {
     return {
       item: null,

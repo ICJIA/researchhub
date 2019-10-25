@@ -69,6 +69,7 @@ import { mdiClockAlertOutline } from '@mdi/js'
 import { mapState } from 'vuex'
 import { hostBaseURL } from '@/config'
 import filterMixin from '@/mixins/filterMixin'
+import prerenderMixin from '@/mixins/prerenderMixin'
 import { searchGlobalMixin, searchLocalMixin } from '@/mixins/searchMixin'
 const ArticleCard = () => import('icjia-research-lib').then(m => m.ArticleCard)
 const SearchBar = () => import('@/components/SearchBar')
@@ -80,7 +81,7 @@ export default {
     SearchBar,
     SearchInfoExtra
   },
-  mixins: [filterMixin, searchGlobalMixin, searchLocalMixin],
+  mixins: [filterMixin, prerenderMixin, searchGlobalMixin, searchLocalMixin],
   props: {
     search: {
       type: String,

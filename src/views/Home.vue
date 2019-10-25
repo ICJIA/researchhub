@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import prerenderMixin from '@/mixins/prerenderMixin'
 const BaseViewTitle = () => import('@/components/BaseViewTitle')
 const HomeDocumentation = () => import('@/components/HomeDocumentation')
 const HomeLatestApps = () => import('@/components/HomeLatestApps')
@@ -54,6 +55,7 @@ export default {
     HomeLatestDatasets,
     HomeSearch
   },
+  mixins: [prerenderMixin],
   static: {
     title:
       'Home of Illinois Criminal Justice Information Authority Data and Research',
