@@ -44,6 +44,7 @@
 <script>
 import { mapState } from 'vuex'
 import filterMixin from '@/mixins/filterMixin'
+import prerenderMixin from '@/mixins/prerenderMixin'
 import { searchGlobalMixin, searchLocalMixin } from '@/mixins/searchMixin'
 const DatasetCard = () => import('icjia-research-lib').then(m => m.DatasetCard)
 const SearchBar = () => import('@/components/SearchBar')
@@ -55,7 +56,7 @@ export default {
     SearchBar,
     SearchInfoExtra
   },
-  mixins: [filterMixin, searchGlobalMixin, searchLocalMixin],
+  mixins: [filterMixin, prerenderMixin, searchGlobalMixin, searchLocalMixin],
   computed: {
     ...mapState('datasets', {
       items: 'info',

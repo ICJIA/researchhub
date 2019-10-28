@@ -11,6 +11,7 @@
 <script>
 import { meta } from '@/config'
 import { fetchItemBySlug } from '@/services/client.apps'
+import prerenderMixin from '@/mixins/prerenderMixin'
 import { searchGlobalMixin } from '@/mixins/searchMixin'
 const AppView = () => import('icjia-research-lib').then(m => m.AppView)
 const TheSocialSharing = () => import('@/components/TheSocialSharing')
@@ -29,23 +30,18 @@ export default {
       titleTemplate: `${title} | %s`,
       meta: [
         {
-          vmid: 'og:url',
           property: 'og:url',
           content: window.location.href
         },
         {
-          vmid: 'og:title',
           property: 'og:title',
           content: `${title} | ${meta.title}`
         },
         {
-          vmid: 'desc-apps',
-          name: 'description',
           property: 'og:description',
           content: description
         },
         {
-          vmid: 'og:image',
           property: 'og:image',
           content: image
         }
@@ -56,7 +52,7 @@ export default {
     AppView,
     TheSocialSharing
   },
-  mixins: [searchGlobalMixin],
+  mixins: [prerenderMixin, searchGlobalMixin],
   data() {
     return {
       item: null,

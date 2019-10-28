@@ -17,6 +17,7 @@
 <script>
 import { meta } from '@/config'
 import { fetchItemBySlug } from '@/services/client.articles'
+import prerenderMixin from '@/mixins/prerenderMixin'
 import { searchGlobalMixin } from '@/mixins/searchMixin'
 const ArticleView = () => import('icjia-research-lib').then(m => m.ArticleView)
 const TheProgessBar = () => import('@/components/TheProgressBar')
@@ -36,28 +37,22 @@ export default {
       titleTemplate: `${title} | %s`,
       meta: [
         {
-          vmid: 'og:url',
           property: 'og:url',
           content: window.location.href
         },
         {
-          vmid: 'og:type',
           property: 'og:type',
           content: 'article'
         },
         {
-          vmid: 'og:title',
           property: 'og:title',
           content: `${title} | ${meta.title}`
         },
         {
-          vmid: 'desc-articles',
-          name: 'description',
           property: 'og:description',
           content: `${description}`
         },
         {
-          vmid: 'og:image',
           property: 'og:image',
           content: image
         }
@@ -69,7 +64,7 @@ export default {
     TheProgessBar,
     TheSocialSharing
   },
-  mixins: [searchGlobalMixin],
+  mixins: [prerenderMixin, searchGlobalMixin],
   data() {
     return {
       item: null,
