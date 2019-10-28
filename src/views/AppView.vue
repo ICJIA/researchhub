@@ -29,23 +29,18 @@ export default {
       titleTemplate: `${title} | %s`,
       meta: [
         {
-          vmid: 'og:url',
           property: 'og:url',
           content: window.location.href
         },
         {
-          vmid: 'og:title',
           property: 'og:title',
           content: `${title} | ${meta.title}`
         },
         {
-          vmid: 'desc-apps',
-          name: 'description',
           property: 'og:description',
           content: description
         },
         {
-          vmid: 'og:image',
           property: 'og:image',
           content: image
         }

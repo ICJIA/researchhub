@@ -31,6 +31,14 @@ export default {
       {
         name: 'description',
         content: meta.description
+      },
+      {
+        name: 'twitter:card',
+        content: 'summary'
+      },
+      {
+        name: 'twitter:site',
+        content: '@ICJIA_Illinois'
       }
     ]
   },
