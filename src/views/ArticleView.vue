@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { meta } from '@/config'
+import { hostBaseURL, meta, publicPath } from '@/config'
 import { fetchItemBySlug } from '@/services/client.articles'
 import { searchGlobalMixin } from '@/mixins/searchMixin'
 const ArticleView = () => import('icjia-research-lib').then(m => m.ArticleView)
@@ -37,7 +37,7 @@ export default {
       meta: [
         {
           property: 'og:url',
-          content: window.location.href
+          content: `${hostBaseURL}${publicPath}${this.$route.path.slice(1)}`
         },
         {
           property: 'og:type',
