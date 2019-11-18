@@ -141,7 +141,10 @@ export default {
             liaison between state agencies and the U.S. Department of Justice.',
         p3:
           'For more information, please visit ' +
-          hyperlink(`${hostBaseURL}/research`, 'the Illinois SAC') +
+          hyperlink(
+            `http://www.icjia.state.il.us/research/overview`,
+            'the Illinois SAC'
+          ) +
           '.'
       }
     },
