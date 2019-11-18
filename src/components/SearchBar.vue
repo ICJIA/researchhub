@@ -11,7 +11,7 @@
     <template #append-outer>
       <v-tooltip top nudge-bottom="10">
         <template v-slot:activator="{ on }">
-          <a :href="`/docs/guide${$route.path}`" v-on="on">
+          <a :href="href" v-on="on">
             <v-icon>{{ $options.static.mdiHelpCircleOutline }}</v-icon>
           </a>
         </template>
@@ -37,9 +37,9 @@ export default {
   },
   data() {
     return {
+      href: `${process.env.BASE_URL}docs/guide${this.$route.path}`,
       searchInput: this.search,
-      searchLabel: this.label,
-      path: this.$route.path
+      searchLabel: this.label
     }
   },
   methods: {
