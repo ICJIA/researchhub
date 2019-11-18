@@ -11,7 +11,7 @@
     <template #append-outer>
       <v-tooltip top nudge-bottom="10">
         <template v-slot:activator="{ on }">
-          <a :href="href" v-on="on">
+          <a :href="href" target="_blank" v-on="on">
             <v-icon>{{ $options.static.mdiHelpCircleOutline }}</v-icon>
           </a>
         </template>
