@@ -8,7 +8,7 @@
     @click:clear="onClear($event)"
     @keyup="onKeyup($event)"
   >
-    <template #append-outer>
+    <template v-if="help" #append-outer>
       <v-tooltip top nudge-bottom="10">
         <template v-slot:activator="{ on }">
           <a :href="href" target="_blank" v-on="on">
@@ -26,6 +26,10 @@ import { mdiHelpCircleOutline, mdiMagnify } from '@mdi/js'
 
 export default {
   props: {
+    help: {
+      type: Boolean,
+      default: true
+    },
     label: {
       type: String,
       default: ''

@@ -5,6 +5,7 @@
     <v-col class="mx-auto pt-6 pb-0 px-0" cols="10" sm="8" lg="6" xl="5">
       <SearchBar
         ref="searchBar"
+        :help="false"
         label="Search for Research Hub items (by title, date, tags)"
         :search.sync="searchLocal"
       />
