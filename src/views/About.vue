@@ -114,7 +114,12 @@ export default {
               process.env.BASE_URL + 'docs/',
               '<em>ICJIA Research Hub</em> Documentation site'
             ) +
-            ' to learn more.'
+            ' to learn more.',
+          p4:
+            'If you find technical issues or have suggestions to improve \
+              <em>ICJIA Research Hub</em>, please report them to \
+              <a href="mailto:CJA.ResearchHub@illinois.gov"> \
+              CJA.ResearchHub@illinois.gov</a>.'
         }
       }
     },
