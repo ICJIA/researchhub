@@ -18,7 +18,7 @@
 import { mapGetters } from 'vuex'
 import { searchGlobalMixin } from '@/mixins/searchMixin'
 const BaseSection = () => import('@/components/BaseSection')
-const DatasetCard = () => import('icjia-research-lib').then(m => m.DatasetCard)
+const DatasetCard = () => import('researchhub-lib').then(m => m.DatasetCard)
 
 export default {
   components: {

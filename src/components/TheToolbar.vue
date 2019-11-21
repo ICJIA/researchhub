@@ -32,7 +32,7 @@
 </template>
 
 <script>
-const BaseToolbar = () => import('icjia-research-lib').then(m => m.BaseToolbar)
+const BaseToolbar = () => import('researchhub-lib').then(m => m.BaseToolbar)
 
 export default {
   components: {

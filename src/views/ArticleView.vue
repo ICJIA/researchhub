@@ -18,7 +18,7 @@
 import { hostBaseURL, meta, publicPath } from '@/config'
 import { fetchItemBySlug } from '@/services/client.articles'
 import { searchGlobalMixin } from '@/mixins/searchMixin'
-const ArticleView = () => import('icjia-research-lib').then(m => m.ArticleView)
+const ArticleView = () => import('researchhub-lib').then(m => m.ArticleView)
 const TheProgessBar = () => import('@/components/TheProgressBar')
 const TheSocialSharing = () => import('@/components/TheSocialSharing')
 
