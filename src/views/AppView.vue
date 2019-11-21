@@ -12,7 +12,7 @@
 import { hostBaseURL, meta, publicPath } from '@/config'
 import { fetchItemBySlug } from '@/services/client.apps'
 import { searchGlobalMixin } from '@/mixins/searchMixin'
-const AppView = () => import('icjia-research-lib').then(m => m.AppView)
+const AppView = () => import('researchhub-lib').then(m => m.AppView)
 const TheSocialSharing = () => import('@/components/TheSocialSharing')
 
 const getImageURL = ({ _id, image }) => {

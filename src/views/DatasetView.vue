@@ -17,7 +17,7 @@
 import { hostBaseURL, meta, publicPath } from '@/config'
 import { fetchItemBySlug } from '@/services/client.datasets'
 import { searchGlobalMixin } from '@/mixins/searchMixin'
-const DatasetView = () => import('icjia-research-lib').then(m => m.DatasetView)
+const DatasetView = () => import('researchhub-lib').then(m => m.DatasetView)
 const TheSocialSharing = () => import('@/components/TheSocialSharing')
 
 export default {

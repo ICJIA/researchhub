@@ -35,5 +35,5 @@ module.exports = {
       config.plugins.push(...compressionPlugins)
     }
   },
-  transpileDependencies: ['icjia-research-lib', 'vuetify', 'vue-ga']
+  transpileDependencies: ['researchhub-lib', 'vuetify', 'vue-ga']
 }

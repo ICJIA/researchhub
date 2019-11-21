@@ -49,7 +49,7 @@
 import { mapState } from 'vuex'
 import filterMixin from '@/mixins/filterMixin'
 import { searchGlobalMixin, searchLocalMixin } from '@/mixins/searchMixin'
-const AppCard = () => import('icjia-research-lib').then(m => m.AppCard)
+const AppCard = () => import('researchhub-lib').then(m => m.AppCard)
 const SearchBar = () => import('@/components/SearchBar')
 const SearchInfoExtra = () => import('@/components/SearchInfoExtra')
 
