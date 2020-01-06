@@ -13,7 +13,7 @@
     "axios": "^0.19.0",
     "core-js": "^3.6.2",
     "nprogress": "^0.2.0",
-    "researchhub-lib": "github:icjia/researchhub-lib#v1.0.2",
+    "researchhub-lib": "github:icjia/researchhub-lib#v1.0.3",
     "vue": "^2.6.11",
     "vue-ga": "^1.1.0",
     "vue-meta": "^2.3.1",
