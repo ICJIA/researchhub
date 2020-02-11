@@ -8,7 +8,7 @@ module.exports = {
   meta: {
     title: 'Research Hub',
     description:
-      'Welcome to the Illinois Crinimal Justice Information Authority (ICJIA) Research Hub. Here you can find various criminal justice datasets, research publications and resources to develop web applications, dashboards and more.'
+      'Welcome to the Illinois Criminal Justice Information Authority (ICJIA) Research Hub. Here you can find various criminal justice datasets, research publications and resources to develop web applications, dashboards and more.'
   },
   publicPath: process.env.VUE_APP_PUBLIC_PATH || '/researchhub/'
 }

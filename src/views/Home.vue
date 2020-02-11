@@ -58,7 +58,7 @@ export default {
     title:
       'Home of Illinois Criminal Justice Information Authority Data and Research',
     subtitle:
-      'Welcome to the Illinois Crinimal Justice Information Authority \
+      'Welcome to the Illinois Criminal Justice Information Authority \
       (ICJIA) Research Hub. Here you can find various criminal justice \
       datasets, research publications, and resources to develop web \
       applications, dashboards, and more.',
