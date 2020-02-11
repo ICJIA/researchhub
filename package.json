@@ -1,6 +1,6 @@
 {
   "name": "researchhub",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -10,26 +10,26 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "axios": "^0.19.1",
+    "axios": "^0.19.2",
     "core-js": "^3.6.4",
     "nprogress": "^0.2.0",
-    "researchhub-lib": "github:icjia/researchhub-lib#v1.0.4",
+    "researchhub-lib": "github:icjia/researchhub-lib#v1.0.5",
     "vue": "^2.6.11",
     "vue-ga": "^1.1.0",
     "vue-meta": "^2.3.2",
     "vue-router": "^3.1.5",
     "vue-social-sharing": "^2.4.7",
-    "vuetify": "^2.2.4",
+    "vuetify": "^2.2.11",
     "vuex": "^3.1.2"
   },
   "devDependencies": {
     "@gfx/zopfli": "^1.0.14",
-    "@mdi/js": "^4.8.95",
-    "@vue/cli-plugin-babel": "^4.1.2",
-    "@vue/cli-plugin-eslint": "^4.1.2",
-    "@vue/cli-plugin-router": "^4.1.2",
-    "@vue/cli-plugin-vuex": "^4.1.2",
-    "@vue/cli-service": "^4.1.2",
+    "@mdi/js": "^4.9.95",
+    "@vue/cli-plugin-babel": "^4.2.2",
+    "@vue/cli-plugin-eslint": "^4.2.2",
+    "@vue/cli-plugin-router": "^4.2.2",
+    "@vue/cli-plugin-vuex": "^4.2.2",
+    "@vue/cli-service": "^4.2.2",
     "@vue/eslint-config-prettier": "^6.0.0",
     "babel-eslint": "^10.0.3",
     "brotli-webpack-plugin": "^1.1.0",
@@ -43,7 +43,7 @@
     "sass": "^1.25.0",
     "sass-loader": "^8.0.2",
     "sitemap": "^5.1.0",
-    "vue-cli-plugin-vuetify": "^2.0.3",
+    "vue-cli-plugin-vuetify": "^2.0.4",
     "vue-template-compiler": "^2.6.11",
     "vuetify-loader": "^1.4.3"
   },
