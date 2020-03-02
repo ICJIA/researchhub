@@ -3,6 +3,7 @@
     <TheToolbar />
 
     <v-content>
+      <AlertCOVID ref="alert" />
       <router-view v-if="alive" />
       <ServerError v-else />
     </v-content>
@@ -19,6 +20,7 @@
 import { meta } from '@/config'
 import { healthCheck } from '@/services/client.utils'
 import TheToolbar from '@/components/TheToolbar'
+const AlertCOVID = () => import('researchhub-lib').then(m => m.AlertCOVID)
 const ServerError = () => import('@/components/ServerError')
 const TheButtonBackToTop = () => import('@/components/TheButtonBackToTop')
 const TheFooter = () => import('@/components/TheFooter')
@@ -43,6 +45,7 @@ export default {
     ]
   },
   components: {
+    AlertCOVID,
     ServerError,
     TheToolbar,
     TheButtonBackToTop,
@@ -52,6 +55,11 @@ export default {
   data() {
     return {
       alive: true
+    }
+  },
+  watch: {
+    $route() {
+      if (this.$refs.alert) this.$refs.alert.reset()
     }
   },
   async created() {
