@@ -6,7 +6,6 @@
     "serve": "vue-cli-service serve",
     "prebuild": "node ./writeSitemap && node ./writeImages",
     "build": "npm run prebuild && vue-cli-service build",
-    "build:modern": "npm run prebuild && vue-cli-service build --modern",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
