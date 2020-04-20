@@ -9,10 +9,12 @@ export { fetchData, fetchOneBySlug, fetchList, healthCheck }
  * @param {String} slug String
  */
 const fetchOneBySlug = contentType => async ({ fields, slug }) =>
-  (await fetchData(contentType)({
-    params: `where: { slug: "${slug}", status: "published" }`,
-    fields
-  }))[0]
+  (
+    await fetchData(contentType)({
+      params: `where: { slug: "${slug}", status: "published" }`,
+      fields
+    })
+  )[0]
 
 /**
  * Fetch a list of publisehd contents.
@@ -21,9 +23,12 @@ const fetchOneBySlug = contentType => async ({ fields, slug }) =>
  * @param {[String]} fields [String]
  */
 const fetchList = contentType => async ({
-  params = 'sort: "date:desc", where: { status: "published" }',
+  params = 'where: { status: "published" }',
   fields
-}) => await fetchData(contentType)({ params, fields })
+}) =>
+  (await fetchData(contentType)({ params, fields })).sort(
+    (a, b) => new Date(b.date) - new Date(a.date)
+  )
 
 /**
  * Fetch data from API server.
