@@ -39,7 +39,7 @@ async function fetchRoutesByType(client, type) {
   const res = await client
     .post('graphql', {
       query: `{
-        ${type} (sort: "date:desc", where: { status: "published" }) {
+        ${type} (where: { status: "published" }) {
           slug
         }
       }`
